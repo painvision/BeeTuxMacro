@@ -1,2 +1,1 @@
-# BeeTuxMacro
-Bee Swarm Simulator macro for Linux.  Written in ydotool and supports Wayland
+mine walkspeed is 32.2
