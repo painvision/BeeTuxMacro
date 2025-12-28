@@ -8,17 +8,15 @@ Written with [ydotool](https://github.com/ReimuNotMoe/ydotool) and bash, BeeTux 
 
 # Features
 Auto farm:
+- [X] Farm till full backpack
 - [X] Farming for time
-- [X] 2 paths for Pine Tree Forest
-- [X] Path for Rose Field
-- [X] Converting after time
-- [X] Converting for time
+- [X] Convert till backpack empty
 - [X] Auto sprinkler
 - [X] Auto dig
 - [X] Walkspeed based calculation for paths
-- [X] Farm till full backpack
+- [X] 2 paths for Pine Tree Forest
+- [X] Path for Rose Field
 - [X] Advanced logging
-- [X] Convert till backpack empty
 
 Planned:
 - [ ] More fields
