@@ -17,10 +17,10 @@ Auto farm:
 - [X] Auto dig
 - [X] Walkspeed based calculation for paths
 - [X] Farm till full backpack
-- [X] More advanced logging
+- [X] Advanced logging
+- [X] Convert till backpack empty
 
 Planned:
-- [ ] Convert till backpack empty
 - [ ] More fields
 - [ ] Instant convertion types (including Honey Wreath)
 - [ ] Telegram/Discord hooking
@@ -28,7 +28,7 @@ Planned:
 <sub>Placed in priority</sub>
 
 # Installation
-Install `ydotool` using your package manager.
+Install `ydotool` and `tesseract` using your package manager.
 Open a terminal. Clone this repository:
 ```
 git clone https://github.com/painvision/BeeTuxMacro/
