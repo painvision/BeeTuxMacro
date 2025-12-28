@@ -15,14 +15,14 @@ Auto farm:
 - [X] Converting for time
 - [X] Auto sprinkler
 - [X] Auto dig
+- [X] Walkspeed based calculation for paths
+- [X] Farm till full backpack
+- [X] More advanced logging
 
 Planned:
-- [ ] Walkspeed based calculation for paths
-- [ ] Farm till full backpack
 - [ ] Convert till backpack empty
 - [ ] More fields
 - [ ] Instant convertion types (including Honey Wreath)
-- [ ] More advanced logging
 - [ ] Telegram/Discord hooking
 
 <sub>Placed in priority</sub>
@@ -36,6 +36,11 @@ cd BeeTuxMacro/
 chmod +x start.sh #enable executing macro
 ```
 Configure your macro with your text editor: `~/BeeTuxMacro/config.sh`
+# In WALKSPEED, enter your walkspeed
+# In BACKPACK_COORDS, put output of `slurp` like this:
+<img width="1366" height="768" alt="image" src="https://github.com/user-attachments/assets/38d9bbb0-7523-438a-ba71-bb96f6acf766" />
+> so you can use convert on percent feature
+
 ## Start/stop macro:
 ```
 bash -c ~/BeeTuxMacro/start.sh
