@@ -1,10 +1,99 @@
-#23.3 seconds
+function from_pumpkin_to_hive(
+down_a
+down_s
+sleep $(calculate_time 4)
+up_a
+up_s
+down_w
+sleep $(calculate_time 5)
+up_w
+down_d
+sleep $(calculate_time 0.5)
+up_d
+down_w
+down_a
+sleep $(calculate_time 1)
+up_a
+sleep $(calculate_time 3)
+down_a
+jump
+sleep $(calculate_time 0.3)
+up_a
+sleep $(calculate_time 12)
+up_w
+down_a
+down_s
+sleep $(calculate_time 0.2)
+up_s
+sleep $(calculate_time 8.7)
+up_a
+down_w
+sleep $(calculate_time 1)
+up_w
+down_a
+sleep $(calculate_time 1)
+up_a
+)
+
+function from_hive_to_pumpkin_with_red_cannon(
+down_w
+sleep $(calculate_time 3)
+up_w
+down_d
+sleep $(calculate_time 8)
+up_d
+camera_right
+camera_right
+shift_lock_toggle
+shift_lock_toggle
+camera_left
+camera_left
+down_a
+sleep $(calculate_time 0.2)
+up_a
+sleep 0.1
+down_s
+sleep $(calculate_time 0.05)
+up_s
+jump
+sleep 0.1
+down_d
+sleep $(calculate_time 1)
+up_d
+down_w
+sleep $(calculate_time 0.45)
+up_w
+down_d
+down_s
+sleep $(calculate_time 0.2)
+up_s
+sleep 0.3
+up_d
+sleep $(calculate_time 1)
+e
+down_d
+down_s
+sleep $(calculate_time 1.3)
+up_s
+sleep $(calculate_time 5)
+jump
+sleep 1
+jump
+sleep 1
+jump
+sleep $(calculate_time 5)
+up_d
+down_w
+sleep $(calculate_time 0.4)
+up_w
+)
+
 function from_hive_to_pine_tree_with_red_cannon(
 down_w
 sleep $(calculate_time 3)
 up_w
 down_d
-sleep $(calculate_time 6)
+sleep $(calculate_time 8)
 up_d
 camera_right
 camera_right
@@ -91,7 +180,7 @@ down_s
 sleep $(calculate_time 0.2)
 up_s
 down_d
-sleep $(calculate_time 6)
+sleep $(calculate_time 8)
 up_d
 sleep 0.1
 camera_right
@@ -191,7 +280,7 @@ down_s
 sleep $(calculate_time 0.2)
 up_s
 down_d
-sleep $(calculate_time 6)
+sleep $(calculate_time 8)
 up_d
 
 # немного вниз чтобы не упереться о возможный скин
@@ -260,19 +349,19 @@ up_a
 )
 
 function from_corner_to_hive(
+down_s
 down_d
 sleep $(calculate_time 0.6)
-up_d
-down_s
-sleep $(calculate_time 0.45)
 up_s
+sleep $(calculate_time 0.15)
+up_d
 camera_right
 camera_right
 shift_lock_toggle
 shift_lock_toggle
 for ((i=0; i<$1; i++)); do
 jump
-sleep 0.5275
+sleep 0.513
 jump
 sleep 1
 done
