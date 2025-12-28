@@ -7,7 +7,6 @@ Written with [ydotool](https://github.com/ReimuNotMoe/ydotool) and bash, BeeTux 
 > Macro IS unstable. If you encounter bugs, open an issue, make a pull request, or contact me on [Telegram](https://t.me/NextTimeUsername).
 
 # Features
-Auto farm:
 - [X] Farm till full backpack
 - [X] Farming for time
 - [X] Convert till backpack empty
@@ -19,7 +18,11 @@ Auto farm:
 - [X] Advanced logging
 
 Planned:
+- [ ] Auto Gingerbread House
+- [ ] Auto Wealth Clock
 - [ ] More fields
+- [ ] Auto Stockings
+- [ ] Auto Snowbear
 - [ ] Instant convertion types (including Honey Wreath)
 - [ ] Telegram/Discord hooking
 
