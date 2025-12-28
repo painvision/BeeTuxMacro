@@ -37,9 +37,10 @@ cd BeeTuxMacro/
 chmod +x start.sh #enable executing macro
 ```
 Configure your macro with your text editor: `~/BeeTuxMacro/config.sh`
-# In WALKSPEED, enter your walkspeed
-# In BACKPACK_COORDS, put output of `slurp` like this:
+### In WALKSPEED, enter your walkspeed
+### In BACKPACK_COORDS, put output of `slurp` like this:
 <img width="1366" height="768" alt="image" src="https://github.com/user-attachments/assets/38d9bbb0-7523-438a-ba71-bb96f6acf766" />
+
 > so you can use convert on percent feature
 
 ## Start/stop macro:
