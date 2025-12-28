@@ -2,6 +2,8 @@
 
 BASE_SPEED=32.2
 
+CONVERT_COORDS=$BACKPACK_COORDS
+
 function calculate_time() {
     local base_time=$1
     echo "scale=4; $base_time * $BASE_SPEED / $WALKSPEED" | bc

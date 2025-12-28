@@ -16,7 +16,7 @@ WALKSPEED=28
 ##      Set to 0 to use old DURATION-based system        ##
 ###########################################################
 
-CONVERT_AT_PERCENTAGE=100
+CONVERT_AT_PERCENTAGE=95
 # DURATION = 120
 
 ##############################################
@@ -25,13 +25,6 @@ CONVERT_AT_PERCENTAGE=100
 
 # Coordinates for backpack text area (use slurp command)
 BACKPACK_COORDS="745,34 121x15"
-
-###################################################
-## Screenshot coordinates for converting text    ##
-## (same as backpack but for checking conversion)##
-###################################################
-
-CONVERT_COORDS="745,34 121x15"
 
 function go_to_field(
 #############################################
