@@ -1,7 +1,6 @@
 . ~/BeeTuxMacro/config.sh
 
 BASE_SPEED=32.2
-DURATION = 120
 
 
 function calculate_time() {
@@ -9,53 +8,21 @@ function calculate_time() {
     echo "scale=4; $base_time * $BASE_SPEED / $WALKSPEED" | bc
 }
 
-# Функция для отладки OCR
-function debug_backpack() {
-    local screenshot_path="~/BeeTuxMacro/backpack_debug.png"
-    local text_path="~/BeeTuxMacro/backpack_debug.txt"
-
-    # Делаем скриншот
-    grim -g "$BACKPACK_COORDS" "$screenshot_path"
-
-    # Распознаем текст
-    tesseract --psm 7 --oem 3 "$screenshot_path" "~/BeeTuxMacro/backpack_debug"
-
-    # Показываем результат
-    echo "OCR Text:"
-    cat "$text_path"
-    echo ""
-
-    # Проверяем проценты
-    local percentage=$(check_backpack)
-    echo "Detected percentage: $percentage%"
-
-    if [ "$(should_convert)" -eq "1" ]; then
-        echo "✅ Should convert!"
-    else
-        echo "❌ Continue farming"
-    fi
-}
-
-# Функция для проверки заполнения рюкзака
 function check_backpack() {
     local screenshot_path="~/BeeTuxMacro/backpack.png"
     local text_path="~/BeeTuxMacro/backpack.txt"
-
-
-    # Делаем скриншот области с текстом
-    grim -g "$BACKPACK_COORDS" "$screenshot_path" 2>/dev/null
-
-    if [ ! -f "$screenshot_path" ]; then
+    grim -g "$BACKPACK_COORDS" ~/BeeTuxMacro/backpack.png
+    magick ~/BeeTuxMacro/backpack.png -colorspace Gray ~/BeeTuxMacro/backpack.png
+    magick ~/BeeTuxMacro/backpack.png -channel RGB -negate +channel ~/BeeTuxMacro/backpack.png
+    if [ ! -f ~/BeeTuxMacro/backpack.png ]; then
         echo "[$(date +"%H:%M:%S")] ❌ OecCR Error: Screenshot failed" >> ~/BeeTuxMacro/advanced.log.txt
         echo "0"
         return
     fi
 
-    # Распознаем текст
-    tesseract --psm 7 --oem 3 "$screenshot_path" "~/BeeTuxMacro/backpack" 2>/dev/null
+    tesseract --psm 7 --oem 3 ~/BeeTuxMacro/backpack.png ~/BeeTuxMacro/backpack
 
-    # Читаем распознанный текст
-    local ocr_text=$(cat "$text_path" 2>/dev/null | tr -d '\n' | tr -d ' ')
+    local ocr_text=$(cat ~/BeeTuxMacro/backpack.txt | tr -d '\n' | tr -d ' ')
 
     if [ -z "$ocr_text" ]; then
         echo "[$(date +"%H:%M:%S")] ❌ OCR Error: Empty text" >> ~/BeeTuxMacro/advanced.log.txt
@@ -63,22 +30,16 @@ function check_backpack() {
         return
     fi
 
-    # Пытаемся найти паттерн: число/число или число,число,число/число,число,число
     if [[ "$ocr_text" =~ ([0-9,]+)/([0-9,]+) ]]; then
         local current_raw="${BASH_REMATCH[1]}"
         local max_raw="${BASH_REMATCH[2]}"
-
-        # Удаляем запятые и преобразуем в числа
         local current=$(echo "$current_raw" | tr -d ',')
         local max=$(echo "$max_raw" | tr -d ',')
 
-        # Проверяем, что оба числа валидны
         if [[ "$current" =~ ^[0-9]+$ ]] && [[ "$max" =~ ^[0-9]+$ ]] && [ "$max" -gt 0 ]; then
-            # Рассчитываем процент
             local percentage=$(echo "scale=2; $current * 100 / $max" | bc 2>/dev/null)
 
             if [ -n "$percentage" ] && [ "$(echo "$percentage >= 0" | bc 2>/dev/null)" -eq 1 ]; then
-                # Логируем успешную проверку
                 echo "[$(date +"%H:%M:%S")] 📊 OCR: '$ocr_text' → ${current}/${max} = ${percentage}%" >> ~/BeeTuxMacro/advanced.log.txt
                 printf "%.2f" "$percentage"
                 return
@@ -92,7 +53,6 @@ function check_backpack() {
         echo "[$(date +"%H:%M:%S")] ❌ OCR Error: Pattern not found in '$ocr_text'" >> ~/BeeTuxMacro/advanced.log.txt
     fi
 
-    # Альтернативный паттерн: если есть только числа с запятыми
     local numbers=$(echo "$ocr_text" | grep -o '[0-9,]*' | tr -d '\n' | tr -d ' ')
 
     if [[ "$numbers" =~ ^([0-9,]+)([0-9,]+)$ ]]; then
@@ -106,7 +66,6 @@ function check_backpack() {
             local percentage=$(echo "scale=2; $current * 100 / $max" | bc 2>/dev/null)
 
             if [ -n "$percentage" ] && [ "$(echo "$percentage >= 0" | bc 2>/dev/null)" -eq 1 ]; then
-                # Логируем успешную проверку (альтернативный паттерн)
                 echo "[$(date +"%H:%M:%S")] 📊 OCR (alt): '$ocr_text' → ${current}/${max} = ${percentage}%" >> ~/BeeTuxMacro/advanced.log.txt
                 printf "%.2f" "$percentage"
                 return
@@ -119,7 +78,6 @@ function check_backpack() {
     return
 }
 
-# Функция для проверки, нужно ли завершать фарм
 function should_convert() {
     if [ "$CONVERT_AT_PERCENTAGE" -eq 0 ]; then
         echo "0"
@@ -129,14 +87,12 @@ function should_convert() {
     local percentage=$(check_backpack)
     local timestamp=$(date +"%H:%M:%S")
 
-    # Проверяем, что percentage - валидное число
     if ! [[ "$percentage" =~ ^[0-9]+(\.[0-9]+)?$ ]]; then
         echo "[$(date +"%H:%M:%S")] ❌ Validation Error: Invalid percentage format '$percentage'" >> ~/BeeTuxMacro/advanced.log.txt
         echo "0"
         return
     fi
 
-    # Используем bc для сравнения чисел с плавающей точкой
     local compare_result=$(echo "$percentage >= $CONVERT_AT_PERCENTAGE" | bc 2>/dev/null)
 
     if [ "$compare_result" -eq 1 ] 2>/dev/null; then
@@ -148,26 +104,22 @@ function should_convert() {
     fi
 }
 
-# Функция для проверки текущего значения пыльцы (левое число)
 function get_current_pollen() {
     local screenshot_path="~/BeeTuxMacro/convert_check.png"
     local text_path="~/BeeTuxMacro/convert_check.txt"
     local timestamp=$(date +"%H:%M:%S")
 
-    # Делаем скриншот области с текстом
-    grim -g "$CONVERT_COORDS" "$screenshot_path" 2>/dev/null
-
-    if [ ! -f "$screenshot_path" ]; then
+    grim -g "$CONVERT_COORDS" ~/BeeTuxMacro/convert_check.png 2>/dev/null
+    magick ~/BeeTuxMacro/convert_check.png-colorspace Gray ~/BeeTuxMacro/convert_check.png
+    magick ~/BeeTuxMacro/convert_check.png -channel RGB -negate +channel ~/BeeTuxMacro/convert_check.png
+    if [ ! -f ~/BeeTuxMacro/convert_check.png ]; then
         echo "[$(date +"%H:%M:%S")] ❌ Conversion OCR Error: Screenshot failed" >> ~/BeeTuxMacro/advanced.log.txt
         echo "-1"
         return
     fi
+    tesseract --psm 7 --oem 3 ~/BeeTuxMacro/convert_check.png ~/BeeTuxMacro/convert_check
 
-    # Распознаем текст
-    tesseract --psm 7 --oem 3 "$screenshot_path" "~/BeeTuxMacro/convert_check" 2>/dev/null
-
-    # Читаем распознанный текст
-    local ocr_text=$(cat "$text_path" 2>/dev/null | tr -d '\n' | tr -d ' ')
+    local ocr_text=$(cat ~/BeeTuxMacro/convert_check.txt | tr -d '\n' | tr -d ' ')
 
     if [ -z "$ocr_text" ]; then
         echo "[$(date +"%H:%M:%S")] ❌ Conversion OCR Error: Empty text" >> ~/BeeTuxMacro/advanced.log.txt
@@ -175,14 +127,11 @@ function get_current_pollen() {
         return
     fi
 
-    # Пытаемся найти паттерн: число/число
     if [[ "$ocr_text" =~ ([0-9,]+)/([0-9,]+) ]]; then
         local current_raw="${BASH_REMATCH[1]}"
 
-        # Удаляем запятые и преобразуем в число
         local current=$(echo "$current_raw" | tr -d ',')
 
-        # Проверяем, что число валидно
         if [[ "$current" =~ ^[0-9]+$ ]]; then
             echo "[$(date +"%H:%M:%S")] 🔄 Conversion check: '$ocr_text' → current=${current}" >> ~/BeeTuxMacro/advanced.log.txt
             echo "$current"
@@ -190,7 +139,6 @@ function get_current_pollen() {
         fi
     fi
 
-    # Альтернативный паттерн: ищем любое число с запятыми
     local numbers=$(echo "$ocr_text" | grep -o '[0-9,]*' | head -1)
     if [ -n "$numbers" ]; then
         local current=$(echo "$numbers" | tr -d ',')
@@ -206,19 +154,16 @@ function get_current_pollen() {
     return
 }
 
-# Функция для проверки, завершилась ли конвертация
 function is_conversion_done() {
     local current_pollen=$(get_current_pollen)
     local timestamp=$(date +"%H:%M:%S")
 
-    # Если получили -1 (ошибка OCR), считаем что еще не завершено
     if [ "$current_pollen" -eq -1 ]; then
         echo "[$(date +"%H:%M:%S")] 🔄 Conversion: OCR error, waiting..." >> ~/BeeTuxMacro/advanced.log.txt
         echo "0"
         return
     fi
 
-    # Если текущая пыльца равна 0, конвертация завершена
     if [ "$current_pollen" -eq 0 ]; then
         echo "[$(date +"%H:%M:%S")] ✅ Conversion completed! Pollen = 0" >> ~/BeeTuxMacro/advanced.log.txt
         echo "1"
@@ -360,87 +305,66 @@ function farm_snake(
 down_s
 sleep $(calculate_time 0.5)
 up_s
-
 down_a
 sleep $(calculate_time 0.1)
 up_a
-
 down_w
 sleep $(calculate_time 0.5)
 up_w
-
 down_a
 sleep $(calculate_time 0.1)
 up_a
-
 down_s
 sleep $(calculate_time 0.5)
 up_s
-
 down_a
 sleep $(calculate_time 0.1)
 up_a
-
 down_w
 sleep $(calculate_time 0.5)
 up_w
-
 down_a
 sleep $(calculate_time 0.1)
 up_a
-
 down_s
 sleep $(calculate_time 0.5)
 up_s
-
 down_a
 sleep $(calculate_time 0.1)
 up_a
-
 down_w
 sleep $(calculate_time 0.5)
 up_w
-
 down_a
 sleep $(calculate_time 0.1)
 up_a
-
 down_s
 sleep $(calculate_time 0.5)
 up_s
-
 down_d
 sleep $(calculate_time 0.1)
 up_d
-
 down_w
 sleep $(calculate_time 0.5)
 up_w
-
 down_d
 sleep $(calculate_time 0.1)
 up_d
-
 down_s
 sleep $(calculate_time 0.5)
 up_s
-
 down_d
 sleep $(calculate_time 0.1)
 up_d
-
 down_w
 sleep $(calculate_time 0.5)
 up_w
-
 down_d
 sleep $(calculate_time 0.1)
 up_d
-
 down_s
 sleep $(calculate_time 0.5)
 up_s
-
 down_d
 sleep $(calculate_time 0.1)
 up_d

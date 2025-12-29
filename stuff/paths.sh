@@ -120,7 +120,7 @@ down_d
 down_s
 sleep $(calculate_time 0.2)
 up_s
-sleep 0.3
+sleep 0.45
 up_d
 sleep $(calculate_time 1)
 e

@@ -4,7 +4,7 @@ pkill -f "/bin/sh -c ~/BeeTuxMacro/start.sh"
 unhold_keys
 if [ ! -e lockfiletest ]; then
 touch lockfiletest
-notify-send "d"; from_pumpkin_to_hive; from_corner_to_hive 5
+check_backpack; notify-send "d"
 rm lockfiletest
 else
 notify-send "скрипт стопнут"

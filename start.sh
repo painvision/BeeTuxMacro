@@ -63,7 +63,6 @@ do
             echo "[$(date +"%H:%M:%S")]  🎯 Backpack reached ($CONVERT_AT_PERCENTAGE%) " >> ~/BeeTuxMacro/macro_log.txt
             break
         fi
-        sleep 5
     fi
 done
 
@@ -73,7 +72,7 @@ if [ "$CONVERT_AT_PERCENTAGE" -gt 0 ]; then
     echo "[$(date +"%H:%M:%S")]  📊 Backpack at $current_percent% " >> ~/BeeTuxMacro/macro_log.txt
 fi
 
-sleep 5
+sleep 0.5
 echo "[$(date +"%H:%M:%S")]  🐝 Going back to hive " >> ~/BeeTuxMacro/macro_log.txt
 back_to_hive
 auto_dig_off
@@ -105,7 +104,7 @@ do
             fi
         fi
     fi
-    sleep 10
+    sleep 1
 done
 
 if [ "$conversion_done" -eq 0 ]; then
