@@ -5,9 +5,8 @@
 # |____/ \___|\___||_|  \___//_/\_\
 #                             by painvision
 
-# You should claim a hive before launching macro
-# Enter the number of your hive in order from left to right
-HIVE_SLOT=4
+# See README.md to edit this
+FULL_BACKPACK_PIXEL="959,26"
 
 # Enter the number where your sprinkler is
 SPRINKLER_SLOT=1
@@ -15,17 +14,8 @@ SPRINKLER_SLOT=1
 # Enter your walking speed WITHOUT haste tokens
 WALKSPEED=28
 
-# Convert when backpack reaches this percentage (0-100)
-# Set to 0 to use farming for DURATION
-
-CONVERT_AT_PERCENTAGE=90
-# DURATION=120
-
-# Coordinates for backpack text area (use slurp command)
-BACKPACK_COORDS="742,33 127x17"
-# Make exact same process but when backpack is empty
-CONVERT_COORDS="742,33 127x17"
-
+# Approximate time to convert full backpack
+CONVERT_TIME=70
 
 function go_to_field(
 # Select path function from hive to field
@@ -56,9 +46,6 @@ function farm_pattern(
 
                         farm_snake
 )
-
-
-
 
 # Type "0" if you won't use autoscreenshots
 

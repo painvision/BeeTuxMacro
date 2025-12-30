@@ -7,9 +7,7 @@ Written with [ydotool](https://github.com/ReimuNotMoe/ydotool) and bash, BeeTux 
 > Macro IS unstable. If you encounter bugs, open an issue, make a pull request, or contact me on [Telegram](https://t.me/NextTimeUsername).
 
 # Features
-- [X] Farm till full backpack
 - [X] Farming for time
-- [X] Convert till backpack empty
 - [X] Auto sprinkler
 - [X] Auto dig
 - [X] Walkspeed based calculation for paths
@@ -17,7 +15,13 @@ Written with [ydotool](https://github.com/ReimuNotMoe/ydotool) and bash, BeeTux 
 - [X] Path for Rose Field
 - [X] Advanced logging
 
+Features reworking:
+- [ ] Farm till full backpack
+- [ ] Convert till backpack empty
+
+
 Planned:
+- [ ] Remove tesseract, use imagemagick and grim instead
 - [ ] Auto Gingerbread House
 - [ ] Auto Wealth Clock
 - [ ] More fields

@@ -1,177 +1,30 @@
 . ~/BeeTuxMacro/config.sh
 
+# Macros are made initially for that walkspeed
 BASE_SPEED=32.2
+FULL_BACKPACK_PIXEL_COLOR="F70017"
+ALMOST_EMPTY_BACKPACK_PIXEL_COLOR="41FF86"
+
+function pixel_color() {
+    if [[ "$XDG_SESSION_TYPE" == "wayland" ]]; then
+        grim -g "$1 1x1" - | \
+        convert png:- txt:- | sed -n 's/.*#\([0-9A-Fa-f]\{6\}\).*/\1/p'
+    else
+        import -window root -crop 1x1+${x}+${y} txt:- | \
+        sed -n 's/.*#\([0-9A-Fa-f]\{6\}\).*/\1/p'
+    fi
+}
 
 
-function calculate_time() {
+
+function calculate_time(){
     local base_time=$1
     echo "scale=4; $base_time * $BASE_SPEED / $WALKSPEED" | bc
 }
 
-function check_backpack() {
-    local screenshot_path="~/BeeTuxMacro/backpack.png"
-    local text_path="~/BeeTuxMacro/backpack.txt"
-    grim -g "$BACKPACK_COORDS" ~/BeeTuxMacro/backpack.png
-    magick ~/BeeTuxMacro/backpack.png -colorspace Gray ~/BeeTuxMacro/backpack.png
-    magick ~/BeeTuxMacro/backpack.png -channel RGB -negate +channel ~/BeeTuxMacro/backpack.png
-    if [ ! -f ~/BeeTuxMacro/backpack.png ]; then
-        echo "[$(date +"%H:%M:%S")] ❌ OecCR Error: Screenshot failed" >> ~/BeeTuxMacro/advanced.log.txt
-        echo "0"
-        return
-    fi
-
-    tesseract --psm 7 --oem 3 ~/BeeTuxMacro/backpack.png ~/BeeTuxMacro/backpack
-
-    local ocr_text=$(cat ~/BeeTuxMacro/backpack.txt | tr -d '\n' | tr -d ' ')
-
-    if [ -z "$ocr_text" ]; then
-        echo "[$(date +"%H:%M:%S")] ❌ OCR Error: Empty text" >> ~/BeeTuxMacro/advanced.log.txt
-        echo "0"
-        return
-    fi
-
-    if [[ "$ocr_text" =~ ([0-9,]+)/([0-9,]+) ]]; then
-        local current_raw="${BASH_REMATCH[1]}"
-        local max_raw="${BASH_REMATCH[2]}"
-        local current=$(echo "$current_raw" | tr -d ',')
-        local max=$(echo "$max_raw" | tr -d ',')
-
-        if [[ "$current" =~ ^[0-9]+$ ]] && [[ "$max" =~ ^[0-9]+$ ]] && [ "$max" -gt 0 ]; then
-            local percentage=$(echo "scale=2; $current * 100 / $max" | bc 2>/dev/null)
-
-            if [ -n "$percentage" ] && [ "$(echo "$percentage >= 0" | bc 2>/dev/null)" -eq 1 ]; then
-                echo "[$(date +"%H:%M:%S")] 📊 OCR: '$ocr_text' → ${current}/${max} = ${percentage}%" >> ~/BeeTuxMacro/advanced.log.txt
-                printf "%.2f" "$percentage"
-                return
-            else
-                echo "[$(date +"%H:%M:%S")] ❌ OCR Error: Invalid percentage calculation for '$ocr_text'" >> ~/BeeTuxMacro/advanced.log.txt
-            fi
-        else
-            echo "[$(date +"%H:%M:%S")] ❌ OCR Error: Invalid numbers in '$ocr_text'" >> ~/BeeTuxMacro/advanced.log.txt
-        fi
-    else
-        echo "[$(date +"%H:%M:%S")] ❌ OCR Error: Pattern not found in '$ocr_text'" >> ~/BeeTuxMacro/advanced.log.txt
-    fi
-
-    local numbers=$(echo "$ocr_text" | grep -o '[0-9,]*' | tr -d '\n' | tr -d ' ')
-
-    if [[ "$numbers" =~ ^([0-9,]+)([0-9,]+)$ ]]; then
-        local current_raw="${BASH_REMATCH[1]}"
-        local max_raw="${BASH_REMATCH[2]}"
-
-        local current=$(echo "$current_raw" | tr -d ',')
-        local max=$(echo "$max_raw" | tr -d ',')
-
-        if [[ "$current" =~ ^[0-9]+$ ]] && [[ "$max" =~ ^[0-9]+$ ]] && [ "$max" -gt 0 ]; then
-            local percentage=$(echo "scale=2; $current * 100 / $max" | bc 2>/dev/null)
-
-            if [ -n "$percentage" ] && [ "$(echo "$percentage >= 0" | bc 2>/dev/null)" -eq 1 ]; then
-                echo "[$(date +"%H:%M:%S")] 📊 OCR (alt): '$ocr_text' → ${current}/${max} = ${percentage}%" >> ~/BeeTuxMacro/advanced.log.txt
-                printf "%.2f" "$percentage"
-                return
-            fi
-        fi
-    fi
-
-    echo "[$(date +"%H:%M:%S")] ❌ OCR Error: All patterns failed for '$ocr_text'" >> ~/BeeTuxMacro/advanced.log.txt
-    echo "0"
-    return
-}
-
-function should_convert() {
-    if [ "$CONVERT_AT_PERCENTAGE" -eq 0 ]; then
-        echo "0"
-        return
-    fi
-
-    local percentage=$(check_backpack)
-    local timestamp=$(date +"%H:%M:%S")
-
-    if ! [[ "$percentage" =~ ^[0-9]+(\.[0-9]+)?$ ]]; then
-        echo "[$(date +"%H:%M:%S")] ❌ Validation Error: Invalid percentage format '$percentage'" >> ~/BeeTuxMacro/advanced.log.txt
-        echo "0"
-        return
-    fi
-
-    local compare_result=$(echo "$percentage >= $CONVERT_AT_PERCENTAGE" | bc 2>/dev/null)
-
-    if [ "$compare_result" -eq 1 ] 2>/dev/null; then
-        echo "[$(date +"%H:%M:%S")] ✅ Target reached: ${percentage}% >= ${CONVERT_AT_PERCENTAGE}%" >> ~/BeeTuxMacro/advanced.log.txt
-        echo "1"
-    else
-        echo "[$(date +"%H:%M:%S")] 🔄 Still farming: ${percentage}% < ${CONVERT_AT_PERCENTAGE}%" >> ~/BeeTuxMacro/advanced.log.txt
-        echo "0"
-    fi
-}
-
-function get_current_pollen() {
-    local screenshot_path="~/BeeTuxMacro/convert_check.png"
-    local text_path="~/BeeTuxMacro/convert_check.txt"
-    local timestamp=$(date +"%H:%M:%S")
-
-    grim -g "$CONVERT_COORDS" ~/BeeTuxMacro/convert_check.png 2>/dev/null
-    magick ~/BeeTuxMacro/convert_check.png-colorspace Gray ~/BeeTuxMacro/convert_check.png
-    magick ~/BeeTuxMacro/convert_check.png -channel RGB -negate +channel ~/BeeTuxMacro/convert_check.png
-    if [ ! -f ~/BeeTuxMacro/convert_check.png ]; then
-        echo "[$(date +"%H:%M:%S")] ❌ Conversion OCR Error: Screenshot failed" >> ~/BeeTuxMacro/advanced.log.txt
-        echo "-1"
-        return
-    fi
-    tesseract --psm 7 --oem 3 ~/BeeTuxMacro/convert_check.png ~/BeeTuxMacro/convert_check
-
-    local ocr_text=$(cat ~/BeeTuxMacro/convert_check.txt | tr -d '\n' | tr -d ' ')
-
-    if [ -z "$ocr_text" ]; then
-        echo "[$(date +"%H:%M:%S")] ❌ Conversion OCR Error: Empty text" >> ~/BeeTuxMacro/advanced.log.txt
-        echo "-1"
-        return
-    fi
-
-    if [[ "$ocr_text" =~ ([0-9,]+)/([0-9,]+) ]]; then
-        local current_raw="${BASH_REMATCH[1]}"
-
-        local current=$(echo "$current_raw" | tr -d ',')
-
-        if [[ "$current" =~ ^[0-9]+$ ]]; then
-            echo "[$(date +"%H:%M:%S")] 🔄 Conversion check: '$ocr_text' → current=${current}" >> ~/BeeTuxMacro/advanced.log.txt
-            echo "$current"
-            return
-        fi
-    fi
-
-    local numbers=$(echo "$ocr_text" | grep -o '[0-9,]*' | head -1)
-    if [ -n "$numbers" ]; then
-        local current=$(echo "$numbers" | tr -d ',')
-        if [[ "$current" =~ ^[0-9]+$ ]]; then
-            echo "[$(date +"%H:%M:%S")] 🔄 Conversion check (alt): '$ocr_text' → current=${current}" >> ~/BeeTuxMacro/advanced.log.txt
-            echo "$current"
-            return
-        fi
-    fi
-
-    echo "[$(date +"%H:%M:%S")] ❌ Conversion OCR Error: Pattern not found in '$ocr_text'" >> ~/BeeTuxMacro/advanced.log.txt
-    echo "-1"
-    return
-}
-
-function is_conversion_done() {
-    local current_pollen=$(get_current_pollen)
-    local timestamp=$(date +"%H:%M:%S")
-
-    if [ "$current_pollen" -eq -1 ]; then
-        echo "[$(date +"%H:%M:%S")] 🔄 Conversion: OCR error, waiting..." >> ~/BeeTuxMacro/advanced.log.txt
-        echo "0"
-        return
-    fi
-
-    if [ "$current_pollen" -eq 0 ]; then
-        echo "[$(date +"%H:%M:%S")] ✅ Conversion completed! Pollen = 0" >> ~/BeeTuxMacro/advanced.log.txt
-        echo "1"
-    else
-        echo "[$(date +"%H:%M:%S")] 🔄 Conversion in progress: Pollen = ${current_pollen}" >> ~/BeeTuxMacro/advanced.log.txt
-        echo "0"
-    fi
-}
+function exit_macro(
+bash -c ~/BeeTuxMacro/stuff/close.sh
+)
 
 function place_splinker(
 jump
@@ -288,10 +141,10 @@ sleep 0.1
 
 function farm_square(
 down_a
-sleep $(calculate_time 0.500000)
+sleep $(calculate_time 0.5)
 up_a
 down_s
-sleep $(calculate_time 0.500000)
+sleep $(calculate_time 0.5)
 up_s
 down_d
 sleep $(calculate_time 0.5)

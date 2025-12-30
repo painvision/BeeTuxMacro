@@ -1,17 +1,20 @@
 . ~/BeeTuxMacro/stuff/utils.sh
 . ~/BeeTuxMacro/stuff/paths.sh
-pkill -f "/bin/sh -c ~/BeeTuxMacro/start.sh"
 unhold_keys
 if [ ! -e lockfiletest ]; then
 touch lockfiletest
-check_backpack; notify-send "d"
+while :
+do
+if [[ "$(pixel_color $FULL_BACKPACK_PIXEL)" == "$FULL_BACKPACK_PIXEL_COLOR" ]]; then
+        notify-send a
+        sleep 2
+    fi
+
+done
 rm lockfiletest
 else
-notify-send "скрипт стопнут"
 unhold_keys
 rm lockfiletest
-pkill -f "/bin/sh -c ~/BeeTuxMacro/start.sh"
-pkill -f "/bin/sh -c ~/BeeTuxMacro/utils/test.sh"
-exit 0
+exit_macro
 fi
 
