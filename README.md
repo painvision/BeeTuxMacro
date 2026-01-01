@@ -5,8 +5,26 @@ Written with [ydotool](https://github.com/ReimuNotMoe/ydotool), BeeTux supports 
 > [!IMPORTANT]
 > Macro IS unstable. If you encounter bugs, open an issue, make a pull request, or contact me on [Telegram](https://t.me/NextTimeUsername).
 
+# Fields
+
+- [X] Pine Tree Forest
+- [X] Rose Field
+- [X] Pumpkin Field
+
+Planned:
+
+- [ ] Pineapple Field
+- [ ] Stump Field
+- [ ] Strawberry Field
+- [ ] Bamboo Field
+- [ ] Cactus Field
+
+I'm not doing Spider/Coconut fields for now.
+
+<sub>Unmade field placed in priority</sub>
+
 # 𝐅𝐞𝐚𝐭𝐮𝐫𝐞𝐬
-- [X] Farm till full backpack and go to hive
+- [X] Farm till full backpack and go back to hive
 - [X] Convert for time
 - [X] Auto sprinkler
 - [X] Auto dig
@@ -17,11 +35,12 @@ Written with [ydotool](https://github.com/ReimuNotMoe/ydotool), BeeTux supports 
 
 Planned:
 - [ ] Walking functions rewrite for better code understanding and reading
-- [ ] Auto Gingerbread House
+- [X] Auto Gingerbread House - update pushing in 5 days
 - [ ] Auto Wealth Clock
-- [ ] More fields
-- [ ] Auto Stockings
+- [X] Auto Stockings - update pushing in 5 days 
 - [ ] Auto Snowbear
+- [ ] Image recognition function
+- [ ] Recalculating time for walk with haste tokens using OCR or image recognition function
 - [ ] Instant convertion types (including Honey Wreath)
 - [ ] Telegram/Discord hooking
 
