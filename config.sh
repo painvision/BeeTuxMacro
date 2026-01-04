@@ -53,7 +53,13 @@ function farm_pattern(
 # - Started a macro
 # - Converted pollen
 
-SCREENSHOTS=0
+# SCREENSHOTS=0
+
+# Collects gingerbread house every 2 hours
+AUTO_GINGERBREAD_HOUSE=1
+
+# Collects stockings every 1 hours
+AUTO_STOCKINGS=1
 
 # Uncomment if you configured and confirm using this config
 # CONFIGURED=""

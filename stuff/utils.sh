@@ -89,6 +89,14 @@ function jump (
 ydotool key 57:1 57:0 -d 50
 )
 
+function jump_hold (
+ydotool key 57:1
+)
+
+function jump_release (
+ydotool key 57:0
+)
+
 function unhold_keys(
 ydotool click 0x80
 ydotool key 30:0 31:0 32:0 51:0 52:0 1:0 19:0 28:0 17:0

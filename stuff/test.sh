@@ -1,16 +1,11 @@
+#!/bin/bash
 . ~/BeeTuxMacro/stuff/utils.sh
 . ~/BeeTuxMacro/stuff/paths.sh
+SECONDS=0
 unhold_keys
 if [ ! -e lockfiletest ]; then
 touch lockfiletest
-while :
-do
-if [[ "$(pixel_color $FULL_BACKPACK_PIXEL)" == "$FULL_BACKPACK_PIXEL_COLOR" ]]; then
-        notify-send a
-        sleep 2
-    fi
-
-done
+from_hive_to_stockings_and_back
 rm lockfiletest
 else
 unhold_keys

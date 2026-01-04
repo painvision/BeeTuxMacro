@@ -1,3 +1,57 @@
+function from_hive_to_stockings_and_back (
+jump_release
+down_w
+sleep $(calculate_time 1)
+up_w
+down_d
+sleep $(calculate_time 8)
+up_d
+down_s
+down_a
+sleep $(calculate_time 4.35)
+up_s
+up_a
+down_a
+jump_hold
+sleep $(calculate_time 13)
+jump_release
+sleep $(calculate_time 3)
+up_a
+down_d
+sleep $(calculate_time 2.25)
+up_d
+e
+# down_w
+# sleep $(calculate_time 0.2)
+# up_w
+down_a
+sleep $(calculate_time 1)
+up_a
+down_d
+sleep $(calculate_time 3)
+up_d
+reset
+)
+function from_hive_to_gingerbread_house_and_back(
+down_w
+sleep $(calculate_time 1)
+up_w
+down_d
+sleep $(calculate_time 8)
+up_d
+down_s
+sleep $(calculate_time 2.3)
+jump
+sleep $(calculate_time 9)
+up_s
+down_w
+sleep $(calculate_time 0.75)
+up_w
+e
+sleep 3;
+reset
+)
+
 function from_pumpkin_to_hive(
 down_a
 down_s
@@ -239,7 +293,7 @@ down_w
 sleep $(calculate_time 6)
 jump
 down_w
-sleep $(calculate_time 10)
+sleep $(calculate_time 8)
 up_w
 camera_right
 camera_right
@@ -252,7 +306,7 @@ sleep 1
 camera_left
 camera_left
 down_w
-sleep $(calculate_time 4)
+sleep $(calculate_time 6)
 up_w
 down_s
 sleep $(calculate_time 0.15)
