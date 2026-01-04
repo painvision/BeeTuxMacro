@@ -21,7 +21,7 @@ Planned:
 
 I'm not doing Spider/Coconut fields for now.
 
-<sub>Unmade field placed in priority</sub>
+<sub>Unmade fields placed in priority</sub>
 
 # 𝐅𝐞𝐚𝐭𝐮𝐫𝐞𝐬
 - [X] Farm till full backpack and go back to hive
@@ -29,15 +29,13 @@ I'm not doing Spider/Coconut fields for now.
 - [X] Auto sprinkler
 - [X] Auto dig
 - [X] Walkspeed based calculation for paths
-- [X] 2 paths for Pine Tree Forest
-- [X] Path for Rose Field
+- [X] Auto Gingerbread House
+- [X] Auto Stockings
 - [X] Advanced logging
 
 Planned:
 - [ ] Walking functions rewrite for better code understanding and reading
-- [X] Auto Gingerbread House - update pushing in 5 days
 - [ ] Auto Wealth Clock
-- [X] Auto Stockings - update pushing in 5 days 
 - [ ] Auto Snowbear
 - [ ] Image recognition function
 - [ ] Recalculating time for walk with haste tokens using OCR or image recognition function
