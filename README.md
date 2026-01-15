@@ -35,6 +35,7 @@ I'm not doing Spider/Coconut fields for now.
 
 Planned:
 - [ ] Walking functions rewrite for better code understanding and reading [WORKING]
+- [ ] Making full backpack detection work on red shades, not only specific pixel color in /stuff/utils.sh [WORKING]
 - [ ] Auto Wealth Clock [WORKING]
 - [ ] Auto Snowbear
 - [ ] Image recognition function [WORKING]
