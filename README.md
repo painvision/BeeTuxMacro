@@ -38,6 +38,7 @@ Planned:
 - [ ] Making full backpack detection work on red shades, not only specific pixel color in /stuff/utils.sh [WORKING]
 - [ ] Auto Wealth Clock [WORKING]
 - [ ] Auto Snowbear
+- [ ] Graphical user interface for settings [WORKING]
 - [ ] Image recognition function [WORKING]
 - [ ] Recalculating time for walk with haste tokens using OCR or image recognition function
 - [ ] Instant convertion types (including Honey Wreath) [WORKING]
