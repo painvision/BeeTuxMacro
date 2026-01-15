@@ -34,12 +34,12 @@ I'm not doing Spider/Coconut fields for now.
 - [X] Advanced logging
 
 Planned:
-- [ ] Walking functions rewrite for better code understanding and reading
-- [ ] Auto Wealth Clock
+- [ ] Walking functions rewrite for better code understanding and reading [WORKING]
+- [ ] Auto Wealth Clock [WORKING]
 - [ ] Auto Snowbear
-- [ ] Image recognition function
+- [ ] Image recognition function [WORKING]
 - [ ] Recalculating time for walk with haste tokens using OCR or image recognition function
-- [ ] Instant convertion types (including Honey Wreath)
+- [ ] Instant convertion types (including Honey Wreath) [WORKING]
 - [ ] Telegram/Discord hooking
 
 
@@ -63,11 +63,12 @@ chmod +x start.sh #enable executing macro
 > Output of slurp is #,# #x#. copy #,# and paste it in FULL_BACKPACK_PIXEL.
 
 # 𝐒𝐭𝐚𝐫𝐭/𝐬𝐭𝐨𝐩 𝐦𝐚𝐜𝐫𝐨:
+You should have ydotoold running in a background so macro could interact as your keyboard. Better way to launch ydotool daemon is:
+```
+sudo /usr/bin/ydotoold --socket-path="/run/user/1000/.ydotool_socket" --socket-own="1000:1000"
+```
+Once ydotoold is running, you can start macroing. Following command is for toggling macro on/off
 ```
 bash -c ~/BeeTuxMacro/start.sh
 ```
-Find a way to setup keybind for bash script in your WM/DE. 
-
-You choosing your hive through notification
-
-Call that script again to close macro
+Find a way to setup keybind with bash script in your WM/DE. 
