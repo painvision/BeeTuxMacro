@@ -2,53 +2,86 @@
 
 # Macros are made initially for that walkspeed
 BASE_SPEED=32.2
-FULL_BACKPACK_PIXEL_COLOR="F70017"
-ALMOST_EMPTY_BACKPACK_PIXEL_COLOR="41FF86"
 
-function pixel_color() {
+function pixel_in_red_range() {
+    local x=$1
+    local r g b
+
     if [[ "$XDG_SESSION_TYPE" == "wayland" ]]; then
-        grim -g "$1 1x1" - | \
-        convert png:- txt:- | sed -n 's/.*#\([0-9A-Fa-f]\{6\}\).*/\1/p'
+        set -- $(
+            grim -g "${1} 1x1" - |
+            convert png:- txt:- |
+            sed -n 's/.*srgb(\([0-9]*\),\([0-9]*\),\([0-9]*\)).*/\1 \2 \3/p'
+        )
     else
-        import -window root -crop 1x1+${x}+${y} txt:- | \
-        sed -n 's/.*#\([0-9A-Fa-f]\{6\}\).*/\1/p'
+        set -- $(
+            import -window root -crop 1x1+${x}+${y} txt:- |
+            sed -n 's/.*srgb(\([0-9]*\),\([0-9]*\),\([0-9]*\)).*/\1 \2 \3/p'
+        )
     fi
+
+    r=$1 g=$2 b=$3
+
+    (( r>=244 && r<=255 &&
+       g<=51 &&
+       b<=51 ))
 }
 
 
+wait() {
+    local base_time="$1"
 
-function calculate_time(){
-    local base_time=$1
-    echo "scale=4; $base_time * $BASE_SPEED / $WALKSPEED" | bc
+    [[ -z "$BASE_SPEED" || -z "$WALKSPEED" ]] && {
+        echo "BASE_SPEED or WALKSPEED is not set"
+        return 1
+    }
+
+    (( WALKSPEED == 0 )) && {
+        echo "WALKSPEED cannot be 0"
+        return 1
+    }
+
+    local needed_sleep
+    needed_sleep=$(bc <<< "scale=4; $base_time * $BASE_SPEED / $WALKSPEED")
+
+    sleep "$needed_sleep"
 }
+
 
 function exit_macro(
 bash -c ~/BeeTuxMacro/stuff/close.sh
 )
 
 function place_splinker(
+down_s
+down_a
+wait 0.1
+up_s
+up_a
 jump
-sleep 0.4
-ydotool type $SPRINKLER_SLOT
-sleep 1.5
-jump
-sleep 0.4
-ydotool type $SPRINKLER_SLOT
-down_d
-sleep $(calculate_time 1)
-up_d
 sleep 0.5
-jump
-sleep 0.4
-ydotool type $SPRINKLER_SLOT
-sleep 1.5
-jump
-sleep 0.4
 ydotool type $SPRINKLER_SLOT
 down_a
-sleep $(calculate_time 1)
+wait 0.7
 up_a
+jump
 sleep 0.5
+ydotool type $SPRINKLER_SLOT
+down_s
+wait 0.3
+up_s
+jump
+sleep 0.5
+ydotool type $SPRINKLER_SLOT
+down_d
+wait 0.7
+up_d
+jump
+sleep 0.5
+ydotool type $SPRINKLER_SLOT
+down_w
+wait 0.3
+up_w
 )
 
 function reset (
@@ -149,90 +182,140 @@ sleep 0.1
 
 function farm_square(
 down_a
-sleep $(calculate_time 0.5)
+wait 0.5
 up_a
 down_s
-sleep $(calculate_time 0.5)
+wait 0.5
 up_s
 down_d
-sleep $(calculate_time 0.5)
+wait 0.5
 up_d
 down_w
-sleep $(calculate_time 0.5)
+wait 0.5
 up_w
 )
 
 function farm_snake(
 down_s
-sleep $(calculate_time 0.5)
+wait 0.5
 up_s
 down_a
-sleep $(calculate_time 0.1)
+wait 0.1
 up_a
 down_w
-sleep $(calculate_time 0.5)
+wait 0.5
 up_w
 down_a
-sleep $(calculate_time 0.1)
-up_a
-down_s
-sleep $(calculate_time 0.5)
-up_s
-down_a
-sleep $(calculate_time 0.1)
-up_a
-down_w
-sleep $(calculate_time 0.5)
-up_w
-down_a
-sleep $(calculate_time 0.1)
+wait 0.1
 up_a
 down_s
-sleep $(calculate_time 0.5)
+wait 0.5
 up_s
 down_a
-sleep $(calculate_time 0.1)
+wait 0.1
 up_a
 down_w
-sleep $(calculate_time 0.5)
+wait 0.5
 up_w
 down_a
-sleep $(calculate_time 0.1)
+wait 0.1
 up_a
 down_s
-sleep $(calculate_time 0.5)
+wait 0.5
+up_s
+down_a
+wait 0.1
+up_a
+down_w
+wait 0.5
+up_w
+down_a
+wait 0.1
+up_a
+down_s
+wait 0.5
 up_s
 down_d
-sleep $(calculate_time 0.1)
+wait 0.1
 up_d
 down_w
-sleep $(calculate_time 0.5)
+wait 0.5
 up_w
 down_d
-sleep $(calculate_time 0.1)
+wait 0.1
 up_d
 down_s
-sleep $(calculate_time 0.5)
+wait 0.5
 up_s
 down_d
-sleep $(calculate_time 0.1)
+wait 0.1
 up_d
 down_w
-sleep $(calculate_time 0.5)
+wait 0.5
 up_w
 down_d
-sleep $(calculate_time 0.1)
+wait 0.1
 up_d
 down_s
-sleep $(calculate_time 0.5)
+wait 0.5
 up_s
 down_d
-sleep $(calculate_time 0.1)
+wait 0.1
 up_d
 down_w
-sleep $(calculate_time 0.5)
+wait 0.5
 up_w
 down_d
-sleep $(calculate_time 0.1)
+wait 0.1
+up_d
+)
+function farm_better_snake(
+down_s
+wait 0.3
+up_s
+down_a
+wait 0.1
+up_a
+down_w
+wait 0.3
+up_w
+down_a
+wait 0.1
+up_a
+down_s
+wait 0.3
+up_s
+down_a
+wait 0.1
+up_a
+down_w
+wait 0.3
+up_w
+down_a
+wait 0.1
+up_a
+down_s
+wait 0.3
+up_s
+down_a
+wait 0.1
+up_a
+down_w
+wait 0.3
+up_w
+down_a
+wait 0.1
+up_a
+down_s
+wait 0.3
+up_s
+down_a
+wait 0.1
+up_a
+down_w
+wait 0.3
+up_w
+down_d
+wait 0.83
 up_d
 )

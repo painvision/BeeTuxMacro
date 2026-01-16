@@ -2,6 +2,7 @@
 . ~/BeeTuxMacro/stuff/paths.sh
 . ~/BeeTuxMacro/config.sh
 
+
 if ! command -v ydotool &> /dev/null; then
 notify-send "BeeTux Macro" "❌ Error: 'ydotool' is not installed" -i ~/BeeTuxMacro/frosty_bee.png
 exit 1
@@ -13,10 +14,12 @@ fi
 
 touch ~/BeeTuxMacro/macro_log.txt
 
+
 if [ ! -e lockfile ]; then
 touch lockfile
 SECONDS_GINGER=0
 SECONDS_STOCKINGS=0
+
 HIVE_SLOT=$(notify-send "☃️ Beetux Macro" "🍯 Claim a hive, then click a button what hive you claimed" -t 0 --action="1=1" --action="2=2" --action="3=3" --action="4=4" --action="5=5" --action="6=6" --action="exit=Cancel" --action="edit=Edit config" --action="github=Github" -i ~/BeeTuxMacro/frosty_bee.png)
 
 if [ $HIVE_SLOT == exit ]; then
@@ -58,7 +61,7 @@ echo "[$(date +"%H:%M:%S")]  🌸 Farming pollen... " >> ~/BeeTuxMacro/macro_log
 while :
 do
 farm_pattern
-if [[ "$(pixel_color $FULL_BACKPACK_PIXEL)" == "$FULL_BACKPACK_PIXEL_COLOR" ]]; then
+if pixel_in_red_range $FULL_BACKPACK_PIXEL ; then
 echo "[$(date +"%H:%M:%S")]  🌸 Backpack is full" >> ~/BeeTuxMacro/macro_log.txt
 auto_dig_off
 back_to_hive

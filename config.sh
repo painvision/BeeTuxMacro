@@ -6,7 +6,7 @@
 #                             by painvision
 
 # See README.md to edit this
-FULL_BACKPACK_PIXEL="959,26"
+FULL_BACKPACK_PIXEL="912,38"
 
 # Enter the number where your sprinkler is
 SPRINKLER_SLOT=1
@@ -43,8 +43,9 @@ function farm_pattern(
 
 # Available options:    farm_square
 #                       farm_snake
+#                       farm_better_snake
 
-                        farm_snake
+                        farm_better_snake
 )
 
 # Type "0" if you won't use autoscreenshots
@@ -56,10 +57,10 @@ function farm_pattern(
 # SCREENSHOTS=0
 
 # Collects gingerbread house every 2 hours
-AUTO_GINGERBREAD_HOUSE=1
+# AUTO_GINGERBREAD_HOUSE=1
 
 # Collects stockings every 1 hours
-AUTO_STOCKINGS=1
+# AUTO_STOCKINGS=1
 
 # Uncomment if you configured and confirm using this config
 # CONFIGURED=""
