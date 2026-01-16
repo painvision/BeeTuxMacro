@@ -34,8 +34,8 @@ I'm not doing Spider/Coconut fields for now.
 - [X] Advanced logging
 
 Planned:
-- [ ] Walking functions rewrite for better code understanding and reading [WORKING]
-- [ ] Making full backpack detection work on red shades, not only specific pixel color in /stuff/utils.sh [WORKING]
+- [X] Walking functions rewrite for better code understanding and reading [WORKING]
+- [X] Making full backpack detection work on red shades, not only specific pixel color in /stuff/utils.sh [WORKING]
 - [ ] Auto Wealth Clock [WORKING]
 - [ ] Auto Snowbear
 - [ ] Graphical user interface for settings [WORKING]
@@ -48,7 +48,7 @@ Planned:
 <sub>Placed in priority</sub>
 
 # 𝐈𝐧𝐬𝐭𝐚𝐥𝐥𝐚𝐭𝐢𝐨𝐧
-Install `ydotool slurp imagemagick`  and `grim` (if Wayland) using your package manager.
+Install `ydotool slurp imagemagick bc`  and `grim` (if Wayland) using your package manager.
 Open a terminal. Clone this repository:
 ```
 git clone https://github.com/painvision/BeeTuxMacro/
