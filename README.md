@@ -19,10 +19,6 @@ Planned:
 - [ ] Bamboo Field
 - [ ] Cactus Field
 
-I'm not doing Spider/Coconut fields for now.
-
-<sub>Unmade fields placed in priority</sub>
-
 # 𝐅𝐞𝐚𝐭𝐮𝐫𝐞𝐬
 - [X] Farm till full backpack and go back to hive
 - [X] Convert for time
@@ -32,20 +28,6 @@ I'm not doing Spider/Coconut fields for now.
 - [X] Auto Gingerbread House
 - [X] Auto Stockings
 - [X] Advanced logging
-
-Planned:
-- [X] Walking functions rewrite for better code understanding and reading [WORKING]
-- [X] Making full backpack detection work on red shades, not only specific pixel color in /stuff/utils.sh [WORKING]
-- [ ] Auto Wealth Clock [WORKING]
-- [ ] Auto Snowbear
-- [ ] Graphical user interface for settings [WORKING]
-- [ ] Image recognition function [WORKING]
-- [ ] Recalculating time for walk with haste tokens using OCR or image recognition function
-- [ ] Instant convertion types (including Honey Wreath) [WORKING]
-- [ ] Telegram/Discord hooking
-
-
-<sub>Placed in priority</sub>
 
 # 𝐈𝐧𝐬𝐭𝐚𝐥𝐥𝐚𝐭𝐢𝐨𝐧
 Install `ydotool slurp imagemagick bc`  and `grim` (if Wayland) using your package manager.
@@ -74,3 +56,17 @@ Once ydotoold is running, you can start macroing. Following command is for toggl
 bash -c ~/BeeTuxMacro/start.sh
 ```
 Find a way to setup keybind with bash script in your WM/DE. 
+
+## TO DO
+- [ ] Rewrite walking functions for better code understanding and reading
+- [X] Making full backpack detection work on red shades, not only specific pixel color in /stuff/utils.sh
+- [ ] ваще похуй короче надо чтобы нужный пиксель для проверки полного инвентаря сам подобрался и не нужно было выделять вручную слюрпом на основе разрешения монитора
+- [ ] Split start.sh in pre_farm.sh, farm.sh and after_farm.sh so i can pause/resume script with another script
+- [ ] Maybe out of the box keybind for starting/pausing/resuming/stopping script?
+- [ ] Auto Wealth Clock
+- [ ] Auto Snowbear
+- [ ] Graphical user interface for settings
+- [ ] Image recognition function
+- [ ] Recalculating time for walk with haste tokens using OCR or image recognition function
+- [ ] Instant convertion types (including Honey Wreath)
+- [ ] Telegram/Discord hooking
