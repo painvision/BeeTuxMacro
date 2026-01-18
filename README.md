@@ -66,28 +66,35 @@ Planned:
 - [X] Auto Stockings 
 - [X] Advanced logging
 
-## TO DO
+# TO DO
 
-Stability features:
+### Stability:
 - [X] Full backpack detection on red shades, not only specific pixel color in /stuff/utils.sh
 - [ ] Replace sprinklers after player reset
-- [ ] Detect no pollen increase when farming using image recognition and/or OCR
-- [ ] Set right camera position after reset with image recognition function
 - [ ] Image recognition function (should use python for that)
+- [ ] Image instability function (calculate how much picture 1 different from picture 2)
+- [ ] Detect no pollen increase using image instability function
+- [ ] Set right camera position after reset with image recognition function
 - [ ] Recalculate path walking time OR not walking at all when haste exists using image recognition function
+
+### Optimization:
+
+- [ ] Optimize all paths
+- [ ] Full backpack detection repeat itself while farming, not when farming pattern (separate check.sh)
+
+### Codebase:
 
 - [ ] Rewrite walking functions for better code understanding and reading
 > from "down_s; wait 0.5; down_d; wait 0.5; up_d up_s"
 > to "walk_s 0.5; walk_sd 0.5"
-- [ ] Optimize all paths
-
-- [ ] ваще похуй короче надо чтобы нужный пиксель для проверки полного инвентаря сам подобрался и не нужно было выделять вручную слюрпом на основе разрешения монитора
 - [ ] Split start.sh in pre_farm.sh, farm.sh and after_farm.sh so i can pause/resume script with another script
-- [ ] Full backpack detection repeat itself while farming, not when farming pattern (separate check.sh)
+
+### QoL:
+- [ ] ваще похуй короче надо чтобы нужный пиксель для проверки полного инвентаря сам подобрался и не нужно было выделять вручную слюрпом на основе разрешения монитора
+- [ ] Graphical user interface for settings
+- [ ] Telegram/Discord hooking
+
+### Features:
 - [ ] Auto Wealth Clock
 - [ ] Auto Snowbear (idk)
-- [ ] Graphical user interface for settings
-
-- [ ] Functions for
 - [ ] Instant convertion types (including Honey Wreath)
-- [ ] Telegram/Discord hooking
