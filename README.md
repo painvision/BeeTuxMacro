@@ -60,6 +60,7 @@ Find a way to setup keybind with bash script in your WM/DE.
 ## TO DO
 - [ ] Rewrite walking functions for better code understanding and reading
 - [X] Making full backpack detection work on red shades, not only specific pixel color in /stuff/utils.sh
+- [ ] Replace sprinklers after player reset
 - [ ] ваще похуй короче надо чтобы нужный пиксель для проверки полного инвентаря сам подобрался и не нужно было выделять вручную слюрпом на основе разрешения монитора
 - [ ] Split start.sh in pre_farm.sh, farm.sh and after_farm.sh so i can pause/resume script with another script
 - [ ] Maybe out of the box keybind for starting/pausing/resuming/stopping script?
