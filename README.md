@@ -1,8 +1,11 @@
+> [!IMPORTANT]
+> If you found macro interesting, consider starring repository. It means a lot to me 
+
 # 𝐁𝐞𝐞𝐓𝐮𝐱 𝐌𝐚𝐜𝐫𝐨 ☃️
 Open source Bee Swarm Simulator macro made for Linux. 🐧
 Written with [ydotool](https://github.com/ReimuNotMoe/ydotool), BeeTux supports every DE or WM, (hopefully) X11 or Wayland.
 
-> [!IMPORTANT]
+> [!WARNING]
 > Macro is not stable. If you encounter bugs, open an issue, make a pull request, or contact me on [Telegram](https://t.me/NextTimeUsername).
 
 # 𝐈𝐧𝐬𝐭𝐚𝐥𝐥𝐚𝐭𝐢𝐨𝐧
@@ -15,14 +18,15 @@ git clone https://github.com/painvision/BeeTuxMacro/
 cd BeeTuxMacro/
 ```
 
-> [!TIP]
-> Configure ~/BeeTuxMacro/config.sh using your favourite text editor
+# Configuration 
+Edit file `~/BeeTuxMacro/config.sh` using your favourite text editor
 
-### In FULL_BACKPACK_PIXEL, put output of `slurp` like this:
+In FULL_BACKPACK_PIXEL, put output of `slurp` like this:
 <img width="768" height="768" alt="image" src="https://github.com/user-attachments/assets/b5910f15-63d0-4e2d-a5df-b3a7d282eea8" />
 
-> After executing `sleep 2; slurp`, focus on roblox, place your cursor in red space (upper from +pollen text) and move it in right bottom.
+> After executing `sleep 2; slurp`, focus on roblox, place your cursor like on screenshot (upper from +pollen text) and move it in right bottom.
 > Output of slurp is #,# #x#. copy #,# and paste it in FULL_BACKPACK_PIXEL.
+> Soon this complex setup won't exist
 
 # 𝐒𝐭𝐚𝐫𝐭/𝐬𝐭𝐨𝐩 𝐦𝐚𝐜𝐫𝐨:
 You should have ydotoold running in a background so macro could interact as your keyboard. Better way to launch ydotool daemon is:
@@ -59,24 +63,31 @@ Planned:
 - [X] Auto dig
 - [X] Walkspeed based calculation for paths
 - [X] Auto Gingerbread House
-- [X] Auto Stockings
+- [X] Auto Stockings 
 - [X] Advanced logging
 
 ## TO DO
-- [ ] Rewrite walking functions for better code understanding and reading
-- [ ] Optimize all paths
+
+Stability features:
 - [X] Full backpack detection on red shades, not only specific pixel color in /stuff/utils.sh
 - [ ] Replace sprinklers after player reset
+- [ ] Detect no pollen increase when farming using image recognition and/or OCR
+- [ ] Set right camera position after reset with image recognition function
+- [ ] Image recognition function (should use python for that)
+- [ ] Recalculate path walking time OR not walking at all when haste exists using image recognition function
+
+- [ ] Rewrite walking functions for better code understanding and reading
+> from "down_s; wait 0.5; down_d; wait 0.5; up_d up_s"
+> to "walk_s 0.5; walk_sd 0.5"
+- [ ] Optimize all paths
+
 - [ ] ваще похуй короче надо чтобы нужный пиксель для проверки полного инвентаря сам подобрался и не нужно было выделять вручную слюрпом на основе разрешения монитора
 - [ ] Split start.sh in pre_farm.sh, farm.sh and after_farm.sh so i can pause/resume script with another script
 - [ ] Full backpack detection repeat itself while farming, not when farming pattern (separate check.sh)
 - [ ] Auto Wealth Clock
 - [ ] Auto Snowbear (idk)
 - [ ] Graphical user interface for settings
-- [ ] Image recognition function (should use python for that)
-- [ ] Emergency features to restart macro setup
-- [ ] Set right camera position after reset with image recognition function
-- [ ] Recalculating time for walk with haste tokens using OCR or image recognition function (too hard)
+
 - [ ] Functions for
 - [ ] Instant convertion types (including Honey Wreath)
 - [ ] Telegram/Discord hooking
