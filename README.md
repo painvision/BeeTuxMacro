@@ -70,7 +70,7 @@ Planned:
 
 ### Stability:
 - [X] Full backpack detection on red shades, not only specific pixel color in /stuff/utils.sh
-- [ ] Replace sprinklers after player reset
+- [ ] Replace sprinklers after player reset (variables/sprinklers_set)
 - [ ] Image recognition function (should use python for that)
 - [ ] Image instability function (calculate how much picture 1 different from picture 2)
 - [ ] Detect no pollen increase using image instability function
@@ -80,19 +80,21 @@ Planned:
 ### Optimization:
 
 - [ ] Optimize all paths
-- [ ] Full backpack detection repeat itself while farming, not when farming pattern (separate check.sh)
+- [X] Full backpack detection repeat itself while farming, not when done farm pattern (separate check.sh)
 
 ### Codebase:
 
 - [ ] Rewrite walking functions for better code understanding and reading
 > from "down_s; wait 0.5; down_d; wait 0.5; up_d up_s"
 > to "walk_s 0.5; walk_sd 0.5"
-- [ ] Split start.sh in pre_farm.sh, farm.sh and after_farm.sh so i can pause/resume script with another script
+- [X] Split start.sh in pre_farm.sh, farm.sh and after_farm.sh
+- [ ] Get rid of screenshots and logging
 
 ### QoL:
-- [ ] ваще похуй короче надо чтобы нужный пиксель для проверки полного инвентаря сам подобрался и не нужно было выделять вручную слюрпом на основе разрешения монитора
+- [X] No need to manually configure full backpack pixel
+- [ ] Pause/resume macro with toggle.sh or second start.sh call
 - [ ] Graphical user interface for settings
-- [ ] Telegram/Discord hooking
+- [ ] Telegram bot hooking (like restarting macro, get current screenshot, honey monitoring)
 
 ### Features:
 - [ ] Auto Wealth Clock
