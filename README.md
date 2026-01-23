@@ -1,14 +1,15 @@
+hello
 > [!IMPORTANT]
 > If you found macro interesting, consider starring repository. It means a lot to me 
 
-# 𝐁𝐞𝐞𝐓𝐮𝐱 𝐌𝐚𝐜𝐫𝐨 ☃️
+# BeeTux Macro ☃️
 Open source Bee Swarm Simulator macro made for Linux. 🐧
-Written with [ydotool](https://github.com/ReimuNotMoe/ydotool), BeeTux supports every DE or WM, (hopefully) X11 or Wayland.
+Written with [ydotool](https://github.com/ReimuNotMoe/ydotool), BeeTux supports every DE or WM, Wayland and maybe X11
 
 > [!WARNING]
 > Macro is not stable. If you encounter bugs, open an issue, make a pull request, or contact me on [Telegram](https://t.me/NextTimeUsername).
 
-# 𝐈𝐧𝐬𝐭𝐚𝐥𝐥𝐚𝐭𝐢𝐨𝐧
+# Installation
 
 Install `ydotool slurp imagemagick bc`  and `grim` (if Wayland) using your package manager.
 Open a terminal. Clone this repository:
@@ -28,11 +29,13 @@ In FULL_BACKPACK_PIXEL, put output of `slurp` like this:
 > Output of slurp is #,# #x#. copy #,# and paste it in FULL_BACKPACK_PIXEL.
 > Soon this complex setup won't exist
 
-# 𝐒𝐭𝐚𝐫𝐭/𝐬𝐭𝐨𝐩 𝐦𝐚𝐜𝐫𝐨:
+# Macro setup:
 You should have ydotoold running in a background so macro could interact as your keyboard. Better way to launch ydotool daemon is:
 ```
 sudo /usr/bin/ydotoold --socket-path="/run/user/1000/.ydotool_socket" --socket-own="1000:1000"
 ```
+You can add it to your autostart, as its very lightweight 
+
 Once ydotoold is running, you can start macroing. Following command is for toggling macro on/off
 ```
 chmod +x start.sh #enable executing macro
@@ -76,10 +79,16 @@ Planned:
 - [ ] Detect no pollen increase using image instability function
 - [ ] Set right camera position after reset with image recognition function
 - [ ] Recalculate path walking time OR not walking at all when haste exists using image recognition function
+- [ ] Auto reconnect with image recognition function and claim hive function
 
 ### Optimization:
 
-- [ ] Optimize all paths
+- [ ] Remake from_hive_to_pine_tree_with_red_cannon with glider
+- [ ] Optimize from_pine_tree_to_hive with glider
+- [ ] Optimize climbing to red cannon
+
+currently juiced 2 seconds ._.
+
 - [X] Full backpack detection repeat itself while farming, not when done farm pattern (separate check.sh)
 
 ### Codebase:
@@ -95,8 +104,12 @@ Planned:
 - [ ] Pause/resume macro with toggle.sh or second start.sh call
 - [ ] Graphical user interface for settings
 - [ ] Telegram bot hooking (like restarting macro, get current screenshot, honey monitoring)
+- [ ] Claim hive function with image recognition function
 
 ### Features:
-- [ ] Auto Wealth Clock
-- [ ] Auto Snowbear (idk)
-- [ ] Instant convertion types (including Honey Wreath)
+- [X] Auto Wealth Clock
+- [X] Honey Wreath for converting
+- [ ] Whirligig (Need image recognition function)
+- [ ] Micro Converter (Need image recognition function)
+
+How many times i said "image recognition function"?
