@@ -58,9 +58,12 @@ Planned:
 - [X] Auto sprinkler
 - [X] Auto dig
 - [X] Walkspeed based calculation for paths
+- [X] Auto Wealth Clock
 - [X] Auto Gingerbread House
 - [X] Auto Stockings 
 - [X] Advanced logging
+- [X] Honey Wreath for converting
+
 
 # TO DO
 
@@ -100,8 +103,6 @@ currently juiced 2 seconds ._.
 - [ ] Claim hive function with image recognition function
 
 ### Features:
-- [X] Auto Wealth Clock
-- [X] Honey Wreath for converting
 - [ ] Whirligig (Need image recognition function)
 - [ ] Micro Converter (Need image recognition function)
 
