@@ -31,9 +31,6 @@ You can add it to your autostart, as its very lightweight
 
 Once ydotoold is running, you can start macroing. Following command is for toggling macro on/off
 ```
-chmod +x start.sh #enable executing macro
-```
-```
 bash -c ~/BeeTuxMacro/start.sh
 ```
 Find a way to setup keybind with bash script in your WM/DE. 
@@ -82,9 +79,6 @@ Planned:
 - [ ] Remake from_hive_to_pine_tree_with_red_cannon with glider
 - [ ] Optimize from_pine_tree_to_hive with glider
 - [X] Optimize climbing to red cannon
-
-currently juiced 2 seconds ._.
-
 - [X] Full backpack detection repeat itself while farming, not when done farm pattern (separate check.sh)
 
 ### Codebase:
