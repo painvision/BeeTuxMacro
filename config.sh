@@ -5,9 +5,6 @@
 # |____/ \___|\___||_|  \___//_/\_\
 #                             by painvision
 
-# See README.md to edit this
-FULL_BACKPACK_PIXEL="912,38"
-
 # Enter the number where your sprinkler is
 SPRINKLER_SLOT=1
 
@@ -28,7 +25,7 @@ function go_to_field(
 )
 
 function back_to_hive(
-# Select path function from hive to field
+# Select path function from field to hive
 
 # Available options: from_rose_field_to_hive
 #                    from_pine_tree_to_hive
@@ -57,10 +54,16 @@ function farm_pattern(
 # SCREENSHOTS=0
 
 # Collects gingerbread house every 2 hours
-# AUTO_GINGERBREAD_HOUSE=1
+AUTO_GINGERBREAD_HOUSE=1
 
 # Collects stockings every 1 hours
-# AUTO_STOCKINGS=1
+AUTO_STOCKINGS=1
+
+# Wealth clock every 1 hours
+AUTO_WEALTH_CLOCK=1
+
+# Should do honey wreath?
+AUTO_WREATH=1
 
 # Uncomment if you configured and confirm using this config
 # CONFIGURED=""

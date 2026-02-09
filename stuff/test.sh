@@ -4,7 +4,7 @@
 unhold_keys
 if [ ! -e lockfiletest ]; then
 touch lockfiletest
-farm_better_snake
+from_hive_to_honey_wreath_and_back
 rm lockfiletest
 else
 unhold_keys

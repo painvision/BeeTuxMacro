@@ -1,12 +1,34 @@
 . ~/BeeTuxMacro/config.sh
 
+
 # Macros are made initially for that walkspeed
 BASE_SPEED=32.2
+
+get_pixel_coords() {
+    local resolution
+    resolution=$(xrandr | grep '*')
+
+    local width height
+    width=$(echo "$resolution" | awk '{print $1}' | cut -dx -f1)
+    height=$(echo "$resolution" | awk '{print $1}' | cut -dx -f2)
+
+    local orig_width=1366
+    local orig_height=768
+    local orig_x=912
+    local orig_y=40
+
+    local new_x new_y
+
+    new_x=$(echo "scale=0; $orig_x * $width / $orig_width" | bc)
+    new_y=$(echo "scale=0; $orig_y * $height / $orig_height" | bc)
+    echo "${new_x},${new_y}"
+}
+
+FULL_BACKPACK_PIXEL=$(get_pixel_coords)
 
 function pixel_in_red_range() {
     local x=$1
     local r g b
-
     if [[ "$XDG_SESSION_TYPE" == "wayland" ]]; then
         set -- $(
             grim -g "${1} 1x1" - |
@@ -19,28 +41,14 @@ function pixel_in_red_range() {
             sed -n 's/.*srgb(\([0-9]*\),\([0-9]*\),\([0-9]*\)).*/\1 \2 \3/p'
         )
     fi
-
     r=$1 g=$2 b=$3
-
     (( r>=244 && r<=255 &&
        g<=51 &&
        b<=51 ))
 }
 
-
 wait() {
     local base_time="$1"
-
-    [[ -z "$BASE_SPEED" || -z "$WALKSPEED" ]] && {
-        echo "BASE_SPEED or WALKSPEED is not set"
-        return 1
-    }
-
-    (( WALKSPEED == 0 )) && {
-        echo "WALKSPEED cannot be 0"
-        return 1
-    }
-
     local needed_sleep
     needed_sleep=$(bc <<< "scale=4; $base_time * $BASE_SPEED / $WALKSPEED")
 
@@ -70,6 +78,7 @@ ydotool type $SPRINKLER_SLOT
 down_s
 wait 0.3
 up_s
+sleep 0.4
 jump
 sleep 0.5
 ydotool type $SPRINKLER_SLOT
@@ -87,6 +96,7 @@ up_w
 function reset (
 ydotool key 1:1 1:0 19:1 19:0 28:1 28:0 -d 100
 sleep 5
+rm ~/BeeTuxMacro/variables/sprinklers_placed
 )
 
 function zoom_out(
@@ -131,9 +141,16 @@ ydotool key 57:0
 )
 
 function unhold_keys(
-ydotool click 0x80
-ydotool key 30:0 31:0 32:0 51:0 52:0 1:0 19:0 28:0 17:0
-sleep 0.1
+ydotool click 0xc0
+ydotool key 30:0
+ydotool key 31:0
+ydotool key 32:0
+ydotool key 51:0
+ydotool key 52:0
+ydotool key 1:0
+ydotool key 19:0
+ydotool key 28:0
+ydotool key 17:0
 )
 
 function down_d(
