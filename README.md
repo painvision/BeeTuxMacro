@@ -11,7 +11,7 @@ Written with [ydotool](https://github.com/ReimuNotMoe/ydotool), BeeTux supports 
 
 # Installation
 
-Install `ydotool slurp imagemagick bc`  and `grim` (if Wayland) using your package manager.
+Install `ydotool imagemagick bc`  and `grim` (if Wayland) using your package manager.
 Open a terminal. Clone this repository:
 
 ```
@@ -21,13 +21,6 @@ cd BeeTuxMacro/
 
 # Configuration 
 Edit file `~/BeeTuxMacro/config.sh` using your favourite text editor
-
-In FULL_BACKPACK_PIXEL, put output of `slurp` like this:
-<img width="768" height="768" alt="image" src="https://github.com/user-attachments/assets/b5910f15-63d0-4e2d-a5df-b3a7d282eea8" />
-
-> After executing `sleep 2; slurp`, focus on roblox, place your cursor like on screenshot (upper from +pollen text) and move it in right bottom.
-> Output of slurp is #,# #x#. copy #,# and paste it in FULL_BACKPACK_PIXEL.
-> Soon this complex setup won't exist
 
 # Macro setup:
 You should have ydotoold running in a background so macro could interact as your keyboard. Better way to launch ydotool daemon is:
@@ -73,7 +66,7 @@ Planned:
 
 ### Stability:
 - [X] Full backpack detection on red shades, not only specific pixel color in /stuff/utils.sh
-- [ ] Replace sprinklers after player reset (variables/sprinklers_set)
+- [X] Replace sprinklers after player reset (variables/sprinklers_set)
 - [ ] Image recognition function (should use python for that)
 - [ ] Image instability function (calculate how much picture 1 different from picture 2)
 - [ ] Detect no pollen increase using image instability function
@@ -85,7 +78,7 @@ Planned:
 
 - [ ] Remake from_hive_to_pine_tree_with_red_cannon with glider
 - [ ] Optimize from_pine_tree_to_hive with glider
-- [ ] Optimize climbing to red cannon
+- [X] Optimize climbing to red cannon
 
 currently juiced 2 seconds ._.
 
@@ -97,7 +90,7 @@ currently juiced 2 seconds ._.
 > from "down_s; wait 0.5; down_d; wait 0.5; up_d up_s"
 > to "walk_s 0.5; walk_sd 0.5"
 - [X] Split start.sh in pre_farm.sh, farm.sh and after_farm.sh
-- [ ] Get rid of screenshots and logging
+- [X] Get rid of screenshots and logging
 
 ### QoL:
 - [X] No need to manually configure full backpack pixel
