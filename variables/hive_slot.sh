@@ -1,1 +1,0 @@
-TRUE_HIVE_SLOT=4
