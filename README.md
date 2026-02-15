@@ -4,7 +4,7 @@ hello
 
 # BeeTux Macro ☃️
 Open source Bee Swarm Simulator macro made for Linux. 🐧
-Written with [ydotool](https://github.com/ReimuNotMoe/ydotool), BeeTux supports every DE or WM, Wayland and maybe X11
+Written with bash and [ydotool](https://github.com/ReimuNotMoe/ydotool), BeeTux supports every DE or WM, Wayland and maybe X11
 
 > [!WARNING]
 > Macro is not stable. If you encounter bugs, open an issue, make a pull request, or contact me on [Telegram](https://t.me/NextTimeUsername).
