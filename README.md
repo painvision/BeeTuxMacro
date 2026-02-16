@@ -1,4 +1,3 @@
-hello
 > [!IMPORTANT]
 > If you found macro interesting, consider starring repository. It means a lot to me 
 
@@ -11,7 +10,7 @@ Written with bash and [ydotool](https://github.com/ReimuNotMoe/ydotool), BeeTux 
 
 # Installation
 
-Install `ydotool imagemagick bc`  and `grim` (if Wayland) using your package manager.
+Install `ydotool imagemagick bc xorg-xrandr`  and `grim` (if Wayland) using your package manager.
 Open a terminal. Clone this repository:
 
 ```
@@ -22,12 +21,13 @@ cd BeeTuxMacro/
 # Configuration 
 Edit file `~/BeeTuxMacro/config.sh` using your favourite text editor
 
-# Macro setup:
-You should have ydotoold running in a background so macro could interact as your keyboard. Better way to launch ydotool daemon is:
+# Setup
+You should have ydotoold running in a background, so macro could interact with your keyboard. Best way to launch ydotool daemon is by running this command:
 ```
 sudo /usr/bin/ydotoold --socket-path="/run/user/1000/.ydotool_socket" --socket-own="1000:1000"
 ```
-You can add it to your autostart, as its very lightweight 
+> [!TIP]
+> You can add it to your autostart because of its 4 MB of RAM usage
 
 Once ydotoold is running, you can start macroing. Following command is for toggling macro on/off
 ```
