@@ -1,5 +1,5 @@
 > [!IMPORTANT]
-> If you found macro interesting, consider starring repository. It means a lot to me 
+> If you found macro interesting, consider starring repository. It means a lot for me 
 
 # BeeTux Macro ☃️
 Open source Bee Swarm Simulator macro made for Linux. 🐧
