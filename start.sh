@@ -2,7 +2,7 @@
 . ~/BeeTuxMacro/stuff/paths.sh
 . ~/BeeTuxMacro/config.sh
 
-rm -rf variables/
+rm -rf ~/BeeTuxMacro/variables/
 
 if ! command -v ydotool &> /dev/null; then
 notify-send "BeeTux Macro" "❌ Error: 'ydotool' is not installed" -i ~/BeeTuxMacro/frosty_bee.png
@@ -19,7 +19,7 @@ exit 1
 fi
 
 if [ ! -e lockfile ]; then
-mkdir variables
+mkdir ~/BeeTuxMacro/variables/
 touch ~/BeeTuxMacro/macro_log.txt
 
 touch ~/BeeTuxMacro/variables/should_stockings

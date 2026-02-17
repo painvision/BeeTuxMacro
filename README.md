@@ -1,7 +1,10 @@
 > [!IMPORTANT]
 > If you found macro interesting, consider starring repository. It means a lot for me 
 
-# BeeTux Macro ☃️
+<h1 align='center'>
+BeeTux Macro ☃️
+</h1>
+
 Open source Bee Swarm Simulator macro made for Linux. 🐧
 Written with bash and [ydotool](https://github.com/ReimuNotMoe/ydotool), BeeTux supports every DE or WM, Wayland and maybe X11
 
@@ -40,10 +43,10 @@ Find a way to setup keybind with bash script in your WM/DE.
 - [X] Pine Tree Forest
 - [X] Rose Field
 - [X] Pumpkin Field
+- [X] Pineapple Field
 
 Planned:
 
-- [ ] Pineapple Field
 - [ ] Stump Field
 - [ ] Strawberry Field
 - [ ] Bamboo Field
@@ -65,19 +68,18 @@ Planned:
 # TO DO
 
 ### Stability:
-- [X] Full backpack detection on red shades, not only specific pixel color in /stuff/utils.sh
-- [X] Replace sprinklers after player reset (variables/sprinklers_set)
 - [ ] Image recognition function (should use python for that)
 - [ ] Image instability function (calculate how much picture 1 different from picture 2)
 - [ ] Detect no pollen increase using image instability function
 - [ ] Set right camera position after reset with image recognition function
 - [ ] Recalculate path walking time OR not walking at all when haste exists using image recognition function
 - [ ] Auto reconnect with image recognition function and claim hive function
+- [X] Full backpack detection on red shades, not only specific pixel color in /stuff/utils.sh
+- [X] Replace sprinklers after player reset (variables/sprinklers_set)
 
 ### Optimization:
 
-- [ ] Remake from_hive_to_pine_tree_with_red_cannon with glider
-- [ ] Optimize from_pine_tree_to_hive with glider
+- [X] Remake from_hive_to_pine_tree_with_red_cannon with glider
 - [X] Optimize climbing to red cannon
 - [X] Full backpack detection repeat itself while farming, not when done farm pattern (separate check.sh)
 

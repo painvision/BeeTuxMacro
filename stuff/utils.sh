@@ -6,7 +6,7 @@ BASE_SPEED=32.2
 
 get_pixel_coords() {
     local resolution
-    resolution=$(xrandr | grep '*')
+    resolution=$(xrandr | grep "*")
 
     local width height
     width=$(echo "$resolution" | awk '{print $1}' | cut -dx -f1)
@@ -35,7 +35,7 @@ function pixel_in_red_range() {
             convert png:- txt:- |
             sed -n 's/.*srgb(\([0-9]*\),\([0-9]*\),\([0-9]*\)).*/\1 \2 \3/p'
         )
-    else
+    else #idk
         set -- $(
             import -window root -crop 1x1+${x}+${y} txt:- |
             sed -n 's/.*srgb(\([0-9]*\),\([0-9]*\),\([0-9]*\)).*/\1 \2 \3/p'

@@ -1,3 +1,95 @@
+function from_hive_to_red_cannon(
+down_w
+wait 1
+up_w
+down_d
+wait 6.6
+up_d
+down_a
+wait 0.15
+up_a
+jump
+sleep 0.1
+down_d
+wait 0.7
+jump
+wait 0.6
+up_d
+)
+
+function from_hive_to_pine_tree_with_red_cannon(
+from_hive_to_red_cannon
+camera_right
+camera_right
+camera_right
+shift_lock_toggle
+e
+sleep 1
+jump
+jump
+sleep 8
+camera_left
+down_a
+wait 0.7
+up_a
+)
+function from_pineapple_to_hive(
+down_d
+wait 4
+up_d
+down_w
+wait 3
+up_w
+down_a
+wait 5
+up_a
+down_w
+wait 7
+up_w
+down_d
+wait 1.7
+up_d
+down_s
+wait 0.3
+up_s
+jump
+sleep 0.4
+down_s
+wait 1.1
+up_s
+sleep 0.3
+e
+down_w
+wait 4
+up_w
+down_a
+down_s
+wait 0.1
+up_s
+wait 5
+down_w
+wait 0.1
+up_w
+up_a
+down_w
+wait 0.4
+up_w
+down_a
+wait 0.4
+up_a
+)
+
+function from_hive_to_pineapple_with_red_cannon(
+from_hive_to_red_cannon
+e
+down_a
+wait 7
+up_a
+down_s
+wait 1.5
+up_s
+)
+
 function from_hive_to_wealth_clock(
     down_w
     wait 0.5
@@ -7,7 +99,7 @@ function from_hive_to_wealth_clock(
     up_d
     down_s
     down_a
-    wait 6.6 # угадал с первого раза ебать
+    wait 6.6
     up_s
     up_a
     down_a
@@ -173,34 +265,7 @@ up_a
 )
 
 function from_hive_to_pumpkin_with_red_cannon(
-down_w
-wait 3
-up_w
-down_d
-wait 6.6
-up_d
-down_a
-wait 0.2
-up_a
-sleep 0.1
-down_s
-wait 0.05
-up_s
-jump
-sleep 0.1
-down_d
-wait 1
-up_d
-down_w
-wait 0.45
-up_w
-down_d
-down_s
-wait 0.2
-up_s
-sleep 0.3
-up_d
-wait 1
+from_hive_to_red_cannon
 e
 down_d
 down_s
@@ -218,57 +283,7 @@ down_w
 wait 0.4
 up_w
 )
-function from_hive_to_pine_tree_with_red_cannon(
-down_w
-wait 1
-up_w
-down_d
-wait 6.6
-up_d
-down_a
-wait 0.2
-up_a
-sleep 0.1
-down_s
-wait 0.05
-up_s
-jump
-sleep 0.1
-down_d
-wait 1
-up_d
-down_w
-wait 0.45
-up_w
-down_d
-down_s
-wait 0.3
-up_s
-wait 0.45
-up_d
-wait 1
-e
-down_d
-down_s
-wait 1.3
-up_s
-wait 5
-jump
-sleep 1
-jump
-sleep 1
-jump
-wait 13
-up_d
-camera_right
-camera_right
-down_s
-down_d
-wait 0.6
-up_s
-wait 0.3
-up_d
-)
+
 function from_rose_field_to_hive(
 down_w
 down_d
