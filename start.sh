@@ -20,7 +20,6 @@ fi
 
 if [ ! -e lockfile ]; then
 mkdir ~/BeeTuxMacro/variables/
-touch ~/BeeTuxMacro/macro_log.txt
 
 touch ~/BeeTuxMacro/variables/should_stockings
 touch ~/BeeTuxMacro/variables/should_gingerbread
@@ -48,7 +47,6 @@ fi
 
 
 notify-send "☃️ Beetux Macro" "⏯️ Macro setup started" -i ~/BeeTuxMacro/frosty_bee.png
-echo "[$(date +"%H:%M:%S")] ⏯️ Macro setup started " >> ~/BeeTuxMacro/macro_log.txt
 touch lockfile
 
 unhold_keys
@@ -60,9 +58,6 @@ bash -c ~/BeeTuxMacro/timer.sh &
 fi
 
 bash -c ~/BeeTuxMacro/pre_farm.sh
-
-
-echo "[$(date +"%H:%M:%S")] ✅ Macro setup ended" >> ~/BeeTuxMacro/macro_log.txt
 
 else
 screenshot macroend
