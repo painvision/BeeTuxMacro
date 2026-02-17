@@ -49,7 +49,7 @@ Planned:
 - [ ] Bamboo Field
 - [ ] Cactus Field
 
-# 𝐅𝐞𝐚𝐭𝐮𝐫𝐞𝐬
+# Features
 - [X] Farm till full backpack and go back to hive
 - [X] Convert for time
 - [X] Auto sprinkler
