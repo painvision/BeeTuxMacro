@@ -29,6 +29,7 @@ jump
 jump
 sleep 8
 camera_left
+shift_lock_toggle
 down_a
 wait 0.7
 up_a

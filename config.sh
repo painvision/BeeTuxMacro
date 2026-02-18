@@ -57,16 +57,16 @@ function farm_pattern(
 # SCREENSHOTS=0
 
 # Collects gingerbread house every 2 hours
-# AUTO_GINGERBREAD_HOUSE=1
+AUTO_GINGERBREAD_HOUSE=1
 
 # Collects stockings every 1 hours
-# AUTO_STOCKINGS=1
+AUTO_STOCKINGS=1
 
 # Wealth clock every 1 hours
-# AUTO_WEALTH_CLOCK=1
+AUTO_WEALTH_CLOCK=1
 
 # Should do honey wreath?
-# AUTO_WREATH=1
+AUTO_WREATH=1
 
 # Uncomment if you configured and confirm using this config
-# CONFIGURED=""
+CONFIGURED=""
