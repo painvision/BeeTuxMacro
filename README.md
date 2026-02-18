@@ -31,7 +31,7 @@ Open source Bee Swarm Simulator macro made for Linux. Supports every DE or WM, W
 > If you encounter bugs, open an issue, make a pull request, or contact me on [Telegram](https://t.me/NextTimeUsername). [🇷🇺/🇺🇸]
 
 <p align='center'>
-<a href="https://github.com/painvision/BeeTuxMacro/README_ru.md">
+<a href="https://github.com/painvision/BeeTuxMacro/blob/main/README_ru.md">
   README.md на русском
 </a>
 </p>
