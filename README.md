@@ -1,105 +1,95 @@
-> [!IMPORTANT]
-> If you found macro interesting, consider starring repository. It means a lot for me 
-
 <h1 align='center'>
 BeeTux Macro ☃️
 </h1>
 
-Open source Bee Swarm Simulator macro made for Linux. 🐧
-Written with bash and [ydotool](https://github.com/ReimuNotMoe/ydotool), BeeTux supports every DE or WM, Wayland and maybe X11
+<p align='center'>
+Open source Bee Swarm Simulator macro made for Linux. Supports every DE or WM, Wayland and maybe X11 🐧 
+</p> 
+<p align='center'>
+
+  <a href="https://wikipedia.org/wiki/Bash_(Unix_shell)">
+<img src="https://img.shields.io/badge/GNU%20Bash-4EAA25?style=for-the-badge&logo=GNU%20Bash&logoColor=white" />
+</a>
+
+<a href="https://wikipedia.org/wiki/Linux">
+  <img src="https://img.shields.io/badge/Linux-FCC624?style=for-the-badge&logo=linux&logoColor=black" />
+</a>
+  
+  <a href="https://t.me/NextTimeUsername">
+<img src="https://img.shields.io/badge/Telegram-2CA5E0?style=for-the-badge&logo=telegram&logoColor=white" />  
+</a>
+
+  <a href="https://github.com/painvision/BeeTuxMacro/stargazers">
+  <img alt="GitHub Repo stars" src="https://img.shields.io/github/stars/painvision/BeeTuxMacro?style=for-the-badge" />
+  </a>
+
+</p>
 
 > [!WARNING]
-> Macro is not stable. If you encounter bugs, open an issue, make a pull request, or contact me on [Telegram](https://t.me/NextTimeUsername).
+> Macro is still work-in-progress. If you encounter bugs, open an issue, make a pull request, or contact me on [Telegram](https://t.me/NextTimeUsername).
 
-# Installation
+<h1 align='center'>
+Installation
+</h1>
 
-Install `ydotool imagemagick bc xorg-xrandr`  and `grim` (if Wayland) using your package manager.
-Open a terminal. Clone this repository:
+### Install dependencies
+
+- Arch-based distros:
+```
+sudo pacman -S ydotool imagemagick bc xorg-xrandr grim
+```
+- Debian-based distros:
+```
+sudo apt install ydotool imagemagick bc xorg-xrandr grim
+```
+### Open a terminal. Clone this repository:
 
 ```
 git clone https://github.com/painvision/BeeTuxMacro/
-cd BeeTuxMacro/
 ```
 
-# Configuration 
-Edit file `~/BeeTuxMacro/config.sh` using your favourite text editor
+<h1 align='center'>
+Configuration 
+</h1>
 
+There's no GUI (for now)
+
+Edit `~/BeeTuxMacro/config.sh` file using your favourite text editor
+
+<h1 align='center'>
 # Setup
-You should have ydotoold running in a background, so macro could interact with your keyboard. Best way to launch ydotool daemon is by running this command:
+</h1>
+
+> [!WARNING]
+> While macroing, your display scaling option MUST be 100%, Roblox on fullscreen and nothing interrupting it 
+
+You should have ydotoold running in a background, so macro could interact with your keyboard. **You can add it to your autostart because of its 4 MB of RAM usage.** Best way to launch ydotool daemon:
 ```
 sudo /usr/bin/ydotoold --socket-path="/run/user/1000/.ydotool_socket" --socket-own="1000:1000"
 ```
-> [!TIP]
-> You can add it to your autostart because of its 4 MB of RAM usage
 
-Once ydotoold is running, you can start macroing. Following command is for toggling macro on/off
+Once ydotoold is running, you can start macroing. Toggling macro on/off
 ```
 bash -c ~/BeeTuxMacro/start.sh
 ```
-Find a way to setup keybind with bash script in your WM/DE. 
+Find a way to setup keybind with shell command in your WM/DE. 
 
-# Fields
+<h1 align='center'>
+Roadmap
+</h1>
 
-- [X] Pine Tree Forest
-- [X] Rose Field
-- [X] Pumpkin Field
-- [X] Pineapple Field
+| Fields              | Features                                  | QoL                                            | Codebase  |
+| ------------------- | ----------------------------------------- | ---------------------------------------------- |---------- |
+| ✅ Pine Tree Forest | ✅ Auto Dig                               | ❌ GUI for settings instead of notifications   | ❌ Image recognition function (python)
+| ✅ Rose Field       | ✅ Auto Sprinkler                         | ⏳ Macro releases instead of git repo          | ❌ Image instability function 
+| ✅ Pumpkin Field    | ✅ Auto Wealth Clock                      | ❌ Telegram bot hooking                        | ❌ Detect no pollen increase (image instability function)
+| ✅ Pineapple Field  | ✅ Auto Gingerbread House                 | ❌ Pause/resume macro                          | ❌ Fixing camera position after reset (recognition function)
+| ❌ Stump Field      | ✅ Auto Stockings                         | ❌❌ Claim hive function                       | ❌ Recalculate path walking time OR not walking at all when haste is active (recognition)
+| ⏳ Strawberry Field | ✅ Auto Honey Wreath                      |                                                | ❌ Auto reconnect (recognition function)
+| ❌ Bamboo Field     | ✅ Walkspeed based calculation for paths  |                                                | ❌ Rewrite walking functions for better code understanding and reading
+| ❌ Cactus Field     | ❌ Auto Whirligig                         |                                                |
+|                     | ❌ Auto Micro Converter 
 
-Planned:
-
-- [ ] Stump Field
-- [ ] Strawberry Field
-- [ ] Bamboo Field
-- [ ] Cactus Field
-
-# Features
-- [X] Farm till full backpack and go back to hive
-- [X] Convert for time
-- [X] Auto sprinkler
-- [X] Auto dig
-- [X] Walkspeed based calculation for paths
-- [X] Auto Wealth Clock
-- [X] Auto Gingerbread House
-- [X] Auto Stockings 
-- [X] Advanced logging
-- [X] Honey Wreath for converting
-
-
-# TO DO
-
-### Stability:
-- [ ] Image recognition function (should use python for that)
-- [ ] Image instability function (calculate how much picture 1 different from picture 2)
-- [ ] Detect no pollen increase using image instability function
-- [ ] Set right camera position after reset with image recognition function
-- [ ] Recalculate path walking time OR not walking at all when haste exists using image recognition function
-- [ ] Auto reconnect with image recognition function and claim hive function
-- [X] Full backpack detection on red shades, not only specific pixel color in /stuff/utils.sh
-- [X] Replace sprinklers after player reset (variables/sprinklers_set)
-
-### Optimization:
-
-- [X] Remake from_hive_to_pine_tree_with_red_cannon with glider
-- [X] Optimize climbing to red cannon
-- [X] Full backpack detection repeat itself while farming, not when done farm pattern (separate check.sh)
-
-### Codebase:
-
-- [ ] Rewrite walking functions for better code understanding and reading
-> from "down_s; wait 0.5; down_d; wait 0.5; up_d up_s"
-> to "walk_s 0.5; walk_sd 0.5"
-- [X] Split start.sh in pre_farm.sh, farm.sh and after_farm.sh
-- [X] Get rid of screenshots and logging
-
-### QoL:
-- [X] No need to manually configure full backpack pixel
-- [ ] Pause/resume macro with toggle.sh or second start.sh call
-- [ ] Graphical user interface for settings
-- [ ] Telegram bot hooking (like restarting macro, get current screenshot, honey monitoring)
-- [ ] Claim hive function with image recognition function
-
-### Features:
-- [ ] Whirligig (Need image recognition function)
-- [ ] Micro Converter (Need image recognition function)
-
-How many times i said "image recognition function"?
+<p align='center'>
+If you found macro interesting, consider starring repository. It helps a lot  💞
+</p>
