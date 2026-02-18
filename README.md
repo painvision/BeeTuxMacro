@@ -4,9 +4,11 @@ BeeTux Macro ☃️
 
 <p align='center'>
 Open source Bee Swarm Simulator macro made for Linux. Supports every DE or WM, Wayland and maybe X11 🐧 
+
 </p> 
 <p align='center'>
 
+  
   <a href="https://wikipedia.org/wiki/Bash_(Unix_shell)">
 <img src="https://img.shields.io/badge/GNU%20Bash-4EAA25?style=for-the-badge&logo=GNU%20Bash&logoColor=white" />
 </a>
@@ -26,7 +28,13 @@ Open source Bee Swarm Simulator macro made for Linux. Supports every DE or WM, W
 </p>
 
 > [!WARNING]
-> Macro is still work-in-progress. If you encounter bugs, open an issue, make a pull request, or contact me on [Telegram](https://t.me/NextTimeUsername).
+> If you encounter bugs, open an issue, make a pull request, or contact me on [Telegram](https://t.me/NextTimeUsername). [🇷🇺/🇺🇸]
+
+<p align='center'>
+<a href="https://github.com/painvision/BeeTuxMacro/README_ru.md">
+  README.md на русском
+</a>
+</p>
 
 <h1 align='center'>
 Installation
@@ -57,7 +65,7 @@ There's no GUI (for now)
 Edit `~/BeeTuxMacro/config.sh` file using your favourite text editor
 
 <h1 align='center'>
-# Setup
+Setup
 </h1>
 
 > [!WARNING]
