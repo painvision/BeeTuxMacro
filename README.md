@@ -3,7 +3,7 @@ BeeTux Macro ☃️
 </h1>
 
 <p align='center'>
-Open source Bee Swarm Simulator macro made for Linux. Supports every DE or WM on Wayland 🐧 
+Open source Bee Swarm Simulator macro made for Linux. Supports every DE or WM on Wayland and maybe X11🐧 
 
 </p> 
 
@@ -96,24 +96,20 @@ Roadmap
 | ✅ Pumpkin Field    | ✅ Auto Wealth Clock                      | ❌ Telegram bot hooking                        | ❌ Detect no pollen increase (image instability function)
 | ✅ Pineapple Field  | ✅ Auto Gingerbread House                 | ❌ Pause/resume macro                          | ❌ Fixing camera position after reset (recognition function)
 | ❌ Stump Field      | ✅ Auto Stockings                         | ❌❌ Claim hive function                       | ❌ Recalculate path walking time OR not walking at all when haste is active (recognition)
-<<<<<<< HEAD
 | ⏳ Strawberry Field | ✅ Auto Honey Wreath                      | ❌ Test all DE/WM                                             | ❌ Auto reconnect (recognition function)
-=======
-| ⏳ Strawberry Field | ✅ Auto Honey Wreath                      | ✅ Set maximum time to farm if pixel detection fails                    | ❌ Auto reconnect (recognition function)
->>>>>>> 83f6ec9 (added maximum time to farm)
+|                     | ✅ Set maximum time to farm if pixel detection fails                    | ❌ Auto reconnect (recognition function)
 | ❌ Bamboo Field     | ✅ Walkspeed based calculation for paths  |                                                | ❌ Rewrite walking functions for better code understanding and reading
 | ❌ Cactus Field     | ❌ Auto Whirligig                         |                                                |
 |                     | ❌ Auto Micro Converter                   |
-|                     |               |
 
 Tested DE and WM
 
 | DE/WM | Status | Explanation
 | ----- | ------ | ------------
-| Hyprland | Works flawlessly ✅ | It is a compositor that im working with
-| GNOME | Don't work ❌ | Mutter. Can be fixed though with gnome-screenshot
+| Hyprland | Works flawlessly ✅ | It is a compositor that im working with. Works as intended
+| GNOME | Pixel detection don't work ❌ | Mutter. Can be fixed though with gnome-screenshot (edit: NOPE)
 | KDE Plasma | Not tested |
-| Cinnamon | Don't work ❌ | Muffin. Even flameshot dont work. Cannot be fixed
+| Cinnamon | Pixel detection don't work ❌ | Muffin. Even flameshot dont work. Cannot be fixed
 
 
 <p align='center'>
