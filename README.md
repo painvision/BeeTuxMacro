@@ -108,7 +108,7 @@ Tested DE and WM
 | Hyprland | Works flawlessly ✅ | It is a compositor that im working with
 | GNOME | Don't work ❌ | Mutter. Can be fixed though with gnome-screenshot
 | KDE Plasma | Not tested |
-| Cinnamon | Not tested
+| Cinnamon | Don't work ❌ | Muffin. Even flameshot dont work. Cannot be fixed
 
 
 <p align='center'>
