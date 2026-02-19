@@ -10,7 +10,7 @@ do
     if pixel_in_red_range $(get_pixel_coords); then
         if [ "$ELAPSED" -gt "$FARM_SECONDS" ]; then
             pkill -f farm.sh
-            bash -c ~/BeeTuxMacro/after_farm.s
+            bash -c ~/BeeTuxMacro/after_farm.sh
             pkill -f check_inventory.sh
         fi
     fi
