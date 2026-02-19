@@ -3,12 +3,9 @@ BeeTux Macro ☃️
 </h1>
 
 <p align='center'>
-Open source Bee Swarm Simulator macro made for Linux. Supports every DE or WM, Wayland and maybe X11 🐧 
+Open source Bee Swarm Simulator macro made for Linux. Supports every DE or WM on Wayland 🐧 
 
 </p> 
-
-> 📌 ALERT
-> GNOME and KDE might not work because of unsupported protocols `grim` use. Wait before i rewrite check inventory function on `scrot`. Macro is working well on wayland compositors like Hyprland
 
 <p align='center'>
   
@@ -32,6 +29,9 @@ Open source Bee Swarm Simulator macro made for Linux. Supports every DE or WM, W
 
 > [!WARNING]
 > If you encounter bugs, open an issue, make a pull request, or contact me on [Telegram](https://t.me/NextTimeUsername). [🇷🇺/🇺🇸]
+
+> 📌 ALERT
+> Any DE on Mutter won't work. Macro is working well on pure Wayland DE and compositors
 
 <p align='center'>
 <a href="https://github.com/painvision/BeeTuxMacro/blob/main/README_ru.md">
@@ -96,10 +96,20 @@ Roadmap
 | ✅ Pumpkin Field    | ✅ Auto Wealth Clock                      | ❌ Telegram bot hooking                        | ❌ Detect no pollen increase (image instability function)
 | ✅ Pineapple Field  | ✅ Auto Gingerbread House                 | ❌ Pause/resume macro                          | ❌ Fixing camera position after reset (recognition function)
 | ❌ Stump Field      | ✅ Auto Stockings                         | ❌❌ Claim hive function                       | ❌ Recalculate path walking time OR not walking at all when haste is active (recognition)
-| ⏳ Strawberry Field | ✅ Auto Honey Wreath                      |                                                | ❌ Auto reconnect (recognition function)
+| ⏳ Strawberry Field | ✅ Auto Honey Wreath                      | ❌ Test all DE/WM                                             | ❌ Auto reconnect (recognition function)
 | ❌ Bamboo Field     | ✅ Walkspeed based calculation for paths  |                                                | ❌ Rewrite walking functions for better code understanding and reading
 | ❌ Cactus Field     | ❌ Auto Whirligig                         |                                                |
 |                     | ❌ Auto Micro Converter 
+
+Tested DE and WM
+
+| DE/WM | Status | Explanation
+| ----- | ------ | ------------
+| Hyprland | Works flawlessly ✅ | It is a compositor that im working with
+| GNOME | Don't work ❌ | Mutter. Can be fixed though with gnome-screenshot
+| KDE Plasma | Not tested |
+| Cinnamon | Not tested
+
 
 <p align='center'>
 If you found macro interesting, consider starring repository. It helps a lot  💞
