@@ -88,7 +88,7 @@ bash -c ~/BeeTuxMacro/start.sh
 | ✅ Pineapple Field  | ✅ Авто Пряничный Домик                 | ❌ Pause/resume macro                          | ❌ Fixing camera position after reset (recognition function)
 | ❌ Stump Field      | ✅ Авто Носки                        | ❌❌ Claim hive function                       | ❌ Recalculate path walking time OR not walking at all when haste is active (recognition)
 | ⏳ Strawberry Field | ✅ Авто Honey Wreath                      |                                                | ❌ Auto reconnect (recognition function)
-| ❌ Bamboo Field     | ✅ Бег на основе walkspeedd  |                                                | ❌ Rewrite walking functions for better code understanding and reading
+| ❌ Bamboo Field     | ✅ Бег на основе walkspeed  |                                                | ❌ Rewrite walking functions for better code understanding and reading
 | ❌ Cactus Field     | ❌ Авто Whirligig                         |                                                |
 |                     | ❌ Авто Микро конвертер 
 

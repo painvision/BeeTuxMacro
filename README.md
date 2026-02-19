@@ -96,10 +96,15 @@ Roadmap
 | ✅ Pumpkin Field    | ✅ Auto Wealth Clock                      | ❌ Telegram bot hooking                        | ❌ Detect no pollen increase (image instability function)
 | ✅ Pineapple Field  | ✅ Auto Gingerbread House                 | ❌ Pause/resume macro                          | ❌ Fixing camera position after reset (recognition function)
 | ❌ Stump Field      | ✅ Auto Stockings                         | ❌❌ Claim hive function                       | ❌ Recalculate path walking time OR not walking at all when haste is active (recognition)
+<<<<<<< HEAD
 | ⏳ Strawberry Field | ✅ Auto Honey Wreath                      | ❌ Test all DE/WM                                             | ❌ Auto reconnect (recognition function)
+=======
+| ⏳ Strawberry Field | ✅ Auto Honey Wreath                      | ✅ Set maximum time to farm if pixel detection fails                    | ❌ Auto reconnect (recognition function)
+>>>>>>> 83f6ec9 (added maximum time to farm)
 | ❌ Bamboo Field     | ✅ Walkspeed based calculation for paths  |                                                | ❌ Rewrite walking functions for better code understanding and reading
 | ❌ Cactus Field     | ❌ Auto Whirligig                         |                                                |
-|                     | ❌ Auto Micro Converter 
+|                     | ❌ Auto Micro Converter                   |
+|                     |               |
 
 Tested DE and WM
 
