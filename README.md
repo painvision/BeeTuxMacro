@@ -6,8 +6,11 @@ BeeTux Macro ☃️
 Open source Bee Swarm Simulator macro made for Linux. Supports every DE or WM, Wayland and maybe X11 🐧 
 
 </p> 
-<p align='center'>
 
+> 📌 ALERT
+> GNOME and KDE might not work because of unsupported protocols `grim` use. Wait before i rewrite check inventory function on `scrot`. Macro is working well on wayland compositors like Hyprland
+
+<p align='center'>
   
   <a href="https://wikipedia.org/wiki/Bash_(Unix_shell)">
 <img src="https://img.shields.io/badge/GNU%20Bash-4EAA25?style=for-the-badge&logo=GNU%20Bash&logoColor=white" />
