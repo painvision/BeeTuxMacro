@@ -1,3 +1,7 @@
+<p align='center'>
+<img src="https://github.com/painvision/BeeTuxMacro/blob/main/frosty_bee.png">
+</p>
+  
 <h1 align='center'>
 BeeTux Macro ☃️
 </h1>
