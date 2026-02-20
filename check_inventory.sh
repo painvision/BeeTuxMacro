@@ -7,11 +7,10 @@ START_TIME=$SECONDS
 while :
 do
 ELAPSED=$(( SECONDS - START_TIME ))
-if [[ pixel_in_red_range $(get_pixel_coords) || "$ELAPSED" -gt "$FARM_SECONDS" ]]; then
+if pixel_in_red_range $(get_pixel_coords) || [ "$ELAPSED" -gt "$FARM_SECONDS" ]; then
 pkill -f farm.sh
 bash -c ~/BeeTuxMacro/after_farm.sh
 pkill -f check_inventory.sh
-fi
 fi
 sleep 1
 done
