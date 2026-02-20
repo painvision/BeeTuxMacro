@@ -17,7 +17,7 @@ BeeTux Макро ☃️
   <img src="https://img.shields.io/badge/Linux-FCC624?style=for-the-badge&logo=linux&logoColor=black" />
 </a>
   
-  <a href="https://t.me/NextTimeUsername">
+  <a href="https://t.me/+gws61dtKyIRlYzky">
 <img src="https://img.shields.io/badge/Telegram-2CA5E0?style=for-the-badge&logo=telegram&logoColor=white" />  
 </a>
 
@@ -28,7 +28,7 @@ BeeTux Макро ☃️
 </p>
 
 > [!WARNING]
-> Если вы встретились с багами, откройте проблему, сделайте пул реквест, или свяжитесь со мной через [Телеграм](https://t.me/NextTimeUsername). [🇷🇺/🇺🇸]
+> Если вы встретились с багами, откройте проблему, сделайте пул реквест, или зайдите в нашу группу [Телеграм](https://t.me/+gws61dtKyIRlYzky). [🇷🇺/🇺🇸]
 
 <h1 align='center'>
 Установка
