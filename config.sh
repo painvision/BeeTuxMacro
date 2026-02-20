@@ -12,7 +12,7 @@ SPRINKLER_SLOT=1
 WALKSPEED=28
 
 # Set maximum seconds you can farm. This won't cancel full backpack detection, just a protection if it fails for too long
-FARM_SECONDS=10 #5 minutes
+FARM_SECONDS=300 #5 minutes
 
 # Approximate time to convert full backpack
 CONVERT_TIME=70
