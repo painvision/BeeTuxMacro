@@ -77,4 +77,4 @@ function farm_pattern(
 # AUTO_WREATH=1
 
 # Uncomment if you configured and confirm using this config
-CONFIGURED=""
+# CONFIGURED=""
