@@ -5,6 +5,9 @@
 # |____/ \___|\___||_|  \___//_/\_\
 #                             by painvision
 
+# Use sprinklers
+USE_SPRINKLER=1 #0 - off, 1 - on
+
 # Enter the number where your sprinkler is
 SPRINKLER_SLOT=1
 

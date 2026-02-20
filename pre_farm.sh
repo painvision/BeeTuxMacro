@@ -19,13 +19,14 @@ fi
 
 go_to_field
 
+if [[ $USE_SPRINKLER == 1 ]]; then
 if [[ -f ~/BeeTuxMacro/variables/sprinklers_placed ]]; then
 echo sprinklers placed
 else
 place_splinker
 touch ~/BeeTuxMacro/variables/sprinklers_placed
 fi
-
+fi
 screenshot macrostart
 echo "[$(date +"%H:%M:%S")]  🌸 Farming pollen... " >> ~/BeeTuxMacro/macro_log.txt
 bash -c ~/BeeTuxMacro/farm.sh & bash -c ~/BeeTuxMacro/check_inventory.sh

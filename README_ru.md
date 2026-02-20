@@ -83,7 +83,7 @@ bash -c ~/BeeTuxMacro/start.sh
 | Поля              | Функции                                  | Улучшения для пользователя (бля дальше лень переводить)                                            | Codebase  |
 | ------------------- | ----------------------------------------- | ---------------------------------------------- |---------- |
 | ✅ Pine Tree Forest | ✅ Авто копание                               | ❌ GUI for settings instead of notifications   | ❌ Image recognition function (python)
-| ✅ Rose Field       | ✅ Авто поливалка                         | ⏳ Macro releases instead of git repo          | ❌ Image instability function 
+| ✅ Rose Field       | ✅ Авто поливалка (теперь может быть выключено)                         | ⏳ Macro releases instead of git repo          | ❌ Image instability function 
 | ✅ Pumpkin Field    | ✅ Авто Wealth Clock                      | ❌ Telegram bot hooking                        | ❌ Detect no pollen increase (image instability function)
 | ✅ Pineapple Field  | ✅ Авто Пряничный Домик                 | ❌ Pause/resume macro                          | ❌ Fixing camera position after reset (recognition function)
 | ❌ Stump Field      | ✅ Авто Носки                        | ❌❌ Claim hive function                       | ❌ Recalculate path walking time OR not walking at all when haste is active (recognition)
