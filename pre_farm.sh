@@ -28,5 +28,4 @@ touch ~/BeeTuxMacro/variables/sprinklers_placed
 fi
 fi
 screenshot macrostart
-echo "[$(date +"%H:%M:%S")]  🌸 Farming pollen... " >> ~/BeeTuxMacro/macro_log.txt
 bash -c ~/BeeTuxMacro/farm.sh & bash -c ~/BeeTuxMacro/check_inventory.sh
