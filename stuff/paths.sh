@@ -1,3 +1,67 @@
+function from_strawberry_to_hive(
+camera_left
+camera_left
+camera_left
+camera_left
+down_d
+down_w
+wait 0.5
+up_d
+wait 3
+up_w
+down_a
+wait 7
+up_a
+down_w
+wait 0.7
+up_w
+down_d
+wait 0.4
+down_w
+wait 11
+up_d
+down_a
+wait 12
+up_a
+up_w
+down_s
+wait 0.7
+up_s
+down_a
+wait 4
+down_w
+wait 0.2
+up_w
+wait 3
+up_a
+down_w
+wait 0.5
+up_w
+down_a
+wait 0.5
+up_a
+)
+
+function from_hive_to_strawberry_with_red_cannon(
+from_hive_to_red_cannon
+camera_right
+camera_right
+camera_right
+camera_right
+shift_lock_toggle
+e
+sleep 0.35
+jump
+jump
+shift_lock_toggle
+sleep 7
+down_a
+down_s
+wait 0.5
+up_s
+up_a
+)
+
 function from_hive_to_red_cannon(
 down_w
 wait 1

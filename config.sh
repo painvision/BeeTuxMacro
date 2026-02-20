@@ -28,8 +28,9 @@ function go_to_field(
 #                       from_hive_to_pine_tree_with_red_cannon
 #                       from_hive_to_pumpkin_with_red_cannon
 #                       from_hive_to_pineapple_with_red_cannon
+#                       from_hive_to_strawberry_with_red_cannon
 
-                        from_hive_to_pine_tree_with_red_cannon
+                        from_hive_to_strawberry_with_red_cannon
 )
 
 function back_to_hive(
@@ -39,8 +40,9 @@ function back_to_hive(
 #                    from_pine_tree_to_hive
 #                    from_pumpkin_to_hive
 #                    from_pineapple_to_hive
+#                    from_strawberry_to_hive
 
-                     from_pine_tree_to_hive
+                     from_strawberry_to_hive
 
 )
 
@@ -75,4 +77,4 @@ function farm_pattern(
 # AUTO_WREATH=1
 
 # Uncomment if you configured and confirm using this config
-# CONFIGURED=""
+CONFIGURED=""

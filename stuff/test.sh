@@ -4,7 +4,7 @@
 unhold_keys
 if [ ! -e lockfiletest ]; then
 touch lockfiletest
-from_hive_to_red_cannon
+from_strawberry_to_hive
 rm lockfiletest
 else
 unhold_keys
