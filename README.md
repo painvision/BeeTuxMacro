@@ -21,7 +21,7 @@ Open source Bee Swarm Simulator macro made for Linux. Supports every DE or WM on
   <img src="https://img.shields.io/badge/Linux-FCC624?style=for-the-badge&logo=linux&logoColor=black" />
 </a>
   
-  <a href="https://t.me/NextTimeUsername">
+  <a href="https://t.me/+gws61dtKyIRlYzky">
 <img src="https://img.shields.io/badge/Telegram-2CA5E0?style=for-the-badge&logo=telegram&logoColor=white" />  
 </a>
 
@@ -32,7 +32,7 @@ Open source Bee Swarm Simulator macro made for Linux. Supports every DE or WM on
 </p>
 
 > [!WARNING]
-> If you encounter bugs, open an issue, make a pull request, or contact me on [Telegram](https://t.me/NextTimeUsername). [🇷🇺/🇺🇸]
+> If you encounter bugs, open an issue, make a pull request, or join our group on [Telegram](https://t.me/+gws61dtKyIRlYzky). [🇷🇺/🇺🇸]
 
 > 📌 ALERT
 > Any DE on Mutter won't work. Macro is working well on pure Wayland DE and compositors
