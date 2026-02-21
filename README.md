@@ -114,7 +114,10 @@ Tested DE and WM
 | GNOME | Pixel detection don't work ❌ | Mutter. Can be fixed though with gnome-screenshot (edit: NOPE)
 | KDE Plasma | Not tested |
 | Cinnamon | Pixel detection don't work ❌ | Muffin. Even flameshot dont work. Cannot be fixed
-
+| i3 | Works ✅ |
+| Sway | Works ✅ |
+| Wayfire | Works ✅ |
+| Cosmic DE | Works ✅ |
 
 <p align='center'>
 If you found macro interesting, consider starring repository. It helps a lot  💞
