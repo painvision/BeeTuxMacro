@@ -14,6 +14,12 @@ SPRINKLER_SLOT=1
 # Enter your walking speed WITHOUT haste tokens
 WALKSPEED=28
 
+# 0 - only backpack detection
+# 1 - backpack detection + farm seconds backup
+# 2 - only farm seconds
+
+BACKPACK_DETECTION_MODE=2
+
 # Set maximum seconds you can farm. This won't cancel full backpack detection, just a protection if it fails for too long
 FARM_SECONDS=300 #5 minutes
 
