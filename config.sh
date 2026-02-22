@@ -5,22 +5,24 @@
 # |____/ \___|\___||_|  \___//_/\_\
 #                             by painvision
 
+# Enter your walking speed WITHOUT haste tokens
+WALKSPEED=28
+
 # Use sprinklers
 USE_SPRINKLER=1 #0 - off, 1 - on
 
 # Enter the number where your sprinkler is
 SPRINKLER_SLOT=1
 
-# Enter your walking speed WITHOUT haste tokens
-WALKSPEED=28
+# Backpack detection modes, how macro should trigger back_to_hive function
 
-# 0 - only backpack detection
-# 1 - backpack detection + farm seconds backup
-# 2 - only farm seconds
+# 0 - only full backpack pixel detection (only if you have grim supported)
+# 1 - backpack detection + farm seconds for maximum time and backup
+# 2 - only farm for seconds
 
 BACKPACK_DETECTION_MODE=2
 
-# Set maximum seconds you can farm. This won't cancel full backpack detection, just a protection if it fails for too long
+# Set maximum seconds you can farm
 FARM_SECONDS=300 #5 minutes
 
 # Approximate time to convert full backpack
@@ -36,6 +38,8 @@ function go_to_field(
 #                       from_hive_to_pineapple_with_red_cannon
 #                       from_hive_to_strawberry_with_red_cannon
 
+
+#                       ENTER YOUR OPTION HERE ⬇
                         from_hive_to_strawberry_with_red_cannon
 )
 
@@ -48,27 +52,22 @@ function back_to_hive(
 #                    from_pineapple_to_hive
 #                    from_strawberry_to_hive
 
+#                    ENTER YOUR OPTION HERE ⬇
                      from_strawberry_to_hive
 
 )
 
 function farm_pattern(
+
 # Choose your favourite pattern to farm on fields
 
 # Available options:    farm_square
 #                       farm_snake
 #                       farm_better_snake
 
+#                       ⬇ ENTER YOUR OPTION HERE
                         farm_better_snake
 )
-
-# Type "0" if you won't use autoscreenshots
-
-# Screenshots when:
-# - Started a macro
-# - Converted pollen
-
-# SCREENSHOTS=0
 
 # Collects gingerbread house every 2 hours
 # AUTO_GINGERBREAD_HOUSE=1
@@ -77,10 +76,10 @@ function farm_pattern(
 # AUTO_STOCKINGS=1
 
 # Wealth clock every 1 hours
-# AUTO_WEALTH_CLOCK=1
+AUTO_WEALTH_CLOCK=1
 
-# Should do honey wreath?
-# AUTO_WREATH=1
+# Honey wreath for converting
+AUTO_WREATH=1
 
 # Uncomment if you configured and confirm using this config
 # CONFIGURED=""

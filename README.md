@@ -105,7 +105,7 @@ Roadmap
 | ❌ Bamboo Field     | ✅ Walkspeed based calculation for paths  | 📌 Global keybind (no need to manually set it in Settings                                    | ❌ Rewrite walking functions for better code understanding and reading
 | ❌ Cactus Field     | ❌ Auto Whirligig                         |                                                |
 |                     | ❌ Auto Micro Converter                   |
-
+|                     | ✅ Backpack detection modes (pixel-only/pixel-time/time-only modes) |
 Tested DE and WM
 
 | DE/WM | Status | Explanation

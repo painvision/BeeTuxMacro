@@ -60,8 +60,6 @@ fi
 bash -c ~/BeeTuxMacro/pre_farm.sh
 
 else
-screenshot macroend
-unhold_keys
 rm lockfile
 exit_macro
 fi

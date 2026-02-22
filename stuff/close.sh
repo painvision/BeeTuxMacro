@@ -1,5 +1,7 @@
 . ~/BeeTuxMacro/stuff/utils.sh
 unhold_keys
+unhold_keys
+unhold_keys
 notify-send "Beetux Macro" "😢 Macro cancelled" -i ~/BeeTuxMacro/frosty_bee.png
 for i in {1..5}:
 do

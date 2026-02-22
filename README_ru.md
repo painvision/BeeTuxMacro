@@ -91,7 +91,7 @@ bash -c ~/BeeTuxMacro/start.sh
 | ❌ Bamboo Field     | ✅ Бег на основе walkspeed  |                                                | ❌ Rewrite walking functions for better code understanding and reading
 | ❌ Cactus Field     | ❌ Авто Whirligig                         |                                                |
 |                     | ❌ Авто Микро конвертер 
-
+|                     | ✅ Режимы проверки рюкзака (только по пикселю/пиксель+время/только по времени)
 Проверенные оболочки и оконные менеджеры
 
 | Оболочки | Статус | Объяснение
