@@ -95,7 +95,7 @@ Roadmap
 
 | Fields              | Features                                  | QoL                                            | Codebase  |
 | ------------------- | ----------------------------------------- | ---------------------------------------------- |---------- |
-| ✅ Pine Tree Forest | ✅ Auto Dig                               | ❌ GUI for settings instead of notifications   | ❌ Image recognition function (python)
+| ✅ Pine Tree Forest | ✅ Auto Dig                               | 📌 GUI for settings instead of notifications   | ❌ Image recognition function (python)
 | ✅ Rose Field       | ✅ Auto Sprinkler (can be toggled now)                         | ⏳ Macro releases instead of git repo          | ❌ Image instability function 
 | ✅ Pumpkin Field    | ✅ Auto Wealth Clock                      | ❌ Telegram bot hooking                        | ❌ Detect no pollen increase (image instability function)
 | ✅ Pineapple Field  | ✅ Auto Gingerbread House                 | ❌ Pause/resume macro                          | ❌ Fixing camera position after reset (recognition function)
@@ -112,7 +112,7 @@ Tested DE and WM
 | ----- | ------ | ------------
 | Hyprland | Works flawlessly ✅ | It is a compositor that im working with. Works as intended
 | GNOME | Pixel detection don't work ❌ | Mutter. Can be fixed though with gnome-screenshot (edit: NOPE)
-| KDE Plasma | Not tested |
+| KDE Plasma | Don't work ❌ |
 | Cinnamon | Pixel detection don't work ❌ | Muffin. Even flameshot dont work. Cannot be fixed
 | i3 | Works ✅ |
 | Sway | Works ✅ |
