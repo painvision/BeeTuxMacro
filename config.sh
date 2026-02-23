@@ -40,7 +40,7 @@ function go_to_field(
 
 
 #                       ENTER YOUR OPTION HERE ⬇
-                        from_hive_to_strawberry_with_red_cannon
+                        from_hive_to_pine_tree_with_red_cannon
 )
 
 function back_to_hive(
@@ -53,7 +53,7 @@ function back_to_hive(
 #                    from_strawberry_to_hive
 
 #                    ENTER YOUR OPTION HERE ⬇
-                     from_strawberry_to_hive
+                     from_pine_tree_to_hive
 
 )
 

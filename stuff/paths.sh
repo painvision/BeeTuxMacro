@@ -424,32 +424,29 @@ camera_left
 sleep 0.2
 camera_left
 down_d
-wait 1.5
-up_d
 down_s
-wait 5
+wait 1
+up_d
+wait 3
 up_s
 down_a
 wait 12
 up_a
 down_w
 wait 6
-jump
-down_w
-wait 9
 up_w
-camera_right
-camera_right
 shift_lock_toggle
-shift_lock_toggle
-camera_left
-camera_left
 jump
 sleep 0.5275
 jump
 sleep 1
+down_d
+wait 1.35
+up_d
+sleep 4
+shift_lock_toggle
 down_w
-wait 6
+wait 5
 up_w
 down_s
 wait 0.35
