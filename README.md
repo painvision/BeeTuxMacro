@@ -106,18 +106,17 @@ Roadmap
 | ❌ Cactus Field     | ❌ Auto Whirligig                         |                                                |
 |                     | ❌ Auto Micro Converter                   |
 |                     | ✅ Backpack detection modes (pixel-only/pixel-time/time-only modes) |
-Tested DE and WM
 
-| DE/WM | Status | Explanation
-| ----- | ------ | ------------
-| Hyprland | Works flawlessly ✅ | It is a compositor that im working with. Works as intended
-| GNOME | Pixel detection don't work ❌ | Mutter. Can be fixed though with gnome-screenshot (edit: NOPE)
-| KDE Plasma | Don't work ❌ |
-| Cinnamon | Pixel detection don't work ❌ | Muffin. Even flameshot dont work. Cannot be fixed
-| i3 | Works ✅ |
-| Sway | Works ✅ |
-| Wayfire | Works ✅ |
-| Cosmic DE | Works ✅ |
+| DE/WM | Status |
+| ----- | ------ |
+| Hyprland | Works flawlessly ✅
+| GNOME | Pixel detection don't work ❌
+| KDE Plasma (Wayland) | Don't work ❌
+| Cinnamon (Wayland)| Pixel detection don't work ❌
+| i3 | Works ✅ 
+| Sway | Works ✅ 
+| Wayfire | Works ✅ 
+| Cosmic DE (Wayland) | Works ✅ 
 
 <p align='center'>
 If you found macro interesting, consider starring repository. It helps a lot  💞
