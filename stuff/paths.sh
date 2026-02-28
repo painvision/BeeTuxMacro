@@ -1,4 +1,96 @@
-#!/bin/bash
+function collect_around(
+down_w
+wait 0.25
+up_w
+down_d
+wait 0.25
+up_d
+down_s
+wait 0.5
+up_s
+down_a
+wait 0.5
+up_a
+down_w
+wait 0.5
+up_w
+down_s
+down_d
+wait 0.35
+up_s
+up_d
+)
+
+function farm_mobs(
+from_hive_to_red_cannon
+camera_right
+camera_right
+shift_lock_toggle
+e
+sleep 0.5
+jump
+sleep 0.1
+jump
+shift_lock_toggle
+sleep 2.5
+jump
+sleep 2
+avoid_mobs 5
+collect_around
+down_d
+wait 12
+up_d
+down_a
+wait 0.5
+up_a
+avoid_mobs 2
+down_d
+wait 1
+up_d
+camera_right
+camera_right
+down_d
+wait 10
+up_d
+down_s
+wait 10
+up_s
+jump
+down_s
+wait 1
+up_s
+sleep 2
+avoid_mobs 5
+sleep 2
+collect_around
+down_a
+wait 0.5
+jump
+wait 3
+up_a
+avoid_mobs 5
+sleep 2
+collect_around
+down_d
+wait 5
+jump
+wait 8
+up_d
+avoid_mobs 4
+sleep 2
+collect_around
+camera_left
+camera_left
+camera_left
+camera_left
+reset
+sleep 20
+from_hive_to_pineapple_with_red_cannon
+avoid_mobs 6
+collect_around
+sleep 2
+reset
+)
 
 function from_strawberry_to_hive(
 camera_left

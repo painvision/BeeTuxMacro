@@ -1,5 +1,3 @@
-#!/bin/bash
-
 . ~/BeeTuxMacro/stuff/utils.sh
 . ~/BeeTuxMacro/config.sh
 

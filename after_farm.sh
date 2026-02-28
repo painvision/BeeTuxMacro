@@ -1,5 +1,3 @@
-#!/bin/bash
-
 . ~/BeeTuxMacro/stuff/utils.sh
 . ~/BeeTuxMacro/stuff/paths.sh
 . ~/BeeTuxMacro/config.sh
@@ -26,6 +24,11 @@ fi
 if [[ -f ~/BeeTuxMacro/variables/should_gingerbread && $AUTO_GINGERBREAD_HOUSE == 1 ]]; then
     from_hive_to_gingerbread_house_and_back
     rm variables/should_gingerbread
+fi
+
+if [[ -f ~/BeeTuxMacro/variables/should_mobs && $AUTO_MOBS == 1 ]]; then
+    farm_mobs
+    rm variables/should_mobs
 fi
 
 bash -c ~/BeeTuxMacro/pre_farm.sh

@@ -1,11 +1,10 @@
-#!/bin/bash
-
 . ~/BeeTuxMacro/config.sh
 
 SECONDS_GINGER=0
 SECONDS_STOCKINGS=0
 SECONDS_WEALTH=0
 SECONDS_WREATH=0
+SECONDS_MOBS=0
 
 while :; do
 
@@ -14,6 +13,10 @@ while :; do
         SECONDS_GINGER=0
     fi
 
+    if [[ $SECONDS_MOBS -ge 3600 && "$AUTO_MOBS" -eq 1 ]]; then
+        touch ~/BeeTuxMacro/variables/should_mobs
+        SECONDS_MOBS=0
+    fi
     if [[ $SECONDS_WREATH -ge 1800 && "$AUTO_WREATH" -eq 1 ]]; then
         touch ~/BeeTuxMacro/variables/should_wreath
         SECONDS_WREATH=0

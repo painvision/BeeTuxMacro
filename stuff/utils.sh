@@ -1,9 +1,14 @@
-#!/bin/bash
-
 . ~/BeeTuxMacro/config.sh
 
 # Macros are made initially for that walkspeed. DO NOT CHANGE IT
 BASE_SPEED=32.2
+
+function avoid_mobs(
+for ((i=0; i<$1; i++)); do
+jump
+sleep 2
+done
+)
 
 # it was made by deepseek
 get_pixel_coords() {
@@ -16,8 +21,8 @@ get_pixel_coords() {
 
     local orig_width=1366
     local orig_height=768
-    local orig_x=912
-    local orig_y=40
+    local orig_x=955
+    local orig_y=38
 
     local new_x new_y
 
@@ -114,11 +119,13 @@ ydotool click 0x80
 )
 
 function shift_lock_toggle(
+sleep 0.3
 ydotool key 42:1 42:0
 sleep 0.1
 )
 
 function e(
+sleep 0.2
 ydotool key 18:1 18:0
 )
 

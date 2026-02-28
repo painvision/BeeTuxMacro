@@ -1,8 +1,8 @@
-#!/bin/bash
-
 . ~/BeeTuxMacro/stuff/utils.sh
 . ~/BeeTuxMacro/stuff/paths.sh
 . ~/BeeTuxMacro/config.sh
+
+mkdir ~/BeeTuxMacro/variables/
 
 if ! command -v ydotool &> /dev/null; then
 notify-send "BeeTux Macro" "❌ Error: 'ydotool' is not installed" -i ~/BeeTuxMacro/frosty_bee.png
@@ -19,10 +19,27 @@ exit 1
 fi
 
 if [ ! -e lockfile ]; then
-mkdir variables/
 
+if [[ $AUTO_STOCKINGS = 1 ]]; then
 touch ~/BeeTuxMacro/variables/should_stockings
+fi
+
+if [[ $AUTO_GINGERBREAD_HOUSE = 1 ]]; then
 touch ~/BeeTuxMacro/variables/should_gingerbread
+fi
+
+if [[ $AUTO_MOBS = 1 ]]; then
+touch ~/BeeTuxMacro/variables/should_mobs
+fi
+
+if [[ $AUTO_WREATH = 1 ]]; then
+touch ~/BeeTuxMacro/variables/should_wreath
+fi
+
+if [[ $AUTO_WEALTH_CLOCK = 1 ]]; then
+touch ~/BeeTuxMacro/variables/should_wealth
+fi
+
 rm ~/BeeTuxMacro/variables/sprinklers_placed
 
 HIVE_SLOT=$(notify-send "☃️ Beetux Macro" "🍯 Claim a hive, then click a button what hive you claimed" -t 0 --action="1=1" --action="2=2" --action="3=3" --action="4=4" --action="5=5" --action="6=6" --action="exit=Cancel" --action="edit=Edit config" --action="github=Github" -i ~/BeeTuxMacro/frosty_bee.png)
@@ -57,7 +74,7 @@ down_w
 wait 4
 up_w
 
-if [[ $AUTO_STOCKINGS == 1 || $AUTO_GINGERBREAD_HOUSE == 1 ]]; then
+if [[ $AUTO_STOCKINGS == 1 || $AUTO_GINGERBREAD_HOUSE == 1 || $AUTO_MOBS = 1 || $AUTO_WREATH = 1 || $AUTO_WEALTH_CLOCK = 1 ]]; then
 bash -c ~/BeeTuxMacro/timer.sh &
 fi
 

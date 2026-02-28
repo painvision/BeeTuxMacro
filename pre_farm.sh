@@ -1,5 +1,3 @@
-#!/bin/bash
-
 . ~/BeeTuxMacro/stuff/utils.sh
 . ~/BeeTuxMacro/stuff/paths.sh
 . ~/BeeTuxMacro/config.sh
@@ -19,6 +17,11 @@ from_hive_to_wealth_clock
 rm ~/BeeTuxMacro/variables/should_wealth
 fi
 
+if [[ -f ~/BeeTuxMacro/variables/should_mobs && $AUTO_MOBS == 1 ]]; then
+farm_mobs
+rm ~/BeeTuxMacro/variables/should_mobs
+fi
+
 go_to_field
 
 if [[ $USE_SPRINKLER == 1 ]]; then
@@ -29,5 +32,4 @@ place_splinker
 touch ~/BeeTuxMacro/variables/sprinklers_placed
 fi
 fi
-screenshot macrostart
 bash -c ~/BeeTuxMacro/farm.sh & bash -c ~/BeeTuxMacro/check_inventory.sh

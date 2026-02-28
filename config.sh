@@ -20,7 +20,7 @@ SPRINKLER_SLOT=1
 # 1 - backpack detection + farm seconds for maximum time
 # 2 - only farm for seconds
 
-BACKPACK_DETECTION_MODE=2
+BACKPACK_DETECTION_MODE=1
 
 # Set maximum seconds you can farm
 FARM_SECONDS=600 #100 minutes
@@ -74,6 +74,9 @@ function farm_pattern(
 
 # Collects stockings every 1 hours
 AUTO_STOCKINGS=1
+
+# NEW! Auto kill all (except 0 bee zone, king beetle, tunnel bear, coconut crab) mobs  every 1 hour
+AUTO_MOBS=1
 
 # Wealth clock every 1 hours
 AUTO_WEALTH_CLOCK=1

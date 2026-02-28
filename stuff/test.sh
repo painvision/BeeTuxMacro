@@ -1,5 +1,3 @@
-#!/bin/bash
-
 . ~/BeeTuxMacro/stuff/utils.sh
 . ~/BeeTuxMacro/stuff/paths.sh
 
@@ -9,7 +7,7 @@ if [ ! -e lockfiletest ]; then
     touch lockfiletest
     # 👇
 
-    from_hive_to_honey_wreath_and_back
+    farm_mobs
 
     rm lockfiletest
 else

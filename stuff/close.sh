@@ -1,5 +1,3 @@
-#!/bin/bash
-
 . ~/BeeTuxMacro/stuff/utils.sh
 
 rm -rf ~/BeeTuxMacro/variables/
