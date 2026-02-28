@@ -20,7 +20,11 @@ Open source Bee Swarm Simulator macro made for Linux. Supports every DE or WM on
 <a href="https://wikipedia.org/wiki/Linux">
   <img src="https://img.shields.io/badge/Linux-FCC624?style=for-the-badge&logo=linux&logoColor=black" />
 </a>
-  
+
+ <a href="https://discord.gg/pAUUYbPqs6">
+<img src="https://img.shields.io/badge/Discord-9F009F?style=for-the-badge&logo=Discord&logoColor=white" />  
+</a>
+
   <a href="https://t.me/+gws61dtKyIRlYzky">
 <img src="https://img.shields.io/badge/Telegram-2CA5E0?style=for-the-badge&logo=telegram&logoColor=white" />  
 </a>
@@ -106,7 +110,7 @@ Roadmap
 | ❌ Cactus Field     | ❌ Auto Whirligig                         |                                                |
 |                     | ❌ Auto Micro Converter                   |
 |                     | ✅ Backpack detection modes (pixel-only/pixel-time/time-only modes) |
-
+|                     | ⏳ Auto Kill Mobs                        | ⏳ Fix timer.sh
 | DE/WM | Status |
 | ----- | ------ |
 | Hyprland | Works flawlessly ✅
