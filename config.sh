@@ -11,19 +11,19 @@ WALKSPEED=28
 # Use sprinklers
 USE_SPRINKLER=1 #0 - off, 1 - on
 
-# Enter the number where your sprinkler is
+# Enter slot number where your sprinkler is
 SPRINKLER_SLOT=1
 
 # Backpack detection modes, how macro should trigger back_to_hive function
 
 # 0 - only full backpack pixel detection (only if you have grim supported)
-# 1 - backpack detection + farm seconds for maximum time and backup
+# 1 - backpack detection + farm seconds for maximum time
 # 2 - only farm for seconds
 
 BACKPACK_DETECTION_MODE=2
 
 # Set maximum seconds you can farm
-FARM_SECONDS=300 #5 minutes
+FARM_SECONDS=600 #100 minutes
 
 # Approximate time to convert full backpack
 CONVERT_TIME=70
@@ -73,7 +73,7 @@ function farm_pattern(
 # AUTO_GINGERBREAD_HOUSE=1
 
 # Collects stockings every 1 hours
-# AUTO_STOCKINGS=1
+AUTO_STOCKINGS=1
 
 # Wealth clock every 1 hours
 AUTO_WEALTH_CLOCK=1

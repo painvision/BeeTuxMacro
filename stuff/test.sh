@@ -1,14 +1,17 @@
 #!/bin/bash
+
 . ~/BeeTuxMacro/stuff/utils.sh
 . ~/BeeTuxMacro/stuff/paths.sh
+
 unhold_keys
+
 if [ ! -e lockfiletest ]; then
-touch lockfiletest
-from_pine_tree_to_hive
-rm lockfiletest
+    touch lockfiletest
+    from_hive_to_honey_wreath_and_back
+    rm lockfiletest
 else
-unhold_keys
-rm lockfiletest
-exit_macro
+    unhold_keys
+    rm lockfiletest
+    exit_macro
 fi
 

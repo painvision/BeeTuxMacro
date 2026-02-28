@@ -1,3 +1,5 @@
+#!/bin/bash
+
 function from_strawberry_to_hive(
 camera_left
 camera_left
@@ -189,7 +191,6 @@ function from_hive_to_honey_wreath_and_back(
     up_w
     down_d
     wait 6.6
-    down
     down_a
     wait 0.1
     up_a
@@ -436,6 +437,9 @@ down_w
 wait 6
 up_w
 shift_lock_toggle
+down_s
+wait 0.1
+up_s
 jump
 sleep 0.5275
 jump

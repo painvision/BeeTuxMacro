@@ -1,9 +1,11 @@
+#!/bin/bash
+
 . ~/BeeTuxMacro/config.sh
 
-
-# Macros are made initially for that walkspeed
+# Macros are made initially for that walkspeed. DO NOT CHANGE IT
 BASE_SPEED=32.2
 
+# it was made by deepseek
 get_pixel_coords() {
     local resolution
     resolution=$(xrandr | grep "*")
@@ -32,7 +34,7 @@ function pixel_in_red_range() {
     if [[ "$XDG_SESSION_TYPE" == "wayland" ]]; then
         set -- $(
             grim -g "${1} 1x1" - |
-            convert png:- txt:- |
+            magick convert png:- txt:- |
             sed -n 's/.*srgb(\([0-9]*\),\([0-9]*\),\([0-9]*\)).*/\1 \2 \3/p'
         )
     else #idk
@@ -51,7 +53,6 @@ wait() {
     local base_time="$1"
     local needed_sleep
     needed_sleep=$(bc <<< "scale=4; $base_time * $BASE_SPEED / $WALKSPEED")
-
     sleep "$needed_sleep"
 }
 
@@ -107,13 +108,6 @@ sleep 0.05
 function auto_dig_on(
 ydotool click 0x40
 )
-
-function screenshot(
-if [ "$SCREENSHOTS" -eq 1 ]; then
-    grim ~/BeeTuxMacro/log/$1-$(date +"%H-%M-%S_%d-%m-%Y").png
-fi
-)
-
 
 function auto_dig_off(
 ydotool click 0x80

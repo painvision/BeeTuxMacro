@@ -1,8 +1,8 @@
+#!/bin/bash
+
 . ~/BeeTuxMacro/stuff/utils.sh
 . ~/BeeTuxMacro/stuff/paths.sh
 . ~/BeeTuxMacro/config.sh
-
-rm -rf ~/BeeTuxMacro/variables/
 
 if ! command -v ydotool &> /dev/null; then
 notify-send "BeeTux Macro" "❌ Error: 'ydotool' is not installed" -i ~/BeeTuxMacro/frosty_bee.png
@@ -19,7 +19,7 @@ exit 1
 fi
 
 if [ ! -e lockfile ]; then
-mkdir ~/BeeTuxMacro/variables/
+mkdir variables/
 
 touch ~/BeeTuxMacro/variables/should_stockings
 touch ~/BeeTuxMacro/variables/should_gingerbread
@@ -52,6 +52,10 @@ touch lockfile
 unhold_keys
 ydotool click 0xC0
 reset
+# added this thingm in case
+down_w
+wait 4
+up_w
 
 if [[ $AUTO_STOCKINGS == 1 || $AUTO_GINGERBREAD_HOUSE == 1 ]]; then
 bash -c ~/BeeTuxMacro/timer.sh &
@@ -62,4 +66,5 @@ bash -c ~/BeeTuxMacro/pre_farm.sh
 else
 rm lockfile
 exit_macro
+rm -rf ~/BeeTuxMacro/variables/
 fi
