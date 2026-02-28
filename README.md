@@ -20,7 +20,11 @@ Open source Bee Swarm Simulator macro made for Linux. Supports every DE or WM on
 <a href="https://wikipedia.org/wiki/Linux">
   <img src="https://img.shields.io/badge/Linux-FCC624?style=for-the-badge&logo=linux&logoColor=black" />
 </a>
-  
+
+ <a href="https://discord.gg/pAUUYbPqs6">
+<img src="https://img.shields.io/badge/Discord-9F009F?style=for-the-badge&logo=Discord&logoColor=white" />  
+</a>
+
   <a href="https://t.me/+gws61dtKyIRlYzky">
 <img src="https://img.shields.io/badge/Telegram-2CA5E0?style=for-the-badge&logo=telegram&logoColor=white" />  
 </a>
@@ -106,18 +110,17 @@ Roadmap
 | ❌ Cactus Field     | ❌ Auto Whirligig                         |                                                |
 |                     | ❌ Auto Micro Converter                   |
 |                     | ✅ Backpack detection modes (pixel-only/pixel-time/time-only modes) |
-Tested DE and WM
-
-| DE/WM | Status | Explanation
-| ----- | ------ | ------------
-| Hyprland | Works flawlessly ✅ | It is a compositor that im working with. Works as intended
-| GNOME | Pixel detection don't work ❌ | Mutter. Can be fixed though with gnome-screenshot (edit: NOPE)
-| KDE Plasma | Don't work ❌ |
-| Cinnamon | Pixel detection don't work ❌ | Muffin. Even flameshot dont work. Cannot be fixed
-| i3 | Works ✅ |
-| Sway | Works ✅ |
-| Wayfire | Works ✅ |
-| Cosmic DE | Works ✅ |
+|                     | ⏳ Auto Kill Mobs                        | ⏳ Fix timer.sh
+| DE/WM | Status |
+| ----- | ------ |
+| Hyprland | Works flawlessly ✅
+| GNOME | Pixel detection don't work ❌
+| KDE Plasma (Wayland) | Don't work ❌
+| Cinnamon (Wayland)| Pixel detection don't work ❌
+| i3 | Works ✅ 
+| Sway | Works ✅ 
+| Wayfire | Works ✅ 
+| Cosmic DE (Wayland) | Works ✅ 
 
 <p align='center'>
 If you found macro interesting, consider starring repository. It helps a lot  💞
