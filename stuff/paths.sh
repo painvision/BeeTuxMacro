@@ -364,27 +364,7 @@ down_w
 sleep 3
 up_w
 )
-function from_hive_to_gingerbread_house_and_back(
-down_w
-wait 1
-up_w
-down_d
-wait 6.6
-up_d
-down_s
-wait 2.3
-jump
-wait 9
-up_s
-down_w
-wait 0.75
-up_w
-e
-reset
-down_w
-sleep 3
-up_w
-)
+
 function from_pumpkin_to_hive(
 down_a
 down_s

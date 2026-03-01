@@ -1,7 +1,62 @@
 . ~/BeeTuxMacro/config.sh
 
-# Macros are made initially for that walkspeed. DO NOT CHANGE IT
+#DO NOT CHANGE IT!!!!!!!!!!!!!!!!!!!!!
 BASE_SPEED=32.2
+
+function note(
+echo -e "\\033[30;43m[i] $1\\033[0m"
+
+)
+
+function warning(
+echo -e "\\033[35m[!] $1\\033[0m"
+)
+
+function success(
+echo -e "\\033[32m[✓] $1\\033[0m"
+)
+
+function info(
+echo -e "\\033[33m[i] $1\\033[0m"
+)
+
+function error(
+echo -e "\\033[30;41m[X] $1\\033[0m"
+)
+
+function check_update_git(
+    if ! git rev-parse --git-dir >/dev/null 2>&1; then
+        return
+    fi
+
+    LOCAL_COMMIT=$(git rev-parse HEAD)
+    LOCAL_COMMIT_TIME=$(git log -1 --format=%ct)
+    LOCAL_COMMIT_DATE=$(git log -1 --format=%ci)
+
+    REMOTE_COMMIT=$(git ls-remote origin HEAD | cut -f1)
+    REMOTE_COMMIT_TIME=$(git ls-remote origin HEAD | cut -f1 | xargs git show -s --format=%ct 2>/dev/null || echo "")
+
+    NOW=$(date +%s)
+    DIFF=$((NOW - LOCAL_COMMIT_TIME))
+
+    if [ $DIFF -lt 60 ]; then
+        AGE="less than a minute ago"
+    elif [ $DIFF -lt 3600 ]; then
+        AGE="$((DIFF / 60)) minutes ago"
+    elif [ $DIFF -lt 86400 ]; then
+        AGE="$((DIFF / 3600)) hours ago"
+    else
+        AGE="$((DIFF / 86400)) days ago"
+    fi
+
+    if [ "$LOCAL_COMMIT" != "$REMOTE_COMMIT" ]; then
+        error "Good news! Macro was updated $AGE!"
+        error "Use 'git pull' to update"
+        notify-send -i ~/BeeTuxMacro/frosty_bee.png"Good news! Macro was updated $AGE! Use 'git pull' to update"
+    else
+        note "Macro's good to go! Last commit was $AGE"
+    fi
+)
 
 function avoid_mobs(
 for ((i=0; i<$1; i++)); do

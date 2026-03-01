@@ -1,6 +1,6 @@
 . ~/BeeTuxMacro/stuff/utils.sh
 
-rm -rf ~/BeeTuxMacro/variables/
+rm -rf ~/BeeTuxMacro/variables/ 2>/dev/null
 unhold_keys
 unhold_keys
 unhold_keys

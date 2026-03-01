@@ -8,9 +8,8 @@
 # Enter your walking speed WITHOUT haste tokens
 WALKSPEED=28
 
-# Use sprinklers
+# Use sprinklers?
 USE_SPRINKLER=1 #0 - off, 1 - on
-
 # Enter slot number where your sprinkler is
 SPRINKLER_SLOT=1
 
@@ -69,13 +68,10 @@ function farm_pattern(
                         farm_better_snake
 )
 
-# Collects gingerbread house every 2 hours
-# AUTO_GINGERBREAD_HOUSE=1
-
 # Collects stockings every 1 hours
 AUTO_STOCKINGS=1
 
-# NEW! Auto kill all (except 0 bee zone, king beetle, tunnel bear, coconut crab) mobs  every 1 hour
+# NEW! Auto kill all (except 0 bee zone, king beetle, tunnel bear, coconut crab) mobs, every 1 hour
 AUTO_MOBS=1
 
 # Wealth clock every 1 hours
@@ -85,4 +81,4 @@ AUTO_WEALTH_CLOCK=1
 AUTO_WREATH=1
 
 # Uncomment if you configured and confirm using this config
-# CONFIGURED=""
+CONFIGURED=""
