@@ -52,9 +52,10 @@ function check_update_git(
     if [ "$LOCAL_COMMIT" != "$REMOTE_COMMIT" ]; then
         error "Good news! Macro was updated $AGE!"
         error "Use 'git pull' to update"
-        notify-send -i ~/BeeTuxMacro/frosty_bee.png"Good news! Macro was updated $AGE! Use 'git pull' to update"
+        notify-send -i ~/BeeTuxMacro/frosty_bee.png "Good news! Macro was updated $AGE! Use 'git pull' to update"
     else
-        note "Macro's good to go! Last commit was $AGE"
+        note "Macro's good to go! Last commit was $AGE. Changelog:"
+        curl -l https://raw.githubusercontent.com/painvision/BeeTuxMacro/refs/heads/main/changelog.txt
     fi
 )
 
