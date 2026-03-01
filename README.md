@@ -66,6 +66,11 @@ sudo apt install ydotool imagemagick bc xorg-xrandr grim
 ```
 git clone https://github.com/painvision/BeeTuxMacro/
 ```
+If there are some updates, you can update macro by running this command in macro's directory:
+
+```
+git pull
+```
 
 <h1 align='center'>
 Configuration 
