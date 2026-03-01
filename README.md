@@ -36,7 +36,7 @@ Open source Bee Swarm Simulator macro made for Linux. Supports every DE or WM on
 </p>
 
 > [!WARNING]
-> If you encounter bugs, open an issue, make a pull request, or join our group on [Telegram](https://t.me/+gws61dtKyIRlYzky). [🇷🇺/🇺🇸]
+> If you encounter bugs, open an issue, make a pull request, join our [discord chat](https://discord.gg/pAUUYbPqs6), or group on [Telegram](https://t.me/+gws61dtKyIRlYzky). [🇷🇺/🇺🇸]
 
 > 📌 ALERT
 > Any DE on Mutter won't work. Macro is working well on pure Wayland DE and compositors
