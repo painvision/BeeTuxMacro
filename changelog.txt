@@ -1,3 +1,1 @@
-- Added changelog, so you would know what's updated without going through code
-- Some improvements to README and check_update_git function
-- Fixed timer.sh for auto mobs
+- Fixed check_inventory.sh. Now it should work as intended both X11 and Wayland :)

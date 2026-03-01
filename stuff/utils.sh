@@ -77,8 +77,8 @@ get_pixel_coords() {
 
     local orig_width=1366
     local orig_height=768
-    local orig_x=955
-    local orig_y=38
+    local orig_x=953
+    local orig_y=28
 
     local new_x new_y
 
@@ -94,18 +94,18 @@ function pixel_in_red_range() {
     local r g b
     if [[ "$XDG_SESSION_TYPE" == "wayland" ]]; then
         set -- $(
-            grim -g "${1} 1x1" - |
-            magick png:- txt:- |
-            sed -n 's/.*srgb(\([0-9]*\),\([0-9]*\),\([0-9]*\)).*/\1 \2 \3/p'
+            grim -g "${1} 1x1" -t ppm - |
+            magick ppm:- txt:- |
+            sed -n 's/.*srgb(\([0-9]*\),\([0-9]*\),\([0-9]*\)).*/\1 \2 \3/p' & sleep 0.3; pkill grim
         )
-    else #idk
+    else
         set -- $(
             import -window root -crop 1x1+${x}+${y} txt:- |
             sed -n 's/.*srgb(\([0-9]*\),\([0-9]*\),\([0-9]*\)).*/\1 \2 \3/p'
         )
     fi
     r=$1 g=$2 b=$3
-    (( r>=244 && r<=255 &&
+    (( r>=200 && r<=255 &&
        g<=51 &&
        b<=51 ))
 }
