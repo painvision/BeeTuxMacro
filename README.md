@@ -8,21 +8,16 @@ BeeTux Macro ☃️
 
 <p align='center'>
 Open source Bee Swarm Simulator macro made for Linux. Supports every DE or WM on Wayland and maybe X11🐧 
-
 </p> 
 
 <p align='center'>
-  
-  <a href="https://wikipedia.org/wiki/Bash_(Unix_shell)">
-<img src="https://img.shields.io/badge/GNU%20Bash-4EAA25?style=for-the-badge&logo=GNU%20Bash&logoColor=white" />
-</a>
 
 <a href="https://wikipedia.org/wiki/Linux">
   <img src="https://img.shields.io/badge/Linux-FCC624?style=for-the-badge&logo=linux&logoColor=black" />
 </a>
 
  <a href="https://discord.gg/pAUUYbPqs6">
-<img src="https://img.shields.io/badge/Discord-9F009F?style=for-the-badge&logo=Discord&logoColor=white" />  
+<img src="https://img.shields.io/badge/Discord-5865F2?style=for-the-badge&logo=Discord&logoColor=white" />  
 </a>
 
   <a href="https://t.me/+gws61dtKyIRlYzky">
