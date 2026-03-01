@@ -110,7 +110,7 @@ Roadmap
 | ❌ Cactus Field     | ❌ Auto Whirligig                         |                                                |
 |                     | ❌ Auto Micro Converter                   |
 |                     | ✅ Backpack detection modes (pixel-only/pixel-time/time-only modes) |
-|                     | ⏳ Auto Kill Mobs                        | ⏳ Fix timer.sh
+|                     | ⏳ Auto Kill Mobs                        | ✅ Fix timer.sh
 | DE/WM | Status |
 | ----- | ------ |
 | Hyprland | Works flawlessly ✅
