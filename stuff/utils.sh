@@ -94,7 +94,7 @@ function pixel_in_red_range() {
     if [[ "$XDG_SESSION_TYPE" == "wayland" ]]; then
         set -- $(
             grim -g "${1} 1x1" - |
-            magick convert png:- txt:- |
+            magick png:- txt:- |
             sed -n 's/.*srgb(\([0-9]*\),\([0-9]*\),\([0-9]*\)).*/\1 \2 \3/p'
         )
     else #idk
