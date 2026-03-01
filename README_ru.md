@@ -28,7 +28,7 @@ git clone https://github.com/painvision/BeeTuxMacro/
 
 Пока что нету графического интерфейса для настроек
 
-Редактируй файл `~/BeeTuxMacro/config.sh` вашим любимым текстовым редактором
+Редактируй файл ~/BeeTuxMacro/config.sh вашим любимым текстовым редактором
 
 Настройка
 
