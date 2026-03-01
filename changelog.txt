@@ -1,1 +1,1 @@
-- Fixed check_inventory.sh. Now it should work as intended both X11 and Wayland :)
+- ZZZZZZZZZZZZZZZZ (readme_ru.md edit)
