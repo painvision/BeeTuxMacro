@@ -1,2 +1,3 @@
 - Added changelog, so you would know what's updated without going through code
 - Some improvements to README and check_update_git function
+- Fixed timer.sh for auto mobs
