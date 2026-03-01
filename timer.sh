@@ -27,6 +27,7 @@ while :; do
     fi
 
     sleep 1
+    ((SECONDS_MOBS++))
     ((SECONDS_WREATH++))
     ((SECONDS_STOCKINGS++))
     ((SECONDS_WEALTH++))
