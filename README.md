@@ -100,7 +100,7 @@ Roadmap
 | Fields              | Features                                  | QoL                                            | Codebase  |
 | ------------------- | ----------------------------------------- | ---------------------------------------------- |---------- |
 | ✅ Pine Tree Forest | ✅ Auto Dig                               | 📌 GUI for settings instead of notifications   | ❌ Image recognition function (python)
-| ✅ Rose Field       | ✅ Auto Sprinkler (can be toggled now)                         | ⏳ Macro releases instead of git repo          | ❌ Image instability function 
+| ✅ Rose Field       | ✅ Auto Sprinkler (can be toggled now)                         | 🗑️ Macro releases instead of git repo          | ❌ Image instability function 
 | ✅ Pumpkin Field    | ✅ Auto Wealth Clock                      | ❌ Telegram bot hooking                        | ❌ Detect no pollen increase (image instability function)
 | ✅ Pineapple Field  | 🗑️ Auto Gingerbread House (USELESS)                 | ❌ Pause/resume macro                          | ❌ Fixing camera position after reset (recognition function)
 | ❌ Stump Field      | ✅ Auto Stockings                         | ❌❌ Claim hive function                       | ❌ Recalculate path walking time OR not walking at all when haste is active (recognition)
