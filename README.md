@@ -38,7 +38,7 @@ Open source Bee Swarm Simulator macro made for Linux. Supports every DE or WM on
 
 <p align='center'>
 <a href="https://github.com/painvision/BeeTuxMacro/blob/main/README_ru.md">
-ZZZZZZZZZZZZZZZZZZZZZ README.md на русском ZZZZZZZZZZZZZZZZZZZZZZZZZZ
+ZZZZZZZZZZZZZZZZZZZZZ README.md на русском
 </a>
 </p>
 
