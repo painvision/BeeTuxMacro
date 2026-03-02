@@ -89,7 +89,8 @@ from_hive_to_pineapple_with_red_cannon
 avoid_mobs 6
 collect_around
 sleep 2
-reset
+from_pineapple_to_hive
+from_corner_to_hive $(cat ~/BeeTuxMacro/variables/hive_slot)
 )
 
 function from_strawberry_to_hive(
@@ -223,11 +224,11 @@ wait 4
 up_w
 down_a
 down_s
-wait 0.1
+wait 0.2
 up_s
 wait 5
 down_w
-wait 0.1
+wait 0.2
 up_w
 up_a
 down_w
@@ -542,63 +543,6 @@ wait 0.4
 up_a
 )
 
-function from_hive_to_pine_tree(
-down_w
-wait 1
-up_w
-down_d
-wait 6.6
-up_d
-sleep 0.1
-down_a
-wait 0.05
-up_a
-sleep 0.2
-jump
-down_d
-wait 1
-up_d
-down_s
-wait 3.5
-down_d
-wait 2
-up_s
-down_a
-wait 0.05
-up_a
-sleep 0.2
-up_d
-sleep 0.4
-down_a
-wait 0.2
-up_a
-down_d
-jump
-sleep 0.4
-down_s
-wait 6
-up_d
-down_a
-wait 3
-up_a
-sleep 1
-down_d
-wait 0.5
-up_d
-wait 10
-up_s
-down_d
-wait 2
-up_d
-camera_right
-camera_right
-down_s
-down_a
-wait 1
-up_s
-sleep 0.5
-up_a
-)
 function from_corner_to_hive(
 down_s
 down_d
@@ -611,10 +555,10 @@ camera_right
 shift_lock_toggle
 shift_lock_toggle
 for ((i=0; i<$1; i++)); do
-jump
-sleep 0.513
-jump
-sleep 0.9
+    jump
+    sleep 0.513
+    jump
+    sleep 0.9
 done
 camera_left
 camera_left

@@ -1,1 +1,7 @@
-- ZZZZZZZZZZZZZZZZ (readme_ru.md edit)
+- Added auto hive. It will automagically claim a hive, or identify your current hive. Manual hive selection will remain in config.sh
+- Universal field selection. No longer to manually select back-to-hive and hive-to-field functions, so you wouldn't confuse. See config.sh
+- Some changes to README.md
+- Fixed Honey Wreath. Now it works properly
+- Some overall optimizations and bugfixes
+
+* Next update planning - merge stockings + wealth clock macros, optimize get_pixel functions

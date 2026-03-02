@@ -82,6 +82,7 @@ info "Sending notification..."
 echo ""
 
 if [ ! -e lockfile ]; then
+touch ~/BeeTuxMacro/lockfile
 
 if [[ $AUTO_STOCKINGS = 1 ]]; then
 touch ~/BeeTuxMacro/variables/should_stockings
@@ -105,36 +106,44 @@ fi
 
 rm ~/BeeTuxMacro/variables/sprinklers_placed 2>/dev/null
 
-HIVE_SLOT=$(notify-send "☃️ Beetux Macro" "🍯 Claim a hive, then click a button what hive you claimed" -t 0 --action="1=1" --action="2=2" --action="3=3" --action="4=4" --action="5=5" --action="6=6" --action="exit=Cancel" --action="edit=Edit config" --action="github=Github" -i ~/BeeTuxMacro/frosty_bee.png)
+if [[ $AUTO_FIND_HIVE = 0 ]]; then
+    touch ~/BeeTuxMacro/lockfile
+    HIVE_SLOT=$(notify-send "☃️ Beetux Macro" "🍯 Claim a hive, then click a button what hive you claimed" -t 0 --action="1=1" --action="2=2" --action="3=3" --action="4=4" --action="5=5" --action="6=6" --action="exit=Cancel" --action="edit=Edit config" --action="github=Github" -i ~/BeeTuxMacro/frosty_bee.png)
 
-TRUE_HIVE_SLOT=$((HIVE_SLOT - 1))
+    TRUE_HIVE_SLOT=$((HIVE_SLOT - 1))
+    echo TRUE_HIVE_SLOT=$TRUE_HIVE_SLOT > ~/BeeTuxMacro/variables/hive_slot
 
-echo TRUE_HIVE_SLOT=$TRUE_HIVE_SLOT > ~/BeeTuxMacro/variables/hive_slot.sh
+    if [ $HIVE_SLOT == exit ]; then
+    exit_macro
+    fi
 
-if [ $HIVE_SLOT == exit ]; then
-exit_macro
+    if [ $HIVE_SLOT == edit ]; then
+    xdg-open ~/BeeTuxMacro/config.sh
+    exit_macro
+    fi
+
+    if [ $HIVE_SLOT == github ]; then
+    xdg-open https://github.com/painvision/BeeTuxMacro
+    exit_macro
+    fi
+
+    notify-send "☃️ Beetux Macro" "⏯️ Macro setup started" -i ~/BeeTuxMacro/frosty_bee.png
+    touch lockfile 2>/dev/null
+
+    unhold_keys
+    ydotool click 0xC0
+    reset
+    down_w
+    wait 4
+    up_w
+else
+    touch ~/BeeTuxMacro/lockfile
+    RESPONSE=$(notify-send "☃️ Beetux Macro" "🍯 Auto Hive enabled!" -t 15000 --action="start=Start" --action="cancel=Cancel" -i ~/BeeTuxMacro/frosty_bee.png) & find_hive
+    if [ $RESPONSE == cancel ]; then
+    exit_macro
+    fi
 fi
 
-if [ $HIVE_SLOT == edit ]; then
-xdg-open ~/BeeTuxMacro/config.sh
-exit_macro
-fi
-
-if [ $HIVE_SLOT == github ]; then
-xdg-open https://github.com/painvision/BeeTuxMacro
-exit_macro
-fi
-
-
-notify-send "☃️ Beetux Macro" "⏯️ Macro setup started" -i ~/BeeTuxMacro/frosty_bee.png
-touch lockfile 2>/dev/null
-
-unhold_keys
-ydotool click 0xC0
-reset
-down_w
-wait 4
-up_w
 
 if [[ $AUTO_STOCKINGS == 1 || $AUTO_GINGERBREAD_HOUSE == 1 || $AUTO_MOBS = 1 || $AUTO_WREATH = 1 || $AUTO_WEALTH_CLOCK = 1 ]]; then
 bash -c ~/BeeTuxMacro/timer.sh &
@@ -144,6 +153,7 @@ bash -c ~/BeeTuxMacro/pre_farm.sh
 
 else
 rm lockfile 2>/dev/null
-exit_macro
 rm -rf ~/BeeTuxMacro/variables/ 2>/dev/null
+exit_macro 2>/dev/null
+exit
 fi

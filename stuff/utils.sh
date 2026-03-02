@@ -1,7 +1,97 @@
 . ~/BeeTuxMacro/config.sh
 
-#DO NOT CHANGE IT!!!!!!!!!!!!!!!!!!!!!
 BASE_SPEED=32.2
+
+function find_hive(
+    while :
+    do
+    reset
+    down_w
+    wait 4
+    up_w
+    down_a
+    down_s
+    wait 0.2
+    up_s
+    wait 5
+    down_w
+    wait 0.2
+    up_w
+    up_a
+    down_w
+    wait 0.4
+    up_w
+    down_a
+    wait 0.4
+    up_a
+
+    down_s
+    down_d
+    wait 0.6
+    up_s
+    wait 0.15
+    up_d
+    camera_right
+    camera_right
+    shift_lock_toggle
+    shift_lock_toggle
+    for ((i=0; i<5; i++)); do
+    if pixel_is_white $(get_claim_hive_c_coords) || pixel_is_white $(get_make_honey_h_coords); then
+        e
+        camera_left
+        camera_left
+        shift_lock_toggle
+        shift_lock_toggle
+        echo $i > ~/BeeTuxMacro/variables/hive_slot
+        notify-send "☃️ Beetux Macro" "Our hive is: $(cat ~/BeeTuxMacro/variables/hive_slot) (that number is always -1 from actual hive slot)" -i ~/BeeTuxMacro/frosty_bee.png
+        return 0
+    else
+        jump
+        sleep 0.513
+        jump
+        sleep 0.9
+    fi
+    done
+    done
+)
+
+function go_to_field(
+    if [[ $FIELD = "pine" ]]; then
+        from_hive_to_pine_tree_with_red_cannon
+    fi
+    if [[ $FIELD = "rose" ]]; then
+        echo rose
+        from_hive_to_rose_field
+    fi
+    if [[ $FIELD = "pumpkin" ]]; then
+        from_hive_to_pumpkin_with_red_cannon
+    fi
+    if [[ $FIELD = "pineapple" ]]; then
+        from_hive_to_pineapple_with_red_cannon
+    fi
+    if [[ $FIELD = "strawberry" ]]; then
+        from_hive_to_strawberry_with_red_cannon
+    fi
+)
+
+function back_to_hive(
+    if [[ $FIELD = "pine" ]]; then
+        from_pine_tree_to_hive
+    fi
+    if [[ $FIELD = "rose" ]]; then
+        echo rose
+        from_rose_field_to_hive
+    fi
+    if [[ $FIELD = "pumpkin" ]]; then
+        from_pumpkin_to_hive
+    fi
+    if [[ $FIELD = "pineapple" ]]; then
+        from_pineapple_to_hive
+    fi
+    if [[ $FIELD = "strawberry" ]]; then
+        from_strawberry_to_hive
+    fi
+)
 
 function note(
 echo -e "\\033[30;43m[i] $1\\033[0m"
@@ -51,8 +141,9 @@ function check_update_git(
 
     if [ "$LOCAL_COMMIT" != "$REMOTE_COMMIT" ]; then
         error "Good news! Macro was updated $AGE!"
-        error "Use 'git pull' to update"
-        notify-send -i ~/BeeTuxMacro/frosty_bee.png "Good news! Macro was updated $AGE! Use 'git pull' to update"
+        error "Use 'git pull' to update. Changelog:"
+        curl -l https://raw.githubusercontent.com/painvision/BeeTuxMacro/refs/heads/main/changelog.txt
+        notify-send -i ~/BeeTuxMacro/frosty_bee.png "BeeTux Macro ☃️" "Good news! Macro was updated $AGE! Use 'git pull' to update"
     else
         note "Macro's good to go! Last commit was $AGE. Changelog:"
         curl -l https://raw.githubusercontent.com/painvision/BeeTuxMacro/refs/heads/main/changelog.txt
@@ -65,9 +156,32 @@ jump
 sleep 2
 done
 )
+# to make honey, collect...
+# that message when backpack is empty and ur near
+# your hive
+
+function get_to_make_honey_coords(
+    local resolution
+    resolution=$(xrandr | grep "*")
+
+    local width height
+    width=$(echo "$resolution" | awk '{print $1}' | cut -dx -f1)
+    height=$(echo "$resolution" | awk '{print $1}' | cut -dx -f2)
+
+    local orig_width=1366
+    local orig_height=768
+    local orig_x=701
+    local orig_y=78
+
+    local new_x new_y
+
+    new_x=$(echo "scale=0; $orig_x * $width / $orig_width" | bc)
+    new_y=$(echo "scale=0; $orig_y * $height / $orig_height" | bc)
+    echo "${new_x},${new_y}"
+)
 
 # it was made by deepseek
-get_pixel_coords() {
+function get_full_backpack_coords(
     local resolution
     resolution=$(xrandr | grep "*")
 
@@ -85,11 +199,73 @@ get_pixel_coords() {
     new_x=$(echo "scale=0; $orig_x * $width / $orig_width" | bc)
     new_y=$(echo "scale=0; $orig_y * $height / $orig_height" | bc)
     echo "${new_x},${new_y}"
-}
+)
 
-FULL_BACKPACK_PIXEL=$(get_pixel_coords)
+# it was made by deepseek
+function get_claim_hive_c_coords(
+    local resolution
+    resolution=$(xrandr | grep "*")
 
-function pixel_in_red_range() {
+    local width height
+    width=$(echo "$resolution" | awk '{print $1}' | cut -dx -f1)
+    height=$(echo "$resolution" | awk '{print $1}' | cut -dx -f2)
+
+    local orig_width=1366
+    local orig_height=768
+    local orig_x=638
+    local orig_y=81
+
+    local new_x new_y
+
+    new_x=$(echo "scale=0; $orig_x * $width / $orig_width" | bc)
+    new_y=$(echo "scale=0; $orig_y * $height / $orig_height" | bc)
+    echo "${new_x},${new_y}"
+)
+
+
+# it was made by deepseek
+function get_make_honey_h_coords(
+    local resolution
+    resolution=$(xrandr | grep "*")
+
+    local width height
+    width=$(echo "$resolution" | awk '{print $1}' | cut -dx -f1)
+    height=$(echo "$resolution" | awk '{print $1}' | cut -dx -f2)
+
+    local orig_width=1366
+    local orig_height=768
+    local orig_x=719
+    local orig_y=88
+
+    local new_x new_y
+
+    new_x=$(echo "scale=0; $orig_x * $width / $orig_width" | bc)
+    new_y=$(echo "scale=0; $orig_y * $height / $orig_height" | bc)
+    echo "${new_x},${new_y}"
+)
+
+function pixel_is_white(
+    local x=$1
+    local r g b
+    if [[ "$XDG_SESSION_TYPE" == "wayland" ]]; then
+        set -- $(
+            grim -g "${1} 1x1" -t ppm - |
+            magick ppm:- txt:- |
+            sed -n 's/.*srgb(\([0-9]*\),\([0-9]*\),\([0-9]*\)).*/\1 \2 \3/p' & sleep 0.3; pkill grim
+        )
+    else
+        set -- $(
+            import -window root -crop 1x1+${x}+${y} txt:- |
+            sed -n 's/.*srgb(\([0-9]*\),\([0-9]*\),\([0-9]*\)).*/\1 \2 \3/p'
+        )
+    fi
+    r=$1 g=$2 b=$3
+    (( r>=234 &&
+       g>=234 &&
+       b>=234 ))
+)
+
+function pixel_in_red_range(
     local x=$1
     local r g b
     if [[ "$XDG_SESSION_TYPE" == "wayland" ]]; then
@@ -108,14 +284,14 @@ function pixel_in_red_range() {
     (( r>=200 && r<=255 &&
        g<=51 &&
        b<=51 ))
-}
+)
 
-wait() {
+function wait(
     local base_time="$1"
     local needed_sleep
     needed_sleep=$(bc <<< "scale=4; $base_time * $BASE_SPEED / $WALKSPEED")
     sleep "$needed_sleep"
-}
+)
 
 
 function exit_macro(

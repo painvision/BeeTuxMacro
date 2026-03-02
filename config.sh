@@ -5,11 +5,15 @@
 # |____/ \___|\___||_|  \___//_/\_\
 #                             by painvision
 
+# Use auto hive? Otherwise enable manual hive selecting
+AUTO_FIND_HIVE=1 #0 - off, 1 - on
+
 # Enter your walking speed WITHOUT haste tokens
 WALKSPEED=28
 
 # Use sprinklers?
 USE_SPRINKLER=1 #0 - off, 1 - on
+
 # Enter slot number where your sprinkler is
 SPRINKLER_SLOT=1
 
@@ -22,60 +26,35 @@ SPRINKLER_SLOT=1
 BACKPACK_DETECTION_MODE=1
 
 # Set maximum seconds you can farm
-FARM_SECONDS=600 #100 minutes
+FARM_SECONDS=6
 
 # Approximate time to convert full backpack
 CONVERT_TIME=70
 
-function go_to_field(
-# Select path function from hive to field
-
-# Available options:    from_hive_to_rose_field
-#                       from_hive_to_pine_tree
-#                       from_hive_to_pine_tree_with_red_cannon
-#                       from_hive_to_pumpkin_with_red_cannon
-#                       from_hive_to_pineapple_with_red_cannon
-#                       from_hive_to_strawberry_with_red_cannon
-
-
-#                       ENTER YOUR OPTION HERE ⬇
-                        from_hive_to_pine_tree_with_red_cannon
-)
-
-function back_to_hive(
-# Select path function from field to hive
-
-# Available options: from_rose_field_to_hive
-#                    from_pine_tree_to_hive
-#                    from_pumpkin_to_hive
-#                    from_pineapple_to_hive
-#                    from_strawberry_to_hive
-
-#                    ENTER YOUR OPTION HERE ⬇
-                     from_pine_tree_to_hive
-
-)
-
-function farm_pattern(
+# Select a field to farm!
+# Quotes are mandatory
+# Available options: pine, rose, strawberry, pineapple, pumpkin
+FIELD="pine"
 
 # Choose your favourite pattern to farm on fields
+function farm_pattern(
 
 # Available options:    farm_square
 #                       farm_snake
 #                       farm_better_snake
 
-#                       ⬇ ENTER YOUR OPTION HERE
+#                       your option here ⬇
                         farm_better_snake
 )
 
 # Collects stockings every 1 hours
-AUTO_STOCKINGS=1
+# AUTO_STOCKINGS=1
 
-# NEW! Auto kill all (except 0 bee zone, king beetle, tunnel bear, coconut crab) mobs, every 1 hour
-AUTO_MOBS=1
+# Auto kill all (except 0 bee zone, king beetle, tunnel bear, coconut crab) mobs, every 1 hour
+# AUTO_MOBS=1
 
 # Wealth clock every 1 hours
-AUTO_WEALTH_CLOCK=1
+# AUTO_WEALTH_CLOCK=1
 
 # Honey wreath for converting
 AUTO_WREATH=1

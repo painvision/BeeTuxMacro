@@ -6,7 +6,7 @@ START_TIME=$SECONDS
 if [ $BACKPACK_DETECTION_MODE = 0 ]; then # only pixel detection
     while :
     do
-        if pixel_in_red_range $(get_pixel_coords); then
+        if pixel_in_red_range $(get_full_backpack_coords); then
             pkill -f farm.sh
             bash -c ~/BeeTuxMacro/after_farm.sh & pkill -f check_inventory.sh
         fi
@@ -21,7 +21,7 @@ if [ $BACKPACK_DETECTION_MODE = 1 ]; then # checking inventory + maximum amount 
             pkill -f farm.sh
             bash -c ~/BeeTuxMacro/after_farm.sh & pkill -f check_inventory.sh
         else
-        if pixel_in_red_range $(get_pixel_coords); then
+        if pixel_in_red_range $(get_full_backpack_coords); then
             pkill -f farm.sh
             bash -c ~/BeeTuxMacro/after_farm.sh & pkill -f check_inventory.sh
         fi

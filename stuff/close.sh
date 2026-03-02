@@ -1,17 +1,18 @@
 . ~/BeeTuxMacro/stuff/utils.sh
 
 rm -rf ~/BeeTuxMacro/variables/ 2>/dev/null
-unhold_keys
-unhold_keys
-unhold_keys
+unhold_keys 2>/dev/null
+unhold_keys 2>/dev/null
+unhold_keys 2>/dev/null
 notify-send "Beetux Macro" "😢 Macro cancelled" -i ~/BeeTuxMacro/frosty_bee.png
-for i in {1..5}:
+for i in {1..10}:
 do
-    pkill -f test.sh
-    pkill -f start.sh
-    pkill -f farm.sh
-    pkill -f pre_farm.sh
-    pkill -f check_inventory.sh
-    pkill -f after_farm.sh
-    pkill -f timer.sh
+    pkill -f test.sh 2>/dev/null
+    pkill -f start.sh 2>/dev/null
+    pkill -f farm.sh 2>/dev/null
+    pkill -f pre_farm.sh 2>/dev/null
+    pkill -f check_inventory.sh 2>/dev/null
+    pkill -f after_farm.sh 2>/dev/null
+    pkill -f timer.sh 2>/dev/null
 done
+error "Macro cancelled by user (close.sh call)"
