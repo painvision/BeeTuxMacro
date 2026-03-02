@@ -22,10 +22,6 @@ Open source Bee Swarm Simulator macro made for Linux. Supports every DE or WM on
 
   <a href="https://t.me/+gws61dtKyIRlYzky">
 <img src="https://img.shields.io/badge/Telegram-2CA5E0?style=for-the-badge&logo=telegram&logoColor=white" />  
-</a>
-
-  <a href="https://github.com/painvision/BeeTuxMacro/stargazers">
-  <img alt="GitHub Repo stars" src="https://img.shields.io/github/stars/painvision/BeeTuxMacro?style=for-the-badge" />
   </a>
 
 </p>
@@ -33,12 +29,12 @@ Open source Bee Swarm Simulator macro made for Linux. Supports every DE or WM on
 > [!WARNING]
 > If you encounter bugs, open an issue, make a pull request, join our [discord chat](https://discord.gg/pAUUYbPqs6), or group on [Telegram](https://t.me/+gws61dtKyIRlYzky). [🇷🇺/🇺🇸]
 
-> [!ALERT]
+> [!TIP]
 > 📌 Any DE on Mutter won't work. Macro is working well on PURE Wayland and X11 desktop environments and window managers
 
 <p align='center'>
 <a href="https://github.com/painvision/BeeTuxMacro/blob/main/README_ru.md">
-ZZZZZZZZZZZZZZZZZZZZZ README.md на русском
+README.md на русском
 </a>
 </p>
 
