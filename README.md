@@ -63,13 +63,9 @@ If there are some updates, you can update macro by running this command in macro
 git pull
 ```
 
-<h1 align='center'>
-Configuration 
-</h1>
+### Configuration
 
-There's no GUI (for now)
-
-Edit `~/BeeTuxMacro/config.sh` file using your favourite text editor
+Edit `~/BeeTuxMacro/config.sh` file using your favourite text editor. No GUI, the Linux way to macro
 
 <h1 align='center'>
 Setup
@@ -100,16 +96,16 @@ Roadmap
 
 | Fields              | Features                                  | QoL                                            | Codebase  |
 | ------------------- | ----------------------------------------- | ---------------------------------------------- |---------- |
-| ✅ Pine Tree Forest | ✅ Auto Dig                               | 📌 GUI for settings instead of notifications   | ❌ Image recognition function (python)
-| ✅ Rose Field       | ✅ Auto Sprinkler (can be toggled now)                         | 🗑️ Macro releases instead of git repo          | ❌ Image instability function 
+| ✅ Pine Tree Forest | ✅ Auto Dig                               | 📌 GUI (maybe zenity) for hive selection/toggling macro instead of notifications   | ❌ Image recognition function (python)
+| ✅ Rose Field       | ✅ Auto Sprinkler (can be toggled now)    | 📌 Auto Reconnect          | ❌ Image instability function 
 | ✅ Pumpkin Field    | ✅ Auto Wealth Clock                      | ❌ Telegram bot hooking                        | ❌ Detect no pollen increase (image instability function)
-| ✅ Pineapple Field  | 🗑️ Auto Gingerbread House (USELESS)                 | ❌ Pause/resume macro                          | ❌ Fixing camera position after reset (recognition function)
+| ✅ Pineapple Field  | 🗑️ Auto Gingerbread House (USELESS)       | ❌ Pause/resume macro                          | ❌ Fixing camera position after reset (recognition function)
 | ❌ Stump Field      | ✅ Auto Stockings                         | ✅ Claim hive function                       | ❌ Recalculate path walking time OR not walking at all when haste is active (recognition)
 | ✅ Strawberry Field | ✅ Auto Honey Wreath                      | ❌ Test all DE/WM                                             | ❌ Auto reconnect (recognition function)
 |                     | ✅ Set maximum time to farm if pixel detection fails                    | ❌ Auto reconnect (recognition function)
 | ❌ Bamboo Field     | ✅ Walkspeed based calculation for paths  | 🗑️ Global keybind (no need to manually set it in Settings                                    | ❌ Rewrite walking functions for better code understanding and reading
 | ❌ Cactus Field     | ❌ Auto Whirligig                         |                                                |
-|                     | ❌ Auto Micro Converter                   |
+|                     | ❌ Auto Micro Converter                   | 📌 Optimize checking pixel's by precalculating pixel coords, not calculating them at each cycle (function at the start OR variable in files) 
 |                     | ✅ Backpack detection modes (pixel-only/pixel-time/time-only modes) |
 |                     | ✅ Auto Kill Mobs                        | ✅ Fix timer.sh
 
