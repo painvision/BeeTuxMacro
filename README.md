@@ -1,7 +1,6 @@
 <p align='center'>
-<img src="https://github.com/painvision/BeeTuxMacro/blob/main/frosty_bee.png">
+<img width="300" height="230" alt="image" src="https://github.com/painvision/BeeTuxMacro/blob/main/frosty_bee.png">
 </p>
-  
 <h1 align='center'>
 BeeTux Macro ☃️
 </h1>
@@ -94,32 +93,33 @@ Find a way to setup keybind with shell command in your WM/DE.
 Roadmap
 </h1>
 
-| Fields              | Features                                  | QoL                                            | Codebase  |
-| ------------------- | ----------------------------------------- | ---------------------------------------------- |---------- |
-| ✅ Pine Tree Forest | ✅ Auto Dig                               | 📌 GUI (maybe zenity) for hive selection/toggling macro instead of notifications   | ❌ Image recognition function (python)
-| ✅ Rose Field       | ✅ Auto Sprinkler (can be toggled now)    | 📌 Auto Reconnect          | ❌ Image instability function 
-| ✅ Pumpkin Field    | ✅ Auto Wealth Clock                      | ❌ Telegram bot hooking                        | ❌ Detect no pollen increase (image instability function)
-| ✅ Pineapple Field  | 🗑️ Auto Gingerbread House (USELESS)       | ❌ Pause/resume macro                          | ❌ Fixing camera position after reset (recognition function)
-| ❌ Stump Field      | ✅ Auto Stockings                         | ✅ Claim hive function                       | ❌ Recalculate path walking time OR not walking at all when haste is active (recognition)
-| ✅ Strawberry Field | ✅ Auto Honey Wreath                      | ❌ Test all DE/WM                                             | ❌ Auto reconnect (recognition function)
-|                     | ✅ Set maximum time to farm if pixel detection fails                    | ❌ Auto reconnect (recognition function)
-| ❌ Bamboo Field     | ✅ Walkspeed based calculation for paths  | 🗑️ Global keybind (no need to manually set it in Settings                                    | ❌ Rewrite walking functions for better code understanding and reading
-| ❌ Cactus Field     | ❌ Auto Whirligig                         |                                                |
-|                     | ❌ Auto Micro Converter                   | 📌 Optimize checking pixel's by precalculating pixel coords, not calculating them at each cycle (function at the start OR variable in files) 
-|                     | ✅ Backpack detection modes (pixel-only/pixel-time/time-only modes) |
-|                     | ✅ Auto Kill Mobs                        | ✅ Fix timer.sh
+#### Fields:
+✅ Pine Tree Forest
+✅ Rose Field
+✅ Pumpkin Field
+✅ Pineapple Field
+✅ Strawberry Field
+> Planned: ❌ Stump, ❌ Cactus and ❌ Bamboo
 
-List of tested DE and WM's
+#### Features:
+✅ Auto Dig
+✅ Auto Sprinkler
+✅ Auto Wealth Clock
+✅ Auto Stockings
+✅ Auto Honey Wreath
+✅ Convert when full backpack
+✅ Convert when time exceeded
+✅ Auto Kill Mobs
+✅ Auto Claim Hive (optional manual selection)
+> Planned: ❌ Auto Micro Converter, ❌ Auto Whirligig
 
-| DE/WM | Status |
-| ----- | ------ |
-| Hyprland | Works flawlessly ✅
-| GNOME | Pixel detection don't work ❌
-| KDE Plasma (Wayland) | Don't work ❌
-| Cinnamon (Wayland)| Pixel detection don't work ❌
-| i3 | Works ✅ 
-| Sway | Works ✅ 
-| Wayfire | Works ✅ 
-| Cosmic DE (Wayland) | Works ✅ 
-
-Macro works well on pure Wayland and X11 DE/WM's. 
+#### TO DO
+📌 GUI for hive selection/toggle macro instead of notifications
+📌 Auto Reconnect
+❌ Telegram bot hooking
+❌ Image recognition function
+❌ Image instability function
+❌ Detect no pollen increase with instability function
+❌ Fixing camera position after reset
+❌ Recalculate path walking time OR not walking at all when haste is active
+📌 Optimize checking pixel's by precalculating pixel coords, not calculating them at each cycle (function at the start OR variable in files) 
