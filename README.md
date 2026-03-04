@@ -117,20 +117,12 @@ Roadmap
 
 #### TO DO
 - 📌 GUI for hive selection/toggle macro instead of notifications
-<<<<<<< HEAD
-- 📌 Auto Reconnect
-=======
 - ✅ Auto Reconnect
->>>>>>> 412a493 (added auto reconnect, optimized pixel precalculation, fixed auto hive reacting on "trade disabled" label)
 - ❌ Telegram bot hooking
 - ❌ Image recognition function
 - ❌ Image instability function
 - ❌ Detect no pollen increase with instability function
 - ❌ Fixing camera position after reset
 - ❌ Recalculate path walking time OR not walking at all when haste is active
-<<<<<<< HEAD
-- 📌 Optimize checking pixel's by precalculating pixel coords, not calculating them at each cycle (function at the start OR variable in files) 
-=======
 - ✅ Optimize checking pixel's by precalculating pixel coords, not calculating them at each cycle (function at the start OR variable in files) - applied on check_inventory, this precalculation on auto hive not necessary
 - ✅ Merged stockings and wealth clock functions, so it would take less time
->>>>>>> 412a493 (added auto reconnect, optimized pixel precalculation, fixed auto hive reacting on "trade disabled" label)
