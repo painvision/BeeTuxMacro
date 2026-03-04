@@ -35,21 +35,38 @@ function find_hive(
     camera_right
     shift_lock_toggle
     shift_lock_toggle
+    camera_up
+    camera_up
+    camera_up
+    camera_up
+    camera_up
+    camera_up
+    camera_up
+    camera_up
     for ((i=0; i<5; i++)); do
+    if pixel_in_trade_disabled_range $(get_coords_to_check_disabled_trade_requests); then
+        jump
+        sleep 0.513
+        jump
+        sleep 0.9
+    else
     if pixel_is_white $(get_claim_hive_c_coords) || pixel_is_white $(get_make_honey_h_coords); then
+        camera_down
+        camera_down
+        camera_down
         e
         camera_left
         camera_left
         shift_lock_toggle
         shift_lock_toggle
         echo $i > ~/BeeTuxMacro/variables/hive_slot
-        notify-send "☃️ Beetux Macro" "Our hive is: $(cat ~/BeeTuxMacro/variables/hive_slot) (that number is always -1 from actual hive slot)" -i ~/BeeTuxMacro/frosty_bee.png
         return 0
     else
         jump
         sleep 0.513
         jump
         sleep 0.9
+    fi
     fi
     done
     done
@@ -179,6 +196,45 @@ function get_to_make_honey_coords(
     new_y=$(echo "scale=0; $orig_y * $height / $orig_height" | bc)
     echo "${new_x},${new_y}"
 )
+function move_mouse_on_coords(
+    local resolution
+    resolution=$(xrandr | grep "*")
+
+    local width height
+    width=$(echo "$resolution" | awk '{print $1}' | cut -dx -f1)
+    height=$(echo "$resolution" | awk '{print $1}' | cut -dx -f2)
+
+    local orig_width=1366
+    local orig_height=768
+    local orig_x=$1
+    local orig_y=$2
+
+    local new_x new_y
+
+    new_x=$(echo "scale=0; $orig_x * $width / $orig_width" / 2 | bc)
+    new_y=$(echo "scale=0; $orig_y * $height / $orig_height" / 2 | bc)
+
+    ydotool mousemove -a -- $new_x $new_y
+)
+function get_reconnect_coords(
+    local resolution
+    resolution=$(xrandr | grep "*")
+
+    local width height
+    width=$(echo "$resolution" | awk '{print $1}' | cut -dx -f1)
+    height=$(echo "$resolution" | awk '{print $1}' | cut -dx -f2)
+
+    local orig_width=1280
+    local orig_height=720
+    local orig_x=750
+    local orig_y=379
+
+    local new_x new_y
+
+    new_x=$(echo "scale=0; $orig_x * $width / $orig_width" | bc)
+    new_y=$(echo "scale=0; $orig_y * $height / $orig_height" | bc)
+    echo "${new_x},${new_y}"
+)
 
 # it was made by deepseek
 function get_full_backpack_coords(
@@ -243,6 +299,26 @@ function get_make_honey_h_coords(
     new_y=$(echo "scale=0; $orig_y * $height / $orig_height" | bc)
     echo "${new_x},${new_y}"
 )
+function get_coords_to_check_disabled_trade_requests(
+    local resolution
+    resolution=$(xrandr | grep "*")
+
+    local width height
+    width=$(echo "$resolution" | awk '{print $1}' | cut -dx -f1)
+    height=$(echo "$resolution" | awk '{print $1}' | cut -dx -f2)
+
+    local orig_width=1366
+    local orig_height=768
+    local orig_x=819
+    local orig_y=101
+
+    local new_x new_y
+
+    new_x=$(echo "scale=0; $orig_x * $width / $orig_width" | bc)
+    new_y=$(echo "scale=0; $orig_y * $height / $orig_height" | bc)
+    echo "${new_x},${new_y}"
+)
+
 
 function pixel_is_white(
     local x=$1
@@ -263,6 +339,49 @@ function pixel_is_white(
     (( r>=234 &&
        g>=234 &&
        b>=234 ))
+)
+
+function pixel_is_reconnect_color(
+    local x=$1
+    local r g b
+    if [[ "$XDG_SESSION_TYPE" == "wayland" ]]; then
+        set -- $(
+            grim -g "${1} 1x1" -t ppm - |
+            magick ppm:- txt:- |
+            sed -n 's/.*srgb(\([0-9]*\),\([0-9]*\),\([0-9]*\)).*/\1 \2 \3/p' & sleep 0.3; pkill grim
+        )
+    else
+        set -- $(
+            import -window root -crop 1x1+${x}+${y} txt:- |
+            sed -n 's/.*srgb(\([0-9]*\),\([0-9]*\),\([0-9]*\)).*/\1 \2 \3/p'
+        )
+    fi
+    r=$1 g=$2 b=$3
+    (( r==60 &&
+       g==61 &&
+       b==63 ))
+)
+
+function pixel_in_trade_disabled_range(
+    local x=$1
+    local r g b
+    if [[ "$XDG_SESSION_TYPE" == "wayland" ]]; then
+        set -- $(
+            grim -g "${1} 1x1" -t ppm - |
+            magick ppm:- txt:- |
+            sed -n 's/.*srgb(\([0-9]*\),\([0-9]*\),\([0-9]*\)).*/\1 \2 \3/p' & sleep 0.3; pkill grim
+        )
+    else
+        set -- $(
+            import -window root -crop 1x1+${x}+${y} txt:- |
+            sed -n 's/.*srgb(\([0-9]*\),\([0-9]*\),\([0-9]*\)).*/\1 \2 \3/p'
+        )
+    fi
+    r=$1 g=$2 b=$3
+    echo $r $g $b
+    (( r>=170 && r<=255 &&
+       g<=92 &&
+       b<=90 ))
 )
 
 function pixel_in_red_range(
@@ -350,6 +469,14 @@ function auto_dig_off(
 ydotool click 0x80
 )
 
+function lmb_click(
+ydotool click 0xC0
+)
+
+function rmb_click(
+ydotool click 0xC1
+)
+
 function shift_lock_toggle(
 sleep 0.3
 ydotool key 42:1 42:0
@@ -429,6 +556,15 @@ function camera_right(
 ydotool key 52:1 52:0
 sleep 0.1
 )
+
+function camera_up(
+ydotool key 104:1 104:0
+)
+
+function camera_down(
+ydotool key 109:1 109:0
+)
+
 
 function farm_square(
 down_a

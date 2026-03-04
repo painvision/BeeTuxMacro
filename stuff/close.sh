@@ -14,5 +14,6 @@ do
     pkill -f check_inventory.sh 2>/dev/null
     pkill -f after_farm.sh 2>/dev/null
     pkill -f timer.sh 2>/dev/null
+    pkill -f connect_checker.sh 2>/dev/null
 done
 error "Macro cancelled by user (close.sh call)"

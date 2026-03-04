@@ -1,3 +1,51 @@
+function from_hive_to_wealth_clock_and_stockings(
+    down_w
+    wait 0.5
+    up_w
+    down_d
+    wait 6.6
+    up_d
+    down_s
+    down_a
+    wait 6.6
+    up_s
+    up_a
+    down_a
+    wait 4
+    jump
+    wait 2
+    jump
+    wait 6
+    jump
+    wait 1
+    jump
+    wait 1.6
+    up_a
+    sleep 0.4
+    e
+    down_w
+    wait 1.1
+    up_w
+    down_d
+    down_w
+    wait 7
+    up_d
+    up_w
+    down_s
+    wait 0.35
+    up_s
+    down_a
+    wait 0.2
+    up_a
+    e
+    down_a
+    wait 2
+    up_a
+    down_d
+    wait 2
+    up_d
+    reset
+)
 function collect_around(
 down_w
 wait 0.25
