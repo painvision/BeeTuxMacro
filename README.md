@@ -116,13 +116,14 @@ Roadmap
 > Planned: ❌ Auto Micro Converter, ❌ Auto Whirligig
 
 #### TO DO
-- 📌 GUI for hive selection/toggle macro instead of notifications
+- 🗿📌 GUI for hive selection/toggle macro instead of notifications
 - ✅ Auto Reconnect
 - ❌ Telegram bot hooking
 - ❌ Image recognition function
 - ❌ Image instability function
-- ❌ Detect no pollen increase with instability function
-- ❌ Fixing camera position after reset
-- ❌ Recalculate path walking time OR not walking at all when haste is active
+- 📜📌 Detect no pollen increase OCR instead 
+- ❓ Fixing camera position after reset. No image recognition, so no fixing
+- ❓ Recalculate path walking time OR not walking at all when haste is active. idk how to do this ;(
 - ✅ Optimize checking pixel's by precalculating pixel coords, not calculating them at each cycle (function at the start OR variable in files) - applied on check_inventory, this precalculation on auto hive not necessary
 - ✅ Merged stockings and wealth clock functions, so it would take less time
+- ❌ Do something with mutter and muffin. Maybe X11 things are available in them? Test KDE and GNOME
