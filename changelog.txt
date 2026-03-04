@@ -1,7 +1,7 @@
-- Added auto hive. It will automagically claim a hive, or identify your current hive. Manual hive selection will remain in config.sh
-- Universal field selection. No longer to manually select back-to-hive and hive-to-field functions, so you wouldn't confuse. See config.sh
+- Auto Reconnect added! If your wifi sucks and needs reconnecting sometimes, macro now does this!
+- Fixed a bug in auto find hive. Now it won't trigger on "Trade Disabled" label (i hope)
+- Merged Auto Stockings and Auto Wealth Clock paths, so it would take less time to farm them both
+- Optimized check_inventory by precalculating needed pixel instead constant xrandr calls (im stupid, yeah)
 - Some changes to README.md
-- Fixed Honey Wreath. Now it works properly
-- Some overall optimizations and bugfixes
 
-* Next update planning - merge stockings + wealth clock macros, optimize get_pixel functions
+* Features planned: detect no pollen changes with OCR. If pollen not changes, reset and try again

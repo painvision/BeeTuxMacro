@@ -3,10 +3,16 @@
 
 START_TIME=$SECONDS
 
+
+# 04.03 / Precalculating needed pixel for full backpack detection instead of constant xrandr requesting
+if [[ $BACKPACK_DETECTION_MODE == 0 || $BACKPACK_DETECTION_MODE == 1 ]]; then
+    FULL_BACKPACK_PIXEL=$(get_full_backpack_coords)
+fi
+
 if [ $BACKPACK_DETECTION_MODE = 0 ]; then # only pixel detection
     while :
     do
-        if pixel_in_red_range $(get_full_backpack_coords); then
+        if pixel_in_red_range $FULL_BACKPACK_PIXEL; then
             pkill -f farm.sh
             bash -c ~/BeeTuxMacro/after_farm.sh & pkill -f check_inventory.sh
         fi
@@ -21,7 +27,7 @@ if [ $BACKPACK_DETECTION_MODE = 1 ]; then # checking inventory + maximum amount 
             pkill -f farm.sh
             bash -c ~/BeeTuxMacro/after_farm.sh & pkill -f check_inventory.sh
         else
-        if pixel_in_red_range $(get_full_backpack_coords); then
+        if pixel_in_red_range $FULL_BACKPACK_PIXEL; then
             pkill -f farm.sh
             bash -c ~/BeeTuxMacro/after_farm.sh & pkill -f check_inventory.sh
         fi

@@ -8,13 +8,13 @@ clear
 figlet BeeTux
 echo "https://github.com/painvision/BeeTuxMacro"
 echo " "
-
+check_update_git
 info "Checking dependencies..."
 echo " "
 
 if ! command -v ydotool &> /dev/null; then
 notify-send "BeeTux Macro" "❌ Error: 'ydotool' is not installed" -i ~/BeeTuxMacro/frosty_bee.png
-echo [X] Error: 'ydotool' is not installed
+errot "'ydotool' is not installed! "
 exit 1
 fi
 
@@ -67,29 +67,27 @@ fi
 info "Checking ydotoold state..."
 
 if ! pidof ydotoold >/dev/null; then
-notify-send "BeeTux Macro" "❌ ydotoold is required to macro" -i ~/BeeTuxMacro/frosty_bee.png
-error "ydotoold is required to macro. Make this command running in a background, to start macroing ⬇"
-echo ""
-echo sudo /usr/bin/ydotoold --socket-path=\"/run/user/1000/.ydotool_socket\" --socket-own=\"1000:1000\"
-exit 1
+    notify-send "BeeTux Macro" "❌ ydotoold is required to macro" -i ~/BeeTuxMacro/frosty_bee.png
+    error "ydotoold is required to macro. Make this command running in a background, to start macroing ⬇"
+    echo ""
+    echo sudo /usr/bin/ydotoold --socket-path=\"/run/user/1000/.ydotool_socket\" --socket-own=\"1000:1000\"
+    exit 1
 fi
 success "ydotoold working!"
-echo ""
-check_update_git
+
 echo ""
 info "Everything's okay to start!"
+echo ""
 info "Sending notification..."
 echo ""
 
 if [ ! -e lockfile ]; then
 touch ~/BeeTuxMacro/lockfile
 
+bash -c ~/BeeTuxMacro/connect_checker.sh &
+
 if [[ $AUTO_STOCKINGS = 1 ]]; then
 touch ~/BeeTuxMacro/variables/should_stockings
-fi
-
-if [[ $AUTO_GINGERBREAD_HOUSE = 1 ]]; then
-touch ~/BeeTuxMacro/variables/should_gingerbread
 fi
 
 if [[ $AUTO_MOBS = 1 ]]; then
@@ -114,17 +112,17 @@ if [[ $AUTO_FIND_HIVE = 0 ]]; then
     echo TRUE_HIVE_SLOT=$TRUE_HIVE_SLOT > ~/BeeTuxMacro/variables/hive_slot
 
     if [ $HIVE_SLOT == exit ]; then
-    exit_macro
+        exit_macro
     fi
 
     if [ $HIVE_SLOT == edit ]; then
-    xdg-open ~/BeeTuxMacro/config.sh
-    exit_macro
+        xdg-open ~/BeeTuxMacro/config.sh
+        exit_macro
     fi
 
     if [ $HIVE_SLOT == github ]; then
-    xdg-open https://github.com/painvision/BeeTuxMacro
-    exit_macro
+        xdg-open https://github.com/painvision/BeeTuxMacro
+        exit_macro
     fi
 
     notify-send "☃️ Beetux Macro" "⏯️ Macro setup started" -i ~/BeeTuxMacro/frosty_bee.png
@@ -138,22 +136,22 @@ if [[ $AUTO_FIND_HIVE = 0 ]]; then
     up_w
 else
     touch ~/BeeTuxMacro/lockfile
-    RESPONSE=$(notify-send "☃️ Beetux Macro" "🍯 Auto Hive enabled!" -t 15000 --action="start=Start" --action="cancel=Cancel" -i ~/BeeTuxMacro/frosty_bee.png) & find_hive
+    RESPONSE=$(notify-send "☃️ Beetux Macro" "🍯 Auto Hive enabled!" -t 15000 --action="cancel=Cancel" -i ~/BeeTuxMacro/frosty_bee.png) & find_hive
     if [ $RESPONSE == cancel ]; then
-    exit_macro
+        exit_macro
     fi
 fi
 
 
 if [[ $AUTO_STOCKINGS == 1 || $AUTO_GINGERBREAD_HOUSE == 1 || $AUTO_MOBS = 1 || $AUTO_WREATH = 1 || $AUTO_WEALTH_CLOCK = 1 ]]; then
-bash -c ~/BeeTuxMacro/timer.sh &
+    bash -c ~/BeeTuxMacro/timer.sh &
 fi
 
 bash -c ~/BeeTuxMacro/pre_farm.sh
 
 else
-rm lockfile 2>/dev/null
-rm -rf ~/BeeTuxMacro/variables/ 2>/dev/null
-exit_macro 2>/dev/null
-exit
+    rm lockfile 2>/dev/null
+    rm -rf ~/BeeTuxMacro/variables/ 2>/dev/null
+    exit_macro 2>/dev/null
+    exit
 fi

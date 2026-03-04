@@ -7,7 +7,6 @@ SECONDS_MOBS=0
 
 while :
     do
-
     if [[ $SECONDS_MOBS -ge 3600 && "$AUTO_MOBS" -eq 1 ]]; then
         touch ~/BeeTuxMacro/variables/should_mobs 2>/dev/null
         SECONDS_MOBS=0

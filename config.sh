@@ -26,7 +26,7 @@ SPRINKLER_SLOT=1
 BACKPACK_DETECTION_MODE=1
 
 # Set maximum seconds you can farm
-FARM_SECONDS=6
+FARM_SECONDS=300
 
 # Approximate time to convert full backpack
 CONVERT_TIME=70
@@ -48,16 +48,16 @@ function farm_pattern(
 )
 
 # Collects stockings every 1 hours
-# AUTO_STOCKINGS=1
+AUTO_STOCKINGS=1
 
 # Auto kill all (except 0 bee zone, king beetle, tunnel bear, coconut crab) mobs, every 1 hour
 # AUTO_MOBS=1
 
 # Wealth clock every 1 hours
-# AUTO_WEALTH_CLOCK=1
+AUTO_WEALTH_CLOCK=1
 
 # Honey wreath for converting
-AUTO_WREATH=1
+# AUTO_WREATH=1
 
 # Uncomment if you configured and confirm using this config
-CONFIGURED=""
+# CONFIGURED=""
