@@ -45,6 +45,8 @@ function from_hive_to_wealth_clock_and_stockings(
     wait 2
     up_d
     reset
+    date +%s > ~/BeeTuxMacro/variables/should_wealth
+    date +%s > ~/BeeTuxMacro/variables/should_stockings
 )
 function collect_around(
 down_w
@@ -63,9 +65,10 @@ down_w
 wait 0.5
 up_w
 down_s
-down_d
-wait 0.35
+wait 0.25
 up_s
+down_d
+wait 0.25
 up_d
 )
 
@@ -139,9 +142,10 @@ collect_around
 sleep 2
 from_pineapple_to_hive
 from_corner_to_hive $(cat ~/BeeTuxMacro/variables/hive_slot)
+date +%s > ~/BeeTuxMacro/variables/should_mobs
 )
 
-function from_strawberry_to_hive(
+function from_strawberry_to_hive( # переписал под новый from corner to hive
 camera_left
 camera_left
 camera_left
@@ -152,37 +156,43 @@ wait 0.5
 up_d
 wait 3
 up_w
+
 down_a
 wait 7
 up_a
+
 down_w
 wait 0.7
 up_w
+
 down_d
 wait 0.4
-down_w
-wait 11
+
+    down_w
+    wait 11
+
 up_d
+
 down_a
 wait 12
 up_a
-up_w
+
+    up_w
+down_d
+wait 0.1
+up_d
+
 down_s
-wait 0.7
+wait 0.6
 up_s
-down_a
+
+down_d
 wait 4
-down_w
-wait 0.2
-up_w
-wait 3
-up_a
-down_w
-wait 0.5
-up_w
-down_a
-wait 0.5
-up_a
+up_d
+
+down_s
+wait 0.1
+up_s
 )
 
 function from_hive_to_strawberry_with_red_cannon(
@@ -241,7 +251,7 @@ down_a
 wait 0.7
 up_a
 )
-function from_pineapple_to_hive(
+function from_pineapple_to_hive( # переписано
 down_d
 wait 4
 up_d
@@ -270,21 +280,15 @@ e
 down_w
 wait 4
 up_w
-down_a
 down_s
 wait 0.2
 up_s
-wait 5
-down_w
+down_d
+wait 4.4
+up_d
+down_s
 wait 0.2
-up_w
-up_a
-down_w
-wait 0.4
-up_w
-down_a
-wait 0.4
-up_a
+up_s
 )
 
 function from_hive_to_pineapple_with_red_cannon(
@@ -294,7 +298,7 @@ down_a
 wait 7
 up_a
 down_s
-wait 1.5
+wait 0.8
 up_s
 )
 
@@ -324,60 +328,19 @@ function from_hive_to_wealth_clock(
     sleep 0.4
     e
     reset
+    date +%s > ~/BeeTuxMacro/variables/should_wealth
+
 )
 
 function from_hive_to_honey_wreath_and_back(
-    down_w
-    wait 1
-    up_w
+    from_hive_to_red_cannon
     down_d
-    wait 6.6
-    down_a
-    wait 0.1
-    up_a
-    down_d
-    jump
-    wait 1
-    jump
-    wait 1.9
+    wait 1.325
     up_d
     e
     sleep 5
-    down_w
-    wait 0.25
-    up_w
-    down_d
-    wait 0.25
-    up_d
-    down_s
-    wait 0.5
-    up_s
-    down_a
-    wait 0.5
-    up_a
-    down_w
-    wait 0.5
-    up_w
-    down_s
-    down_d
-    wait 0.35
-    up_s
-    up_d
-    down_a
-    wait 12
-    up_a
-    down_w
-    wait 0.4
-    up_w
-    down_a
-    wait 0.4
-    up_a
-    down_s
-    down_d
-    wait 0.6
-    up_s
-    wait 0.15
-    up_d
+    collect_around
+    date +%s > ~/BeeTuxMacro/variables/should_wreath
 )
 function from_hive_to_stockings_and_back (
 jump_release
@@ -412,9 +375,10 @@ reset
 down_w
 sleep 3
 up_w
+date +%s > ~/BeeTuxMacro/variables/should_stockings
 )
 
-function from_pumpkin_to_hive(
+function from_pumpkin_to_hive( #переписал
 down_a
 down_s
 wait 4
@@ -437,18 +401,15 @@ wait 0.3
 up_a
 wait 12
 up_w
-down_a
 down_s
 wait 0.2
 up_s
-wait 8.7
-up_a
-down_w
-wait 0.4
-up_w
-down_a
-wait 0.4
-up_a
+down_d
+wait 4.4
+up_d
+down_s
+wait 0.2
+up_s
 )
 
 function from_hive_to_pumpkin_with_red_cannon(
@@ -471,7 +432,7 @@ wait 0.4
 up_w
 )
 
-function from_rose_field_to_hive(
+function from_rose_field_to_hive( #переписано
 down_w
 down_d
 wait 3
@@ -484,21 +445,20 @@ wait 14
 up_a
 sleep 0.1
 up_w
+down_d
+wait 0.1
+up_d
 down_s
 wait 0.6
 up_s
-down_a
-wait 8
-up_a
-down_w
-wait 0.4
-up_w
-down_a
-wait 0.4
-up_a
+down_d
+wait 4.4
+up_d
+down_s
+wait 0.1
+up_s
 )
 
-#25,4 seconds
 function from_hive_to_rose_field(
 down_w
 wait 3
@@ -541,7 +501,7 @@ sleep 0.5
 up_s
 )
 
-function from_pine_tree_to_hive(
+function from_pine_tree_to_hive( #переписано
 camera_left
 sleep 0.2
 camera_left
@@ -574,42 +534,60 @@ down_w
 wait 5
 up_w
 down_s
-wait 0.35
+wait 0.2
 up_s
-down_a
-wait 3.2
-down_w
-wait 0.4
-up_w
-wait 2.85
-up_a
-down_w
-wait 0.4
-up_w
-down_a
-wait 0.4
-up_a
+down_d
+wait 4.4
+up_d
+down_s
+wait 0.13
+up_s
 )
 
 function from_corner_to_hive(
-down_s
-down_d
-wait 0.6
-up_s
-wait 0.15
-up_d
-camera_right
-camera_right
-shift_lock_toggle
-shift_lock_toggle
-for ((i=0; i<$1; i++)); do
-    jump
-    sleep 0.513
-    jump
-    sleep 0.9
-done
-camera_left
-camera_left
-shift_lock_toggle
-shift_lock_toggle
+    down_a
+    wait 0.5
+    up_a
+    while :
+    do
+    camera_left
+    camera_left
+    shift_lock_toggle
+    shift_lock_toggle
+    for ((i=0; i<5; i++)); do
+    if pixel_in_trade_disabled_range $(get_coords_to_check_disabled_trade_requests); then
+        jump
+        sleep 0.513
+        jump
+        sleep 0.9
+    else
+    if pixel_is_white $(get_claim_hive_c_coords) || pixel_is_white $(get_make_honey_h_coords); then
+        e
+        camera_right
+        camera_right
+        shift_lock_toggle
+        shift_lock_toggle
+        echo $(echo 5-$i | bc) > ~/BeeTuxMacro/variables/hive_slot
+        notify-send $(cat ~/BeeTuxMacro/variables/hive_slot)
+        return 0
+    else
+        jump
+        sleep 0.513
+        jump
+        sleep 0.9
+    fi
+    fi
+    done
+    reset
+    if pixel_in_trade_disabled_range $(get_coords_to_check_disabled_trade_requests); then
+        find_hive
+    else
+        if pixel_is_white $(get_claim_hive_c_coords) || pixel_is_white $(get_make_honey_h_coords); then
+            true
+            return 0
+        else
+            find_hive
+        fi
+    fi
+    done
 )

@@ -2,6 +2,90 @@
 
 BASE_SPEED=32.2
 
+function convert(
+
+current_time=$(date +%s)
+honey_wreath_threshold=$((current_time - 1800))
+
+sleep 0.4
+
+if [[ $AUTO_WREATH == 1 ]]; then
+    if [ "$(cat ~/BeeTuxMacro/variables/should_wreath)" -lt "$honey_wreath_threshold" ]; then
+        from_hive_to_honey_wreath_and_back
+        if pixel_in_red_range $FULL_BACKPACK_PIXEL; then
+            down_s
+            wait 0.14
+            up_s
+            down_a
+            wait 6
+            up_a
+            re_go_to_hive_slot
+            e
+            sleep $CONVERT_TIME
+        else
+            date +%s > ~/BeeTuxMacro/variables/should_wreath
+            reset
+            down_w
+            wait 4
+            up_w
+        fi
+    fi
+fi
+
+if [[ $AUTO_WREATH == 0 ]]; then
+    e
+    sleep 1
+    if [[ $BACKPACK_DETECTION_MODE == 0 ]]; then
+    sleep $CONVERT_TIME
+        if pixel_in_red_range $FULL_BACKPACK_PIXEL; then
+            re_go_to_hive_slot
+            e
+            sleep $CONVERT_TIME
+        fi
+    fi
+
+    if [[ $BACKPACK_DETECTION_MODE == 1 ]]; then
+        if [ -f ~/BeeTuxMacro/variables/time_exceed ]; then
+            sleep $CONVERT_TIME
+            rm ~/BeeTuxMacro/variables/time_exceed
+        else
+            sleep $CONVERT_TIME
+            if pixel_in_red_range $FULL_BACKPACK_PIXEL; then
+                re_go_to_hive_slot
+                e
+                sleep $CONVERT_TIME
+            fi
+        fi
+    fi
+
+    if [[ $BACKPACK_DETECTION_MODE == 2 ]]; then
+        sleep $CONVERT_TIME
+        rm ~/BeeTuxMacro/variables/time_exceed
+    fi
+fi
+)
+
+function re_go_to_hive_slot(
+    down_w
+    down_d
+    wait 4
+    up_w
+    up_d
+    down_a
+    wait 0.1
+    up_a
+    down_s
+    wait 0.6
+    up_s
+    down_d
+    wait 6.6
+    up_d
+    down_s
+    wait 0.1
+    up_s
+    from_corner_to_hive $(cat ~/BeeTuxMacro/variables/hive_slot)
+)
+
 function find_hive(
     while :
     do
@@ -9,40 +93,23 @@ function find_hive(
     down_w
     wait 4
     up_w
-    down_a
+    sleep 0.1 # ДИСЦИПЛИНА ✅✅✅ ДМИИИИИИИИИТРИЙ
     down_s
     wait 0.2
     up_s
-    wait 5
-    down_w
-    wait 0.2
-    up_w
-    up_a
-    down_w
-    wait 0.4
-    up_w
-    down_a
-    wait 0.4
-    up_a
-
-    down_s
     down_d
-    wait 0.6
-    up_s
-    wait 0.15
+    wait 6.6
     up_d
-    camera_right
-    camera_right
+    down_s
+    wait 0.2
+    up_s
+    down_a
+    wait 0.5
+    up_a
+    camera_left
+    camera_left
     shift_lock_toggle
     shift_lock_toggle
-    camera_up
-    camera_up
-    camera_up
-    camera_up
-    camera_up
-    camera_up
-    camera_up
-    camera_up
     for ((i=0; i<5; i++)); do
     if pixel_in_trade_disabled_range $(get_coords_to_check_disabled_trade_requests); then
         jump
@@ -51,15 +118,13 @@ function find_hive(
         sleep 0.9
     else
     if pixel_is_white $(get_claim_hive_c_coords) || pixel_is_white $(get_make_honey_h_coords); then
-        camera_down
-        camera_down
-        camera_down
         e
-        camera_left
-        camera_left
+        camera_right
+        camera_right
         shift_lock_toggle
         shift_lock_toggle
-        echo $i > ~/BeeTuxMacro/variables/hive_slot
+        echo $(echo 5-$i | bc) > ~/BeeTuxMacro/variables/hive_slot
+        notify-send $(cat ~/BeeTuxMacro/variables/hive_slot)
         return 0
     else
         jump
@@ -69,6 +134,17 @@ function find_hive(
     fi
     fi
     done
+    reset
+    if pixel_in_trade_disabled_range $(get_coords_to_check_disabled_trade_requests); then
+        find_hive
+    else
+        if pixel_is_white $(get_claim_hive_c_coords) || pixel_is_white $(get_make_honey_h_coords); then
+            true
+            return 0
+        else
+            find_hive
+        fi
+    fi
     done
 )
 
@@ -452,7 +528,7 @@ up_w
 
 function reset (
 ydotool key 1:1 1:0 19:1 19:0 28:1 28:0 -d 100
-sleep 5
+sleep 7.5
 rm ~/BeeTuxMacro/variables/sprinklers_placed
 )
 
@@ -657,51 +733,51 @@ up_d
 )
 function farm_better_snake(
 down_s
-wait 0.3
+wait 0.29
 up_s
 down_a
 wait 0.1
 up_a
 down_w
-wait 0.3
+wait 0.29
 up_w
 down_a
 wait 0.1
 up_a
 down_s
-wait 0.3
+wait 0.29
 up_s
 down_a
 wait 0.1
 up_a
 down_w
-wait 0.3
+wait 0.29
 up_w
 down_a
 wait 0.1
 up_a
 down_s
-wait 0.3
+wait 0.29
 up_s
 down_a
 wait 0.1
 up_a
 down_w
-wait 0.3
+wait 0.29
 up_w
 down_a
 wait 0.1
 up_a
 down_s
-wait 0.3
+wait 0.29
 up_s
 down_a
 wait 0.1
 up_a
 down_w
-wait 0.3
+wait 0.29
 up_w
 down_d
-wait 0.83
+wait 0.835
 up_d
 )

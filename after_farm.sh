@@ -10,39 +10,64 @@ auto_dig_off
 back_to_hive
 from_corner_to_hive $(cat ~/BeeTuxMacro/variables/hive_slot)
 
-if [[ -f ~/BeeTuxMacro/variables/should_wreath && $AUTO_WREATH = 1 ]]; then
-    from_hive_to_honey_wreath_and_back
-    rm ~/BeeTuxMacro/variables/should_wreath 2>/dev/null
+# 05.03 / Maded converting more reliable (i hope)
+
+if pixel_in_trade_disabled_range $(get_coords_to_check_disabled_trade_requests); then
+    re_go_to_hive_slot
+    convert
 else
-    e
-    sleep $CONVERT_TIME
-fi
-
-if [[ -f ~/BeeTuxMacro/variables/should_stockings && $AUTO_STOCKINGS == 1 ]]; then
-    if [[ -f ~/BeeTuxMacro/variables/should_wealth && $AUTO_WEALTH_CLOCK == 1 ]]; then
-        from_hive_to_wealth_clock_and_stockings
-        rm ~/BeeTuxMacro/variables/should_stockings 2>/dev/null
-        rm ~/BeeTuxMacro/variables/should_wealth 2>/dev/null
+    if pixel_is_white $(get_claim_hive_c_coords) || pixel_is_white $(get_make_honey_h_coords); then
+        convert
     else
-        from_hive_to_stockings_and_back
-        rm ~/BeeTuxMacro/variables/should_stockings 2>/dev/null
+        re_go_to_hive_slot
+        convert
     fi
 fi
 
-if [[ -f ~/BeeTuxMacro/variables/should_wealth && $AUTO_WEALTH_CLOCK == 1 ]]; then
-    if [[ -f ~/BeeTuxMacro/variables/should_stockings && $AUTO_STOCKINGS == 1 ]]; then
-        from_hive_to_wealth_clock_and_stockings
-        rm ~/BeeTuxMacro/variables/should_stockings 2>/dev/null
-        rm ~/BeeTuxMacro/variables/should_wealth 2>/dev/null
-    else
-        from_hive_to_wealth_clock
-        rm ~/BeeTuxMacro/variables/should_wealth 2>/dev/null
+current_time=$(date +%s)
+
+stockings_threshold=$((current_time - 3600))
+wealth_clock_threshold=$((current_time - 3600))
+honey_wreath_threshold=$((current_time - 1800))
+mobs_threshold=$((current_time - 3600))
+
+# Stockings
+if [[ $AUTO_STOCKINGS == 1 ]]; then
+    if [ "$(cat ~/BeeTuxMacro/variables/should_stockings)" -lt "$stockings_threshold" ]; then
+        if [ "$(cat ~/BeeTuxMacro/variables/should_wealth)" -lt "$wealth_clock_threshold" ]; then
+            if [[ $AUTO_WEALTH_CLOCK == 1 ]]; then
+            from_hive_to_wealth_clock_and_stockings
+            date +%s > ~/BeeTuxMacro/variables/should_stockings
+            date +%s > ~/BeeTuxMacro/variables/should_wealth
+            fi
+        else
+            from_hive_to_stockings_and_back
+            date +%s > ~/BeeTuxMacro/variables/should_stockings
+        fi
     fi
 fi
 
-if [[ -f ~/BeeTuxMacro/variables/should_mobs && $AUTO_MOBS == 1 ]]; then
-    farm_mobs
-    rm ~/BeeTuxMacro/variables/should_mobs 2>/dev/null
+# Wealth
+if [[ $AUTO_WEALTH_CLOCK == 1 ]]; then
+    if [ "$(cat ~/BeeTuxMacro/variables/should_wealth)" -lt "$wealth_clock_threshold" ]; then
+        if [ "$(cat ~/BeeTuxMacro/variables/should_stockings)" -lt "$stockings_threshold" ]; then
+            if [[ $AUTO_STOCKINGS == 1 ]]; then
+                from_hive_to_wealth_clock_and_stockings
+                date +%s > ~/BeeTuxMacro/variables/should_stockings
+                date +%s > ~/BeeTuxMacro/variables/should_wealth
+            fi
+        else
+            from_hive_to_wealth_clock
+            date +%s > ~/BeeTuxMacro/variables/should_wealth
+        fi
+    fi
+fi
+
+if [[ $AUTO_MOBS == 1 ]]; then
+    if [ "$(cat ~/BeeTuxMacro/variables/should_mobs)" -lt "$mobs_threshold" ]; then
+        farm_mobs
+        date +%s > ~/BeeTuxMacro/variables/should_mobs
+    fi
 fi
 
 bash -c ~/BeeTuxMacro/pre_farm.sh

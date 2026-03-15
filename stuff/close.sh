@@ -1,10 +1,13 @@
 . ~/BeeTuxMacro/stuff/utils.sh
 
-rm -rf ~/BeeTuxMacro/variables/ 2>/dev/null
 unhold_keys 2>/dev/null
 unhold_keys 2>/dev/null
 unhold_keys 2>/dev/null
-notify-send "Beetux Macro" "😢 Macro cancelled" -i ~/BeeTuxMacro/frosty_bee.png
+rm ~/BeeTuxMacro/lockfile 2>/dev/null
+rm ~/BeeTuxMacro/stuff/lockfiletest 2>/dev/null
+rm ~/BeeTuxMacro/variables/hive_slot
+rm ~/BeeTuxMacro/variables/sprinklers_placed
+notify-send "Beetux Macro" "‼️ Macro cancelled" -i ~/BeeTuxMacro/frosty_bee.png
 for i in {1..10}:
 do
     pkill -f test.sh 2>/dev/null

@@ -1,7 +1,8 @@
-- Auto Reconnect added! If your wifi sucks and needs reconnecting sometimes, macro now does this!
-- Fixed a bug in auto find hive. Now it won't trigger on "Trade Disabled" label (i hope)
-- Merged Auto Stockings and Auto Wealth Clock paths, so it would take less time to farm them both
-- Optimized check_inventory by precalculating needed pixel instead constant xrandr calls (im stupid, yeah)
-- Some changes to README.md
+- Macro is now more stable! It is now successfully surviving a whole night on my trash laptop
+- Fully rewritten back_to_hive functions, so going to your hive_slot should be less buggy
+- Some changes to from_hive_to_pineapple_with_red_cannon AND farm_mobs. Now mantis won't hurt you
+- Some changes to convert function. Now macro should convert more stable (i hope)
+- Find hive function is more stable, connect checker is more stable
+- Precise time based dispensers. Now macro would go to weatlh clock when you EXACTLY can claim it, removing timer.sh and optimizing overall macro
 
-* Features planned: detect no pollen changes with OCR. If pollen not changes, reset and try again
+* Features planned: add beesmas feast, gather interrupt for dispensers, start making telegram bot hooking (then discord hooking)

@@ -24,6 +24,7 @@ if [ $BACKPACK_DETECTION_MODE = 1 ]; then # checking inventory + maximum amount 
     do
         ELAPSED=$(( SECONDS - START_TIME )) #timer
         if [[ "$ELAPSED" -gt "$FARM_SECONDS" ]]; then
+            touch ~/BeeTuxMacro/variables/time_exceed
             pkill -f farm.sh
             bash -c ~/BeeTuxMacro/after_farm.sh & pkill -f check_inventory.sh
         else
@@ -40,6 +41,7 @@ if [ $BACKPACK_DETECTION_MODE = 2 ]; then # only farming for time
     do
         ELAPSED=$(( SECONDS - START_TIME )) #timer
         if [[ "$ELAPSED" -gt "$FARM_SECONDS" ]]; then
+            touch ~/BeeTuxMacro/variables/time_exceed
             pkill -f farm.sh
             bash -c ~/BeeTuxMacro/after_farm.sh & pkill -f check_inventory.sh
         fi
