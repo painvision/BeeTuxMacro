@@ -1,8 +1,5 @@
-- Macro is now more stable! It is now successfully surviving a whole night on my trash laptop
-- Fully rewritten back_to_hive functions, so going to your hive_slot should be less buggy
-- Some changes to from_hive_to_pineapple_with_red_cannon AND farm_mobs. Now mantis won't hurt you
-- Some changes to convert function. Now macro should convert more stable (i hope)
-- Find hive function is more stable, connect checker is more stable
-- Precise time based dispensers. Now macro would go to weatlh clock when you EXACTLY can claim it, removing timer.sh and optimizing overall macro
-
-* Features planned: add beesmas feast, gather interrupt for dispensers, start making telegram bot hooking (then discord hooking)
+- New setup.sh , script that should be launched when installed macro
+- With new setup.sh, macro now detects, if pixel detection is supported by your WM/DE
+- If your DE/WM cant use pixel detection, now macro will automagically lock all pixel-detect features
+- Replaced aggresive "pkill -f" with "exit 1", added it where neccessary
++ Added gather interrupt! If any of the dispensers is available at a time when you macro, macro now have ability to stop farming and claim rewards exactly when you can claim it

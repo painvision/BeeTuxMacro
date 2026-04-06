@@ -30,11 +30,16 @@ if [[ $AUTO_WREATH == 1 ]]; then
             up_w
         fi
     fi
-fi
-
-if [[ $AUTO_WREATH == 0 ]]; then
+else
     e
     sleep 1
+
+    if [[ $BACKPACK_DETECTION_MODE == 2 || -f ~/BeeTuxMacro/variables/cant_use_pixel_detection ]]; then
+        sleep $CONVERT_TIME
+        rm ~/BeeTuxMacro/variables/time_exceed
+        return 0
+    fi
+
     if [[ $BACKPACK_DETECTION_MODE == 0 ]]; then
     sleep $CONVERT_TIME
         if pixel_in_red_range $FULL_BACKPACK_PIXEL; then
@@ -57,11 +62,6 @@ if [[ $AUTO_WREATH == 0 ]]; then
             fi
         fi
     fi
-
-    if [[ $BACKPACK_DETECTION_MODE == 2 ]]; then
-        sleep $CONVERT_TIME
-        rm ~/BeeTuxMacro/variables/time_exceed
-    fi
 fi
 )
 
@@ -83,7 +83,11 @@ function re_go_to_hive_slot(
     down_s
     wait 0.1
     up_s
-    from_corner_to_hive $(cat ~/BeeTuxMacro/variables/hive_slot)
+    if [ ! -f ~/BeeTuxMacro/variables/cant_use_pixel_detection ]; then
+        from_corner_to_hive_no_pixel_detection $(cat ~/BeeTuxMacro/variables/hive_slot)
+    else
+        from_corner_to_hive $(cat ~/BeeTuxMacro/variables/hive_slot)
+    fi
 )
 
 function find_hive(

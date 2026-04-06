@@ -544,50 +544,44 @@ wait 0.13
 up_s
 )
 
+
 function from_corner_to_hive(
     down_a
     wait 0.5
     up_a
-    while :
-    do
     camera_left
     camera_left
     shift_lock_toggle
     shift_lock_toggle
     for ((i=0; i<5; i++)); do
-    if pixel_in_trade_disabled_range $(get_coords_to_check_disabled_trade_requests); then
         jump
         sleep 0.513
         jump
         sleep 0.9
-    else
+    camera_right
+    camera_right
+    shift_lock_toggle
+    shift_lock_toggle
     if pixel_is_white $(get_claim_hive_c_coords) || pixel_is_white $(get_make_honey_h_coords); then
-        e
-        camera_right
-        camera_right
-        shift_lock_toggle
-        shift_lock_toggle
-        echo $(echo 5-$i | bc) > ~/BeeTuxMacro/variables/hive_slot
-        notify-send $(cat ~/BeeTuxMacro/variables/hive_slot)
-        return 0
+        echo all right
     else
-        jump
-        sleep 0.513
-        jump
-        sleep 0.9
-    fi
+        re_go_to_hive_slot
     fi
     done
-    reset
-    if pixel_in_trade_disabled_range $(get_coords_to_check_disabled_trade_requests); then
-        find_hive
-    else
-        if pixel_is_white $(get_claim_hive_c_coords) || pixel_is_white $(get_make_honey_h_coords); then
-            true
-            return 0
-        else
-            find_hive
-        fi
-    fi
+)
+
+function from_corner_to_hive_no_pixel_detection(
+    down_a
+    wait 0.5
+    up_a
+    camera_left
+    camera_left
+    shift_lock_toggle
+    shift_lock_toggle
+    for ((i=0; i<5; i++)); do
+        jump
+        sleep 0.513
+        jump
+        sleep 0.9
     done
 )

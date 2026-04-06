@@ -12,18 +12,21 @@ from_corner_to_hive $(cat ~/BeeTuxMacro/variables/hive_slot)
 
 # 05.03 / Maded converting more reliable (i hope)
 
-if pixel_in_trade_disabled_range $(get_coords_to_check_disabled_trade_requests); then
-    re_go_to_hive_slot
-    convert
-else
-    if pixel_is_white $(get_claim_hive_c_coords) || pixel_is_white $(get_make_honey_h_coords); then
-        convert
-    else
+if [ ! -f ~/BeeTuxMacro/variables/cant_use_pixel_detection ]; then
+    if pixel_in_trade_disabled_range $(get_coords_to_check_disabled_trade_requests); then
         re_go_to_hive_slot
         convert
+    else
+        if pixel_is_white $(get_claim_hive_c_coords) || pixel_is_white $(get_make_honey_h_coords); then
+            convert
+        else
+            re_go_to_hive_slot
+            convert
+        fi
     fi
+else
+    convert
 fi
-
 current_time=$(date +%s)
 
 stockings_threshold=$((current_time - 3600))
@@ -70,4 +73,4 @@ if [[ $AUTO_MOBS == 1 ]]; then
     fi
 fi
 
-bash -c ~/BeeTuxMacro/pre_farm.sh
+bash -c ~/BeeTuxMacro/pre_farm.sh & exit 1

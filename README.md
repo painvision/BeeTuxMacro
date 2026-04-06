@@ -70,8 +70,8 @@ Edit `~/BeeTuxMacro/config.sh` file using your favourite text editor. No GUI, th
 Setup
 </h1>
 
-> [!WARNING]
-> While macroing, your display scaling option MUST be 100%, Roblox on fullscreen and nothing interrupting it 
+Run `~/BeeTuxMacro/setup.sh`
+
 
 You should have ydotoold running in a background, so macro could interact with your keyboard. **You can add it to your autostart because of its 4 MB of RAM usage.** Best way to launch ydotool daemon:
 ```
@@ -88,6 +88,9 @@ Toggling macro on/off
 | bash -c ~/BeeTuxMacro/stuff/close.sh | Force closes macro
 
 Find a way to setup keybind with shell command in your WM/DE. 
+
+> [!WARNING]
+> While macroing, your display scaling option MUST be 100%, Roblox on fullscreen and nothing interrupting it 
 
 <h1 align='center'>
 Roadmap
@@ -114,6 +117,7 @@ Roadmap
 - ✅ Auto Claim Hive (optional manual selection)
 - ✅ Auto Reconnect
 - ✅ Auto Find Hive
+- ✅ Gather Interrupt
 
 > Planned: ❌ Auto Micro Converter, ❌ Auto Whirligig
 

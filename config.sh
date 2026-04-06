@@ -86,5 +86,8 @@ AUTO_WEALTH_CLOCK=1
 # Honey wreath for converting
 AUTO_WREATH=1
 
+# Interrupt farming, if any dispenser is available?
+GATHER_INTERRUPT=1
+
 # Uncomment if you configured and confirm using this config
 # CONFIGURED=""
