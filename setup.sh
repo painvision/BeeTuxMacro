@@ -38,18 +38,19 @@ if [[ "$XDG_SESSION_TYPE" == "wayland" ]]; then
     info "Macro assumes you are using Wayland session"
     if ! command -v grim &> /dev/null; then
         notify-send "BeeTux Macro" "❌ Error: 'grim' is not installed" -i ~/BeeTuxMacro/frosty_bee.png
-        info "grim is not installed! If"
+        info "grim is not installed!"
         exit 1
     fi
-    grim test.png
+    grim ~/BeeTuxMacro/test.png
     if [ ! -f ~/BeeTuxMacro/test.png ]; then
         info "Your WM/DE doesn't support grim!"
         echo "Which is a pixel detection utility macro uses for backpack detection, auto reconnect, etc. I highly recommmend you to use pure Wayland WM's and DE's like Hyprland, so you will get the most of the macro, but you can macro without those features"
         touch ~/BeeTuxMacro/variables/cant_use_pixel_detection
     fi
-    success "Your DE/WM supports grim!"
+    success "Your DE/WM supports grim! You can use pixel detection things flawlessly"
+    rm ~/BeeTuxMacro/test.png
 else
-note "Macro assumes you are using X11 session"
+note "Macro assumes you are using X11 session. You CAN'T use pixel detection things"
 touch ~/BeeTuxMacro/variables/cant_use_pixel_detection
 fi
 
@@ -75,4 +76,4 @@ note "To start your macro, make a keybind with this bash command in your DE/WM:"
 echo "bash -c $(pwd)/start.sh"
 echo ""
 note "To stop your macro, use this command:"
-echo "bash -c $(pwd)/utils/close.sh"
+echo "bash -c $(pwd)/stuff/close.sh"

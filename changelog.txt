@@ -1,5 +1,9 @@
-- New setup.sh , script that should be launched when installed macro
-- With new setup.sh, macro now detects, if pixel detection is supported by your WM/DE
-- If your DE/WM cant use pixel detection, now macro will automagically lock all pixel-detect features
-- Replaced aggresive "pkill -f" with "exit 1", added it where neccessary
-+ Added gather interrupt! If any of the dispensers is available at a time when you macro, macro now have ability to stop farming and claim rewards exactly when you can claim it
+Somewhat big update after a long time!
+
+- Added red/white/blue field boosters
+- Added strawberry/blueberry/royal jelly dispensers
+- Fixed going back to your hive slot
+- Fixed from_pine_tree_to_hive path
+- Optimized macro and made it easier to add new dispensers (added get_loot.sh)
+
+More features coming soon!

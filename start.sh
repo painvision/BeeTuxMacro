@@ -16,34 +16,6 @@ if [ ! -f variables/cant_use_pixel_detection ]; then
 bash -c ~/BeeTuxMacro/connect_checker.sh &
 fi
 
-if [[ $AUTO_STOCKINGS = 1 ]]; then
-    if [ ! -f ~/BeeTuxMacro/variables/should_stockings ]; then
-    touch ~/BeeTuxMacro/variables/should_stockings
-    echo "$(date +%s) - 3600" | bc > ~/BeeTuxMacro/variables/should_stockings
-    fi
-fi
-
-if [[ $AUTO_MOBS = 1 ]]; then
-    if [ ! -f ~/BeeTuxMacro/variables/should_mobs ]; then
-    touch ~/BeeTuxMacro/variables/should_mobs
-    echo "$(date +%s) - 3600" | bc > ~/BeeTuxMacro/variables/should_mobs
-    fi
-fi
-
-if [[ $AUTO_WREATH = 1 ]]; then
-    if [ ! -f ~/BeeTuxMacro/variables/should_wreath ]; then
-    touch ~/BeeTuxMacro/variables/should_wreath
-    echo "$(date +%s) - 1800" | bc > ~/BeeTuxMacro/variables/should_wreath
-    fi
-fi
-
-if [[ $AUTO_WEALTH_CLOCK = 1 ]]; then
-    if [ ! -f ~/BeeTuxMacro/variables/should_wealth ]; then
-    touch ~/BeeTuxMacro/variables/should_wealth
-    echo "$(date +%s) - 3600" | bc > ~/BeeTuxMacro/variables/should_wealth
-    fi
-fi
-
 rm ~/BeeTuxMacro/variables/sprinklers_placed 2>/dev/null
 
 if [[ $AUTO_FIND_HIVE = 0 || -f ~/BeeTuxMacro/variables/cant_use_pixel_detection ]]; then
@@ -83,11 +55,6 @@ else
         exit_macro
     fi
 fi
-
-
-# if [[ $AUTO_STOCKINGS == 1 || $AUTO_GINGERBREAD_HOUSE == 1 || $AUTO_MOBS = 1 || $AUTO_WREATH = 1 || $AUTO_WEALTH_CLOCK = 1 ]]; then
-#     bash -c ~/BeeTuxMacro/timer.sh &
-# fi
 
 bash -c ~/BeeTuxMacro/pre_farm.sh &
 exit 1

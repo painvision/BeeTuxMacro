@@ -5,6 +5,7 @@
 # |____/ \___|\___||_| \__,_/_/\_\
 
 # Open source Bee Swarm Simulator macro, written in bash and ydotool for Linux
+# github.com/painvision/BeeTuxMacro
 
 #  __  __    _    ___ _   _
 # |  \/  |  / \  |_ _| \ | |
@@ -35,7 +36,7 @@ AUTO_FIND_HIVE=1 #0 - off, 1 - on
 # Available options: pine, rose, strawberry, pineapple, pumpkin
 FIELD="pine"
 
-# Choose your favourite pattern to farm on fields
+# Choose your pattern to farm on fields
 function farm_pattern(
 
 # Available options:    farm_square
@@ -60,12 +61,10 @@ function farm_pattern(
 # 2 - only farm for seconds
 
 BACKPACK_DETECTION_MODE=1
+FARM_SECONDS=420 # Set maximum seconds you can farm
 
-# Set maximum seconds you can farm
-FARM_SECONDS=420
-
-# Approximate time to convert full backpack
-CONVERT_TIME=100
+CONVERT_TIME=100 # Approximate time to convert full backpack
+AUTO_WREATH=1 # Use honey wreath for converting
 
 #  _____ _____    _  _____ _   _ ____  _____ ____
 # |  ___| ____|  / \|_   _| | | |  _ \| ____/ ___|
@@ -74,20 +73,19 @@ CONVERT_TIME=100
 # |_|   |_____/_/   \_\_|  \___/|_| \_\_____|____/ here
 #
 
-# Collects stockings every 1 hours
-AUTO_STOCKINGS=1
-
-# Auto kill all (except 0 bee zone, king beetle, tunnel bear, coconut crab) mobs, every 1 hour
-AUTO_MOBS=1
-
-# Wealth clock every 1 hours
-AUTO_WEALTH_CLOCK=1
-
-# Honey wreath for converting
-AUTO_WREATH=1
-
-# Interrupt farming, if any dispenser is available?
+# Interrupt farming to collect dispensers master toggle
 GATHER_INTERRUPT=1
 
-# Uncomment if you configured and confirm using this config
-# CONFIGURED=""
+# 0 = off
+# 1 = on without gather interrupt
+# 2 = on with gather interrupt
+
+AUTO_STOCKINGS=1 # Collects stockings every 1 hour
+AUTO_MOBS=1 # Auto kill all mobs (except 0 bee zone, king beetle, tunnel bear, coconut crab), every 1 hour
+AUTO_WEALTH_CLOCK=2 # Wealth clock every 1 hour
+AUTO_RED_FIELD_BOOSTER=0 # Use red field booster every 45 minutes
+AUTO_BLUE_FIELD_BOOSTER=1 # Use blue field booster every 45 minutes
+AUTO_WHITE_FIELD_BOOSTER=0 # Use white field booster every 45 minutes
+AUTO_STRAWBERRY_DISPENSER=2 # Claim free strawberries every 4 hours
+AUTO_BLUEBERRY_DISPENSER=2 # Claim free blueberries every 4 hours
+AUTO_ROYAL_JELLY_DISPENSER=2 # Claim free royal jelly every 22 hours

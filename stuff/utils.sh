@@ -1,5 +1,9 @@
 . ~/BeeTuxMacro/config.sh
 
+if [ ! -d "~/BeeTuxMacro/variables/" ]; then
+    mkdir ~/BeeTuxMacro/variables/
+fi
+
 BASE_SPEED=32.2
 
 function convert(
@@ -531,7 +535,7 @@ up_w
 )
 
 function reset (
-ydotool key 1:1 1:0 19:1 19:0 28:1 28:0 -d 100
+ydotool key 1:1 1:0 19:1 19:0 28:1 28:0 28:1 28:0 28:1 28:0 -d 120
 sleep 7.5
 rm ~/BeeTuxMacro/variables/sprinklers_placed
 )

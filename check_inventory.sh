@@ -11,12 +11,12 @@ fi
 
 
 if [[ $BACKPACK_DETECTION_MODE = 2 || -f ~/BeeTuxMacro/variables/cant_use_pixel_detection  ]] ; then # only farming for time
-    echo "backup"
     while :
     do
         ELAPSED=$(( SECONDS - START_TIME )) #timer
         if [[ "$ELAPSED" -gt "$FARM_SECONDS" ]]; then
             touch ~/BeeTuxMacro/variables/time_exceed
+            touch ~/BeeTuxMacro/variables/should_convert
             pkill -f farm.sh
             bash -c ~/BeeTuxMacro/after_farm.sh & exit 1
         fi
@@ -29,6 +29,7 @@ if [ $BACKPACK_DETECTION_MODE = 0 ]; then # only pixel detection
     do
         if pixel_in_red_range $FULL_BACKPACK_PIXEL; then
             pkill -f farm.sh
+            touch ~/BeeTuxMacro/variables/should_convert
             bash -c ~/BeeTuxMacro/after_farm.sh & exit 1
         fi
     done
@@ -40,10 +41,12 @@ if [ $BACKPACK_DETECTION_MODE = 1 ]; then # checking inventory + maximum amount 
         ELAPSED=$(( SECONDS - START_TIME )) #timer
         if [[ "$ELAPSED" -gt "$FARM_SECONDS" ]]; then
             touch ~/BeeTuxMacro/variables/time_exceed
+            touch ~/BeeTuxMacro/variables/should_convert
             pkill -f farm.sh
             bash -c ~/BeeTuxMacro/after_farm.sh & exit 1
         else
         if pixel_in_red_range $FULL_BACKPACK_PIXEL; then
+            touch ~/BeeTuxMacro/variables/should_convert
             pkill -f farm.sh
             bash -c ~/BeeTuxMacro/after_farm.sh & exit 1
         fi

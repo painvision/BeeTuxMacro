@@ -1,3 +1,202 @@
+if [ ! -d "~/BeeTuxMacro/variables/" ]; then
+    mkdir ~/BeeTuxMacro/variables/
+fi
+
+function from_hive_to_royal_jelly_dispenser(
+from_hive_to_red_cannon
+e
+sleep 3.5
+down_w
+wait 3
+up_w
+down_d
+wait 2
+up_d
+shift_lock_toggle
+down_w
+wait 0.5
+up_w
+jump
+sleep 0.2
+jump
+down_a
+down_w
+sleep 5
+wait 5
+up_a
+up_w
+shift_lock_toggle
+down_w
+down_d
+wait 2.5
+up_w
+up_d
+down_s
+wait 1
+up_s
+down_d
+wait 0.35
+up_d
+)
+
+function from_hive_to_blueberry_dispenser(
+down_w
+wait 2
+up_w
+down_d
+wait 6.6
+up_d
+down_a
+down_s
+wait 12
+up_s
+wait 8
+up_a
+down_w
+wait 2
+up_w
+down_d
+wait 0.3
+up_d
+down_a
+down_w
+wait 4
+up_a
+up_w
+down_s
+wait 0.45
+up_s
+down_d
+wait 0.18
+up_d
+)
+
+function from_hive_to_strawberry_dispenser(
+from_hive_to_red_field_booster
+down_a
+wait 1
+up_a
+down_s
+wait 1
+up_s
+down_d
+wait 3
+up_d
+down_w
+wait 1.5
+up_w
+down_a
+wait 0.5
+up_a
+down_w
+down_a
+wait 3
+up_w
+up_a
+down_d
+wait 1.5
+up_d
+down_s
+wait 0.4
+up_s
+down_a
+wait 2.7
+up_a
+down_s
+wait 1.5
+up_s
+down_d
+wait 0.2
+up_d
+)
+
+function from_hive_to_white_field_booster(
+from_hive_to_red_cannon
+e
+sleep 5
+down_d
+wait 4.5
+up_d
+)
+
+function from_hive_to_red_field_booster(
+from_hive_to_red_cannon
+camera_right
+camera_right
+shift_lock_toggle
+e
+sleep 0.5
+jump
+sleep 0.1
+jump
+shift_lock_toggle
+sleep 2.5
+jump
+sleep 4
+down_a
+wait 2
+up_a
+down_s
+wait 2
+up_s
+down_a
+wait 1.4
+up_a
+down_w
+wait 1.2
+up_w
+down_a
+wait 1
+up_a
+)
+
+function from_hive_to_blue_field_booster(
+down_w
+wait 2
+up_w
+down_d
+wait 6.6
+up_d
+down_a
+down_s
+wait 12
+up_s
+wait 8
+up_a
+down_w
+wait 2
+up_w
+down_d
+wait 0.3
+up_d
+down_a
+down_w
+wait 4
+up_a
+up_w
+down_s
+wait 3
+up_s
+down_a
+wait 2
+up_a
+down_w
+wait 3
+up_w
+down_d
+wait 4
+up_d
+down_s
+wait 1.3
+up_s
+down_a
+wait 0.3
+up_a
+down_s
+wait 3
+up_s
+)
+
 function from_hive_to_wealth_clock_and_stockings(
     down_w
     wait 0.5
@@ -217,7 +416,7 @@ up_a
 
 function from_hive_to_red_cannon(
 down_w
-wait 1
+wait 2
 up_w
 down_d
 wait 6.6
@@ -525,12 +724,12 @@ jump
 sleep 0.5275
 jump
 sleep 1
+down_w
 down_d
 wait 1.35
 up_d
 sleep 4
 shift_lock_toggle
-down_w
 wait 5
 up_w
 down_s
@@ -553,11 +752,12 @@ function from_corner_to_hive(
     camera_left
     shift_lock_toggle
     shift_lock_toggle
-    for ((i=0; i<5; i++)); do
+    for ((i=0; i<5-$1; i++)); do
         jump
         sleep 0.513
         jump
         sleep 0.9
+    done
     camera_right
     camera_right
     shift_lock_toggle
@@ -567,7 +767,6 @@ function from_corner_to_hive(
     else
         re_go_to_hive_slot
     fi
-    done
 )
 
 function from_corner_to_hive_no_pixel_detection(
@@ -578,10 +777,14 @@ function from_corner_to_hive_no_pixel_detection(
     camera_left
     shift_lock_toggle
     shift_lock_toggle
-    for ((i=0; i<5; i++)); do
+    for ((i=0; i<5-$1; i++)); do
         jump
         sleep 0.513
         jump
         sleep 0.9
     done
+    camera_right
+    shift_lock_toggle
+    camera_right
+    shift_lock_toggle
 )

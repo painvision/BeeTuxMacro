@@ -6,7 +6,7 @@ BeeTux Macro ☃️
 </h1>
 
 <p align='center'>
-Open source Bee Swarm Simulator macro made for Linux. Supports every DE or WM on Wayland and maybe X11🐧 
+Open source Bee Swarm Simulator macro made for Linux. Supports every DE or WM, Wayland and X11🐧 
 </p> 
 
 <p align='center'>
@@ -26,10 +26,10 @@ Open source Bee Swarm Simulator macro made for Linux. Supports every DE or WM on
 </p>
 
 > [!WARNING]
-> If you encounter bugs, open an issue, make a pull request, join our [discord chat](https://discord.gg/pAUUYbPqs6), or group on [Telegram](https://t.me/+gws61dtKyIRlYzky). [🇷🇺/🇺🇸]
+> If you encounter bugs, open an issue, make a pull request, join our [discord chat](https://discord.gg/pAUUYbPqs6), or [group on Telegram](https://t.me/+gws61dtKyIRlYzky). [🇷🇺/🇺🇸]
 
 > [!TIP]
-> 📌 Any DE on Mutter won't work. Macro is working well on PURE Wayland and X11 desktop environments and window managers
+> 📌 Macro works on any distros DE's and WM's, but only Wayland compositors support pixel detection. If your DE/WM supports `grim` screenshot utility, you will get the most of the macro
 
 <p align='center'>
 <a href="https://github.com/painvision/BeeTuxMacro/blob/main/README_ru.md">
@@ -64,7 +64,7 @@ git pull
 
 ### Configuration
 
-Edit `~/BeeTuxMacro/config.sh` file using your favourite text editor. No GUI, the Linux way to macro
+Edit `~/BeeTuxMacro/config.sh` file using your favourite text editor. No GUI, the Linux way to configure your macro
 
 <h1 align='center'>
 Setup
@@ -90,11 +90,29 @@ Toggling macro on/off
 Find a way to setup keybind with shell command in your WM/DE. 
 
 > [!WARNING]
-> While macroing, your display scaling option MUST be 100%, Roblox on fullscreen and nothing interrupting it 
+> Your display scaling option MUST be 100%, Roblox on fullscreen and nothing interrupting macro to work
 
 <h1 align='center'>
 Roadmap
 </h1>
+
+
+#### Features:
+- ✅ Auto Claim Hive (optional manual selection)
+- ✅ Auto Sprinkler
+- ✅ Auto Dig
+- ✅ Convert when full backpack
+- ✅ Convert when time exceeded
+- ✅ Auto Honey Wreath
+- ✅ Auto Kill Mobs
+- ✅ Auto Wealth Clock
+- ✅ Auto Stockings
+- ✅ Auto Find Hive
+- ✅ Auto Red/White/Blue boosters
+- ✅ Gather Interrupt for individual dispenser
+- ✅ Auto Reconnect
+
+> Planned: ❌ Planters, ❌ More dispensers
 
 #### Fields:
 - ✅ Pine Tree Forest
@@ -103,31 +121,10 @@ Roadmap
 - ✅ Pineapple Field
 - ✅ Strawberry Field
 
-> Planned: ❌ Stump, ❌ Cactus and ❌ Bamboo
-
-#### Features:
-- ✅ Auto Dig
-- ✅ Auto Sprinkler
-- ✅ Auto Wealth Clock
-- ✅ Auto Stockings
-- ✅ Auto Honey Wreath
-- ✅ Convert when full backpack
-- ✅ Convert when time exceeded
-- ✅ Auto Kill Mobs
-- ✅ Auto Claim Hive (optional manual selection)
-- ✅ Auto Reconnect
-- ✅ Auto Find Hive
-- ✅ Gather Interrupt
-
-> Planned: ❌ Auto Micro Converter, ❌ Auto Whirligig
+> Planned: ❌ More fields
 
 #### TO DO
 - 🗿📌 GUI for hive selection/toggle macro instead of notifications
-- ✅ Auto Reconnect
 - 📌❌ Telegram bot hooking
 - ❌ Image recognition function
 - ❌ Image instability function
-- 📜📌 Detect no pollen increase OCR instead 
-- ❓ Fixing camera position after reset. No image recognition, so no fixing
-- ❓ Recalculate path walking time OR not walking at all when haste is active. idk how to do this ;(
-- ❌ Do something with mutter and muffin. Maybe X11 things are available in them? Test KDE and GNOME
