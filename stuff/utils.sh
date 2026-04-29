@@ -215,7 +215,7 @@ function error(
 echo -e "\\033[30;41m[X] $1\\033[0m"
 )
 
-function check_update_git(
+function check_update_git( #that was vibe coded :P
     if ! git rev-parse --git-dir >/dev/null 2>&1; then
         return
     fi
@@ -252,10 +252,10 @@ function check_update_git(
 )
 
 function avoid_mobs(
-for ((i=0; i<$1; i++)); do
-jump
-sleep 2
-done
+    for ((i=0; i<$1; i++)); do
+        jump
+        sleep 2
+    done
 )
 # to make honey, collect...
 # that message when backpack is empty and ur near
