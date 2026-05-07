@@ -1,13 +1,3 @@
-- 29.04 14:12 patch
-- fixed unhold_keys function
-- added gitignore
-
-Somewhat big update after a long time!
-
-- Added red/white/blue field boosters
-- Added strawberry/blueberry/royal jelly dispensers
-- Fixed going back to your hive slot
-- Fixed from_pine_tree_to_hive path
-- Optimized macro and made it easier to add new dispensers (added get_loot.sh)
-
-More features coming soon!
+- Brand new sandbox feature for X11 users, allowing to use pixel detection on EVERY DE/WM. May be quirky. Check README.md
+- Removed README_ru.md and setup.sh. All setup.sh stuff was merged in start.sh
+- Added all 0 bee zone fields

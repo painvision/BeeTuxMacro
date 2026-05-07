@@ -6,7 +6,7 @@ BeeTux Macro ☃️
 </h1>
 
 <p align='center'>
-Open source Bee Swarm Simulator macro made for Linux. Supports every DE or WM, Wayland and X11🐧 
+Open source Bee Swarm Simulator macro made for Linux. Now supports every DE/WM, Wayland and X11 🐧 
 </p> 
 
 <p align='center'>
@@ -27,9 +27,6 @@ Open source Bee Swarm Simulator macro made for Linux. Supports every DE or WM, W
 
 > [!WARNING]
 > If you encounter bugs, open an issue, make a pull request, join our [discord chat](https://discord.gg/pAUUYbPqs6), or [group on Telegram](https://t.me/+gws61dtKyIRlYzky). [🇷🇺/🇺🇸]
-
-> [!TIP]
-> 📌 Macro works on any distros DE's and WM's, but only Wayland compositors support pixel detection. If your DE/WM supports `grim` screenshot utility, you will get the most of the macro
 
 <p align='center'>
 <a href="https://github.com/painvision/BeeTuxMacro/blob/main/README_ru.md">
@@ -52,32 +49,44 @@ sudo pacman -S ydotool imagemagick bc xorg-xrandr grim
 sudo apt install ydotool imagemagick bc xorg-xrandr grim
 ```
 ### Open a terminal. Clone this repository:
-
 ```
 git clone https://github.com/painvision/BeeTuxMacro/
 ```
-If there are some updates, you can update macro by running this command in macro's directory:
-
-```
-git pull
-```
-
 ### Configuration
-
 Edit `~/BeeTuxMacro/config.sh` file using your favourite text editor. No GUI, the Linux way to configure your macro
 
 <h1 align='center'>
 Setup
 </h1>
+## Sandbox
+If your DE/WM doesn't support `grim` protocols, you can use macro with a "sandbox", so your macro would work as intended
 
-Run `~/BeeTuxMacro/setup.sh`
+Install dependencies:
 
+- Arch-based distros:
+```
+sudo pacman -S hyprland kitty
+```
+- Debian-based distros:
+```
+sudo apt install hyprland kitty
+```
+
+Next, start a sandbox:
+```
+bash -c ~/BeeTuxMacro/sandbox.sh
+```
+
+Follow instructions on screen to make it work
+
+## Native
+
+If your DE/WM does support `grim` protocols, or you just dont wanna use sandbox (-pixel detection things, +100MB of RAM), you can use macro natively
 
 You should have ydotoold running in a background, so macro could interact with your keyboard. **You can add it to your autostart because of its 4 MB of RAM usage.** Best way to launch ydotool daemon:
 ```
 sudo /usr/bin/ydotoold --socket-path="/run/user/1000/.ydotool_socket" --socket-own="1000:1000"
 ```
-
 Once ydotoold is running, you can start macroing. 
 
 Toggling macro on/off
@@ -91,6 +100,12 @@ Find a way to setup keybind with shell command in your WM/DE.
 
 > [!WARNING]
 > Your display scaling option MUST be 100%, Roblox on fullscreen and nothing interrupting macro to work
+
+If there are some updates, you can update macro by running this command in macro's directory:
+
+```
+git pull
+```
 
 <h1 align='center'>
 Roadmap
@@ -111,6 +126,7 @@ Roadmap
 - ✅ Auto Red/White/Blue boosters
 - ✅ Gather Interrupt for individual dispenser
 - ✅ Auto Reconnect
+- ✅ Works on X11 and Wayland
 
 > Planned: ❌ Planters, ❌ More dispensers
 

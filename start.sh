@@ -2,8 +2,43 @@
 . ~/BeeTuxMacro/stuff/paths.sh
 . ~/BeeTuxMacro/config.sh
 
+if ! command -v ydotool &> /dev/null; then
+notify-send "BeeTux Macro" "❌ Error: 'ydotool' is not installed" -i ~/BeeTuxMacro/frosty_bee.png
+error "'ydotool' is not installed! "
+exit 1
+fi
+
 if ! pidof ydotoold >/dev/null; then
     notify-send "BeeTux Macro" "❌ ydotoold is required to macro. Run setup.sh for more info" -i ~/BeeTuxMacro/frosty_bee.png
+fi
+
+check_update_git
+
+if ! command -v bc &> /dev/null; then
+notify-send "BeeTux Macro" "❌ Error: 'bc' is not installed" -i ~/BeeTuxMacro/frosty_bee.png
+error "bc is not installed!"
+exit 1
+fi
+
+if ! command -v xrandr &> /dev/null; then
+notify-send "BeeTux Macro" "❌ Error: 'xrandr' is not installed" -i ~/BeeTuxMacro/frosty_bee.png
+error "xrandr is not installed! Install package xorg-xrandr"
+fi
+
+if ! command -v magick &> /dev/null; then
+notify-send "BeeTux Macro" "❌ Error: 'imagemagick' is not installed" -i ~/BeeTuxMacro/frosty_bee.png
+exit 1
+fi
+
+if [[ "$XDG_SESSION_TYPE" == "wayland" ]]; then
+    grim -g "1,1 50x50" ~/BeeTuxMacro/test.png
+    if [ ! -f ~/BeeTuxMacro/test.png ]; then
+        touch ~/BeeTuxMacro/variables/cant_use_pixel_detection
+    fi
+    rm ~/BeeTuxMacro/test.png
+else
+notify-send "BeeTux Macro" "❌ Pixel detection unsupported. Use sandbox (README.md)" -i ~/BeeTuxMacro/frosty_bee.png
+touch ~/BeeTuxMacro/variables/cant_use_pixel_detection
 fi
 
 if [ ! -e lockfile ]; then
