@@ -58,7 +58,9 @@ Edit `~/BeeTuxMacro/config.sh` file using your favourite text editor. No GUI, th
 <h1 align='center'>
 Setup
 </h1>
+
 ## Sandbox
+
 If your DE/WM doesn't support `grim` protocols, you can use macro with a "sandbox", so your macro would work as intended
 
 Install dependencies:
