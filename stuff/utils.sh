@@ -1,7 +1,7 @@
-. ~/BeeTuxMacro/config.sh
+. $MACRO_DIR/config.sh
 
-if [ ! -d "~/BeeTuxMacro/variables/" ]; then
-    mkdir ~/BeeTuxMacro/variables/
+if [ ! -d "$MACRO_DIR/variables/" ]; then
+    mkdir $MACRO_DIR/variables/
 fi
 
 BASE_SPEED=32.2
@@ -14,7 +14,7 @@ honey_wreath_threshold=$((current_time - 1800))
 sleep 0.4
 
 if [[ $AUTO_WREATH == 1 ]]; then
-    if [ "$(cat ~/BeeTuxMacro/variables/should_wreath)" -lt "$honey_wreath_threshold" ]; then
+    if [ "$(cat $MACRO_DIR/variables/should_wreath)" -lt "$honey_wreath_threshold" ]; then
         from_hive_to_honey_wreath_and_back
         if pixel_in_red_range $FULL_BACKPACK_PIXEL; then
             down_s
@@ -27,7 +27,7 @@ if [[ $AUTO_WREATH == 1 ]]; then
             e
             sleep $CONVERT_TIME
         else
-            date +%s > ~/BeeTuxMacro/variables/should_wreath
+            date +%s > $MACRO_DIR/variables/should_wreath
             reset
             down_w
             wait 4
@@ -38,9 +38,9 @@ else
     e
     sleep 1
 
-    if [[ $BACKPACK_DETECTION_MODE == 2 || -f ~/BeeTuxMacro/variables/cant_use_pixel_detection ]]; then
+    if [[ $BACKPACK_DETECTION_MODE == 2 || -f $MACRO_DIR/variables/cant_use_pixel_detection ]]; then
         sleep $CONVERT_TIME
-        rm ~/BeeTuxMacro/variables/time_exceed
+        rm $MACRO_DIR/variables/time_exceed
         return 0
     fi
 
@@ -54,9 +54,9 @@ else
     fi
 
     if [[ $BACKPACK_DETECTION_MODE == 1 ]]; then
-        if [ -f ~/BeeTuxMacro/variables/time_exceed ]; then
+        if [ -f $MACRO_DIR/variables/time_exceed ]; then
             sleep $CONVERT_TIME
-            rm ~/BeeTuxMacro/variables/time_exceed
+            rm $MACRO_DIR/variables/time_exceed
         else
             sleep $CONVERT_TIME
             if pixel_in_red_range $FULL_BACKPACK_PIXEL; then
@@ -87,10 +87,10 @@ function re_go_to_hive_slot(
     down_s
     wait 0.1
     up_s
-    if [ ! -f ~/BeeTuxMacro/variables/cant_use_pixel_detection ]; then
-        from_corner_to_hive_no_pixel_detection $(cat ~/BeeTuxMacro/variables/hive_slot)
+    if [ ! -f $MACRO_DIR/variables/cant_use_pixel_detection ]; then
+        from_corner_to_hive_no_pixel_detection $(cat $MACRO_DIR/variables/hive_slot)
     else
-        from_corner_to_hive $(cat ~/BeeTuxMacro/variables/hive_slot)
+        from_corner_to_hive $(cat $MACRO_DIR/variables/hive_slot)
     fi
 )
 
@@ -131,8 +131,8 @@ function find_hive(
         camera_right
         shift_lock_toggle
         shift_lock_toggle
-        echo $(echo 5-$i | bc) > ~/BeeTuxMacro/variables/hive_slot
-        notify-send $(cat ~/BeeTuxMacro/variables/hive_slot)
+        echo $(echo 5-$i | bc) > $MACRO_DIR/variables/hive_slot
+        notify-send $(cat $MACRO_DIR/variables/hive_slot)
         return 0
     else
         jump
@@ -244,7 +244,7 @@ function check_update_git( #that was vibe coded :P
         error "Good news! Macro was updated $AGE!"
         error "Use 'git pull' to update. Changelog:"
         curl -l https://raw.githubusercontent.com/painvision/BeeTuxMacro/refs/heads/main/changelog.txt
-        notify-send -i ~/BeeTuxMacro/frosty_bee.png "BeeTux Macro ☃️" "Good news! Macro was updated $AGE! Use 'git pull' to update"
+        notify-send -i $MACRO_DIR/frosty_bee.png "BeeTux Macro ☃️" "Good news! Macro was updated $AGE! Use 'git pull' to update"
     else
         note "Macro's good to go! Last commit was $AGE. Changelog:"
         curl -l https://raw.githubusercontent.com/painvision/BeeTuxMacro/refs/heads/main/changelog.txt
@@ -498,7 +498,7 @@ function wait(
 
 
 function exit_macro(
-bash -c ~/BeeTuxMacro/stuff/close.sh
+bash -c $MACRO_DIR/stuff/close.sh
 )
 
 function place_splinker(
@@ -537,7 +537,7 @@ up_w
 function reset (
 ydotool key 1:1 1:0 19:1 19:0 28:1 28:0 28:1 28:0 28:1 28:0 -d 120
 sleep 7.5
-rm ~/BeeTuxMacro/variables/sprinklers_placed
+rm $MACRO_DIR/variables/sprinklers_placed
 )
 
 function zoom_out(

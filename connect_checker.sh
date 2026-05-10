@@ -1,23 +1,23 @@
-. ~/BeeTuxMacro/stuff/utils.sh
-. ~/BeeTuxMacro/stuff/paths.sh
-. ~/BeeTuxMacro/config.sh
+. $MACRO_DIR/stuff/utils.sh
+. $MACRO_DIR/stuff/paths.sh
+. $MACRO_DIR/config.sh
 
 RECONNECT_COORDS=$(get_reconnect_coords)
 
 while :
 do
     if pixel_is_reconnect_color $RECONNECT_COORDS; then
-        if [ ! -d "~/BeeTuxMacro/variables/" ]; then
-            mkdir ~/BeeTuxMacro/variables/
+        if [ ! -d "$MACRO_DIR/variables/" ]; then
+            mkdir $MACRO_DIR/variables/
         fi
-        rm ~/BeeTuxMacro/variables/hive_slot
-        if [ -e ~/BeeTuxMacro/variables/need_hive_reclaim ]; then
+        rm $MACRO_DIR/variables/hive_slot
+        if [ -e $MACRO_DIR/variables/need_hive_reclaim ]; then
             move_mouse_on_coords 773 473
             lmb_click
             lmb_click
             sleep 20
         else
-        touch ~/BeeTuxMacro/variables/need_hive_reclaim
+        touch $MACRO_DIR/variables/need_hive_reclaim
         unhold_keys 2>/dev/null
         unhold_keys 2>/dev/null
         unhold_keys 2>/dev/null
@@ -36,10 +36,10 @@ do
         sleep 20
         fi
     else
-        if [ -e ~/BeeTuxMacro/variables/need_hive_reclaim ]; then
+        if [ -e $MACRO_DIR/variables/need_hive_reclaim ]; then
             find_hive
-            rm ~/BeeTuxMacro/variables/need_hive_reclaim
-            bash -c ~/BeeTuxMacro/pre_farm.sh &
+            rm $MACRO_DIR/variables/need_hive_reclaim
+            bash -c $MACRO_DIR/pre_farm.sh &
         fi
     fi
     sleep 60

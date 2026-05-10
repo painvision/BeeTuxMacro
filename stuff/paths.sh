@@ -1,5 +1,5 @@
-if [ ! -d "~/BeeTuxMacro/variables/" ]; then
-    mkdir ~/BeeTuxMacro/variables/
+if [ ! -d "$MACRO_DIR/variables/" ]; then
+    mkdir $MACRO_DIR/variables/
 fi
 
 function from_hive_to_royal_jelly_dispenser(
@@ -244,8 +244,8 @@ function from_hive_to_wealth_clock_and_stockings(
     wait 2
     up_d
     reset
-    date +%s > ~/BeeTuxMacro/variables/should_wealth
-    date +%s > ~/BeeTuxMacro/variables/should_stockings
+    date +%s > $MACRO_DIR/variables/should_wealth
+    date +%s > $MACRO_DIR/variables/should_stockings
 )
 function collect_around(
 down_w
@@ -340,8 +340,8 @@ avoid_mobs 6
 collect_around
 sleep 2
 from_pineapple_to_hive
-from_corner_to_hive $(cat ~/BeeTuxMacro/variables/hive_slot)
-date +%s > ~/BeeTuxMacro/variables/should_mobs
+from_corner_to_hive $(cat $MACRO_DIR/variables/hive_slot)
+date +%s > $MACRO_DIR/variables/should_mobs
 )
 
 function from_strawberry_to_hive( # переписал под новый from corner to hive
@@ -527,7 +527,7 @@ function from_hive_to_wealth_clock(
     sleep 0.4
     e
     reset
-    date +%s > ~/BeeTuxMacro/variables/should_wealth
+    date +%s > $MACRO_DIR/variables/should_wealth
 
 )
 
@@ -539,7 +539,7 @@ function from_hive_to_honey_wreath_and_back(
     e
     sleep 5
     collect_around
-    date +%s > ~/BeeTuxMacro/variables/should_wreath
+    date +%s > $MACRO_DIR/variables/should_wreath
 )
 function from_hive_to_stockings_and_back (
 jump_release
@@ -574,7 +574,7 @@ reset
 down_w
 sleep 3
 up_w
-date +%s > ~/BeeTuxMacro/variables/should_stockings
+date +%s > $MACRO_DIR/variables/should_stockings
 )
 
 function from_pumpkin_to_hive( #переписал

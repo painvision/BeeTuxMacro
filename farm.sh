@@ -1,8 +1,8 @@
 #!/bin/bash
 
-. ~/BeeTuxMacro/stuff/utils.sh
-. ~/BeeTuxMacro/stuff/paths.sh
-. ~/BeeTuxMacro/config.sh
+. $MACRO_DIR/stuff/utils.sh
+. $MACRO_DIR/stuff/paths.sh
+. $MACRO_DIR/config.sh
 
 auto_dig_on
 

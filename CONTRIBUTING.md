@@ -77,8 +77,8 @@ Open test.sh. It should look like this
 ```
 #!/bin/bash
 
-. ~/BeeTuxMacro/stuff/utils.sh
-. ~/BeeTuxMacro/stuff/paths.sh
+. $MACRO_DIR/stuff/utils.sh
+. $MACRO_DIR/stuff/paths.sh
 
 unhold_keys
 
