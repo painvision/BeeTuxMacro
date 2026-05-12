@@ -24,5 +24,6 @@ width=$(xrandr | grep "*" | awk '{print $1}' | cut -dx -f1)
 height=$(xrandr | grep "*" | awk '{print $1}' | cut -dx -f2)
 echo "monitor = ,"$width"x"$height",auto,1" > $MACRO_DIR/sandbox/monitor.conf
 
-
-hyprland -c $MACRO_DIR/sandbox/conf.conf
+TEMPFILE=$(mktemp)
+sed "s|MACRO_DIR|$MACRO_DIR|g" $MACRO_DIR/sandbox/conf.conf > $TEMPFILE
+hyprland -c $TEMPFILE

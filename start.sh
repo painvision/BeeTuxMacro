@@ -4,9 +4,6 @@ export MACRO_DIR=$(cd $(dirname "$BASH_SOURCE[0]") && pwd)
 . $MACRO_DIR/stuff/paths.sh
 . $MACRO_DIR/config.sh
 
-
-check_update_git
-
 if ! command -v bc &> /dev/null; then
 notify-send "BeeTux Macro" "❌ Error: 'bc' is not installed" -i $MACRO_DIR/frosty_bee.png
 error "bc is not installed!"

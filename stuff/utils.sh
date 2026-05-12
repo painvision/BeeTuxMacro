@@ -1,7 +1,6 @@
 export MACRO_DIR=$(cd $(dirname "$BASH_SOURCE[0]") && cd .. && pwd)
 
 . $MACRO_DIR/config.sh
-
 if [ ! -d "$MACRO_DIR/variables/" ]; then
     mkdir $MACRO_DIR/variables/
 fi

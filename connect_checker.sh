@@ -1,7 +1,6 @@
 #!/bin/bash
 
 export MACRO_DIR=$(cd $(dirname "$BASH_SOURCE[0]") && pwd)
-
 . $MACRO_DIR/stuff/utils.sh
 . $MACRO_DIR/stuff/paths.sh
 . $MACRO_DIR/config.sh

@@ -80,7 +80,7 @@ ninja -C build install
 git clone https://github.com/painvision/BeeTuxMacro/
 ```
 ### Configuration
-Edit `~/BeeTuxMacro/config.sh` file using your favourite text editor. No GUI, the Linux way to configure your macro
+Edit `$MACRO_DIR/config.sh` file using your favourite text editor. No GUI, the Linux way to configure your macro
 
 <h1 align='center'>
 Setup
@@ -111,7 +111,7 @@ make all && sudo make install
 
 Next, start a sandbox:
 ```
-bash -c ~/BeeTuxMacro/sandbox.sh
+bash -c $MACRO_DIR/sandbox.sh
 ```
 
 Follow instructions on screen to make it work
@@ -122,8 +122,8 @@ If your DE/WM does support `grim` protocols, or you just dont wanna use sandbox 
 
 | Command                              | What it does
 | ------------------------------------ | ------------
-| bash -c ~/BeeTuxMacro/start.sh       | Toggles macro
-| bash -c ~/BeeTuxMacro/stuff/close.sh | Force closes macro
+| bash -c $MACRO_DIR/start.sh       | Toggles macro
+| bash -c $MACRO_DIR/stuff/close.sh | Force closes macro
 
 Find a way to setup keybind with shell command in your WM/DE. With these commands, you can start your macro without touching main folder
 
@@ -174,3 +174,6 @@ Roadmap
 - 📌❌ Telegram bot hooking
 - ❌ Image recognition function
 - ❌ Image instability function
+
+# Honorable mention: 
+<img width="194" height="259" alt="image" src="https://github.com/user-attachments/assets/4562756a-e6f7-4dc0-9f12-d7c369c71022" />
