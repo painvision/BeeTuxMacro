@@ -53,7 +53,7 @@ sudo apt install ydotool imagemagick bc xorg-xrandr grim
 git clone https://github.com/painvision/BeeTuxMacro/
 ```
 ### Configuration
-Edit `~/BeeTuxMacro/config.sh` file using your favourite text editor. No GUI, the Linux way to configure your macro
+Edit `$MACRO_DIR/config.sh` file using your favourite text editor. No GUI, the Linux way to configure your macro
 
 <h1 align='center'>
 Setup
@@ -76,7 +76,7 @@ sudo apt install hyprland kitty
 
 Next, start a sandbox:
 ```
-bash -c ~/BeeTuxMacro/sandbox.sh
+bash -c $MACRO_DIR/sandbox.sh
 ```
 
 Follow instructions on screen to make it work
@@ -95,8 +95,8 @@ Toggling macro on/off
 
 | Command                              | What it does
 | ------------------------------------ | ------------
-| bash -c ~/BeeTuxMacro/start.sh       | Toggles macro
-| bash -c ~/BeeTuxMacro/stuff/close.sh | Force closes macro
+| bash -c $MACRO_DIR/start.sh       | Toggles macro
+| bash -c $MACRO_DIR/stuff/close.sh | Force closes macro
 
 Find a way to setup keybind with shell command in your WM/DE. 
 

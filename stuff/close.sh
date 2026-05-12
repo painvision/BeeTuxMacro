@@ -1,11 +1,13 @@
-. ~/BeeTuxMacro/stuff/utils.sh
+export MACRO_DIR=$(cd $(dirname "$BASH_SOURCE[0]") && cd .. && pwd)
+
+. $MACRO_DIR/stuff/utils.sh
 
 unhold_keys 2>/dev/null
 unhold_keys 2>/dev/null
 unhold_keys 2>/dev/null
-rm ~/BeeTuxMacro/lockfile 2>/dev/null
-rm ~/BeeTuxMacro/stuff/lockfiletest 2>/dev/null
-notify-send "Beetux Macro" "‼️ Macro cancelled" -i ~/BeeTuxMacro/frosty_bee.png
+rm $MACRO_DIR/lockfile 2>/dev/null
+rm $MACRO_DIR/stuff/lockfiletest 2>/dev/null
+notify-send "Beetux Macro" "‼️ Macro cancelled" -i $MACRO_DIR/frosty_bee.png
 for i in {1..10}:
 do
     pkill -f test.sh 2>/dev/null
